@@ -1,0 +1,22 @@
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="14">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="472" startPos="136" endPos="136" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\ctuttle\.bash_profile" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="224" startPos="416" endPos="416" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\ctuttle\.gitconfig" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="320" startPos="74" endPos="74" selMode="0" lang="Ruby" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\app\models\supplier.rb" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="280" startPos="66" endPos="66" selMode="0" lang="Ruby" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\app\models\customer.rb" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="240" startPos="62" endPos="62" selMode="0" lang="Ruby" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\app\models\rep.rb" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="352" startPos="68" endPos="68" selMode="0" lang="Ruby" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\app\models\category.rb" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="272" startPos="65" endPos="65" selMode="0" lang="Ruby" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\app\models\product.rb" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="544" startPos="150" endPos="150" selMode="0" lang="Ruby" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\app\models\program.rb" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="528" startPos="146" endPos="146" selMode="0" lang="Ruby" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\app\models\deal.rb" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="472" startPos="183" endPos="183" selMode="0" lang="HTML" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\app\views\layouts\application.html.erb" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="592" startPos="371" endPos="371" selMode="0" lang="HTML" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\app\views\layouts\_stylesheets.html.erb" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="232" startPos="0" endPos="0" selMode="0" lang="CSS" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\public\stylesheets\custom.css" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="584" startPos="322" endPos="322" selMode="0" lang="HTML" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\app\views\layouts\_footer.html.erb" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="592" startPos="615" endPos="615" selMode="0" lang="HTML" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\app\views\layouts\_header.html.erb" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="416" startPos="80" endPos="80" selMode="0" lang="Ruby" encoding="-1" filename="C:\Users\ctuttle\rails_projects\simple_plan\app\controllers\application_controller.rb" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>
