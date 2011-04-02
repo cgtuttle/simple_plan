@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  code: MyString
+  name: MyString
+  descr: MyString
+  supplier_id: 1
+  category_id: 1
+  rep_id: 1
+  customer_id: 1
+  start_date: 2011-03-27 14:04:11
+  end_date: 2011-03-27 14:04:11
+
+two:
+  code: MyString
+  name: MyString
+  descr: MyString
+  supplier_id: 1
+  category_id: 1
+  rep_id: 1
+  customer_id: 1
+  start_date: 2011-03-27 14:04:11
+  end_date: 2011-03-27 14:04:11

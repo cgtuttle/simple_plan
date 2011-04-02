@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  code: MyString
+  product_id: 1
+  rate: 1.5
+  start_date: 2011-03-27 14:05:20
+  end_date: 2011-03-27 14:05:20
+
+two:
+  code: MyString
+  product_id: 1
+  rate: 1.5
+  start_date: 2011-03-27 14:05:20
+  end_date: 2011-03-27 14:05:20
