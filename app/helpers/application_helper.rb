@@ -11,7 +11,7 @@ module ApplicationHelper
 	
 	
 	def logo
-		logo = image_tag("SimplePlan.png", :alt => "Plan Well!", :class => "round")
+		logo = image_tag("SimplePlan.png", :alt => "Plan Well!", :class => "menubar")
 	end	
 	
 end
