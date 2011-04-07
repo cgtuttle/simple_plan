@@ -6,36 +6,57 @@
   width: 		100%;
 }
 
-.wide {
-	background-color:			 #B4CDCD;
+.right_column {
+	background-color:	#B4CDCD; /* lightcyan3 */
+	float:						right;
+	width:						90%;
+	clear:						right;
+	/*overflow:					scroll;*/
 }
 
-.narrow {
-	margin: 	0 auto;
-	width:		960px;
+.left_column {
+	width:						auto;
+	background-color: #E0FFFF; /* lightcyan1 */
+	float: 						left;
+	width: 						10%;
+	clear: 						both;
+	/* padding:					0 10px;*/
+	font-size:				100%;
+	font-family:			arial;
 }
 
-.menubar {
-	background-color:		#B4CDCD;
+.grd_css{
+	width: 100%;
+  background-color: #B4CDCD;
+  height: 20px;
+  /* For WebKit (Safari, Google Chrome etc) */
+  background: -webkit-gradient(linear, left top, left bottom, from(#B4CDCD), to(#D1EEEE));
+  /* For Mozilla/Gecko (Firefox etc) */
+  background:  -moz-linear-gradient(top , #B4CDCD, #D1EEEE);
+  /* For Internet Explorer 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B4CDCD, endColorstr=#D1EEEE, GradientType=0);
+  /* For Internet Explorer 8 */
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B4CDCD, endColorstr=#D1EEEE);
 }
 
 body {
-  background: #E0FFFF;
+	background: #D1EEEE; /* lightcyan2 */
 }
 
 header {
-  padding-top: 20px;
+	top: 0;
+	width: 100%;
 }
 
 header img {
-  padding: 1em;
-  background: #fff;
+	float: left;
+	padding: 10px;
 }
 
 section {
-  margin-top: 1em;
+  /* margin-top: 1em; */
   font-size: 120%;
-  padding: 20px;
+  /*padding: 10px;*/
   background: #fff;
 }
 
@@ -43,6 +64,26 @@ section h1 {
   font-size: 200%;
 }
 
+footer {
+  text-align: center;
+  margin-top: 10px; 
+  margin-left: auto;
+  margin-right: auto;
+	width: 100%;
+	clear: both;
+}
+
+footer ul li {
+	list-style-type: none;
+  display: inline-block;
+	padding: 0.2em 0;
+	float: none;
+}
+
+footer ul li a {
+	padding: 0 5px;
+	font-size: small;
+}
 
 /* Links */
 
@@ -63,24 +104,22 @@ a:visited {
 /* Navigation */
 
 nav {
-  float: right;
-}
-
-nav {
-  background-color: white;
+	background-color: white;
   padding: 0 0.7em;
   white-space: nowrap;
 }
 
 nav ul {
   margin: 0;
-  padding: 0;
+	float: right;
+  padding: 5px;
+	font-family: arial;
 }
 
 nav ul li {
   list-style-type: none;
   display: inline-block;
-  padding: 0.2em 0;
+	padding: 0.2em 0;
 }
 
 nav ul li a {
@@ -90,125 +129,4 @@ nav ul li a {
 
 nav ul li a:visited {
   color: #09c;
-}
-
-/* Sign up button */
-
-a.signup_button {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  text-align: center;
-  width: 190px;
-  color: #fff;
-  background: #006400;
-  font-size: 150%;
-  font-weight: bold;
-  padding: 20px;
-}
-
-/* Round corners */
-
-.round {
-  -moz-border-radius:    5px;
-  -webkit-border-radius: 5px;
-  border-radius:         5px;
-	background-color:			 #B4CDCD;
-}
-
-footer {
-  text-align: left;
-  margin-top: 10px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-footer nav {
-  float: none;
-}
-
-/* User show page */
-
-table.profile {
-  width: 100%;
-  margin-bottom: 0;
-}
-
-td.main {
-  width: 70%;
-  padding: 1em;
-}
-
-td.sidebar {
-  width: 30%;
-  padding: 1em;
-  vertical-align: top;
-  background: #ffc;
-}
-
-
-div.field, div.actions {
-  margin-bottom: 10px;
-}
-
-.field_with_errors {
-  margin-top: 10px;
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-.field_with_errors label {
-  color: #fff;
-}
-
-#error_explanation {
-  width: 400px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
-
-#error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  background-color: #c00;
-  color: #fff;
-}
-
-#error_explanation p {
-  color: #333;
-  margin-bottom: 0;
-  padding: 5px;
-}
-
-#error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
-}
-
-ul.users {
-  margin-top: 1em;
-}
-
-.users li {
-  list-style: none;
-}
-
-div.user_info img {
-  padding-right: 0.1em;
-}
-
-div.user_info a {
-  text-decoration: none;
-}
-
-div.user_info span.user_name {
-  position: absolute;
 }
