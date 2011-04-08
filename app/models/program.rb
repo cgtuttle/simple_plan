@@ -3,7 +3,7 @@ class Program < ActiveRecord::Base
 
 	has_many :deals
 	belongs_to :customers
-	belongs_to: reps
+	belongs_to :reps
 	belongs_to :categories
 	belongs_to :suppliers
 end
