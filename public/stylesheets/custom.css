@@ -19,7 +19,7 @@
 	background-color: #E0FFFF; /* lightcyan1 */
 	float: 						left;
 	width: 						10%;
-	clear: 						both;
+	clear: 						left;
 	/* padding:					0 10px;*/
 	font-size:				100%;
 	font-family:			arial;
@@ -36,7 +36,7 @@
   /* For Internet Explorer 5.5 - 7 */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B4CDCD, endColorstr=#D1EEEE, GradientType=0);
   /* For Internet Explorer 8 */
-  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B4CDCD, endColorstr=#D1EEEE);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B4CDCD, endColorstr=#D1EEEE);
 }
 
 body {
