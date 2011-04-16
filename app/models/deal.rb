@@ -1,6 +1,5 @@
 class Deal < ActiveRecord::Base
 	attr_accessible :code, :product_id, :rate, :start_date, :end_date
 
-	belongs_to :programs
-	belongs_to :products
+	belongs_to :program
 end
