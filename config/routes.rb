@@ -1,4 +1,5 @@
 SimplePlan::Application.routes.draw do
+	resources :activities
 
   get "pages/home"
   get "pages/contact"
