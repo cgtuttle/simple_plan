@@ -25,5 +25,4 @@ describe Activity do
 		act_with_duplicate_name = Activity.new(@attr)
 		act_with_duplicate_name.should_not be_valid
 	end
-	
 end
