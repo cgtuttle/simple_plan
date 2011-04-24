@@ -50,6 +50,10 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B4CDCD, endColorstr=#D1EEEE);
 }
 
+.edit_table{
+	width: 60%;
+}
+
 .field_label{
 	font-size: 100%;
 	font-weight: normal;
