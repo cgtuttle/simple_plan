@@ -3,6 +3,7 @@ class ActivitiesController < ApplicationController
 	def index
 		@title = "Activities"
 		@activities = Activity.all
+		@activity = Activity.new
 	end
 	
 	def show
@@ -19,10 +20,9 @@ class ActivitiesController < ApplicationController
 		@activity = Activity.new(params[:activity])
 		if @activity.save
 			flash[:success] = "Successfully added a new activity"
-			redirect_to @activity
+			redirect_to activities_path
 		else
-			@title = "New Activity"
-			render 'new'
+			redirect_to activities_path
 		end
 	end
 	

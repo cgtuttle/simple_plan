@@ -1,5 +1,7 @@
 <h2>Activities</h2>
 
+<%= render 'shared/error_messages' %>
+
 <ul>
 	<% @activities.each do |activity| %>
 		<li>
@@ -7,3 +9,13 @@
 		</li>
 	<% end %>
 </ul>
+
+<%= form_for(@activity) do |f| %>
+	<div class="field">
+		<%= f.label :name, "Add New Activity", :class => "field_label" %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>
