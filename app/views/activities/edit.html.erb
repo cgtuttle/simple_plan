@@ -1,0 +1,11 @@
+<h2>Edit Activity</h2>
+
+<%= form_for(@activity) do |f| %>
+	<div class="field">
+		<%= f.label :name, "Edit Activity", :class => "field_label" %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Update" %>
+	</div>
+<% end %>
