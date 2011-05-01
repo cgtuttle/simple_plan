@@ -27,7 +27,7 @@ describe ActivitiesController do
 		it "should have an element for each activity" do
 			get :index
 			@activities.each do |activity|
-				response.should have_selector("li", :content => activity.name)
+				response.should have_selector("td", :content => activity.name)
 			end
 		end		
 	end
@@ -48,18 +48,6 @@ describe ActivitiesController do
 			assigns(:activity).should == @activity
 		end
 	end
-
-	describe "GET 'new'" do
-		it "should be successful" do
-			get 'new'
-			response.should be_success
-		end
-		
-		it "should have the right title" do
-			get :new
-			response.should have_selector("title", :content => "New Activity")
-		end
-	end
 	
 	describe "POST 'create'" do
 	
@@ -73,16 +61,6 @@ describe ActivitiesController do
 					post :create, :activity => @attr
 				end.should_not change(Activity, :count)
 			end
-			
-			it "should have the right title" do
-				post :create, :activity => @attr
-				response.should have_selector("title", :content => "New Activity")
-      end
-			
-			it "should render the 'new' page" do
-        post :create, :user => @attr
-        response.should render_template('new')
-      end
 		end
 		
 		describe "success" do
@@ -96,9 +74,9 @@ describe ActivitiesController do
 				end.should change(Activity, :count).by(1)
 			end
 			
-			it "should redirect to the activity show page" do
+			it "should redirect to the activities page" do
 				post :create, :activity => @attr
-				response.should redirect_to(activity_path(assigns(:activity)))
+				response.should redirect_to(activities_path)
 			end	
 			
 			it "should have a success message" do
