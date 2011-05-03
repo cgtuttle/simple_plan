@@ -1,6 +1,10 @@
 SimplePlan::Application.routes.draw do
-	resources :activities
+  resources :activities
+	resources :users
 
+	match '/signup',		:to => 'users#new'
+
+	
   get "pages/home"
   get "pages/contact"
   get "pages/about"
