@@ -1,19 +1,10 @@
+
 class ActivitiesController < ApplicationController
 	
 	def index
-		activities = Activity.find(:all) do
-			if params[:_search] == "true"
-				name =~ "%#{params[:name]}%" if params[:name].present?
-			end
-			paginate :page => params[:page], :per_page => params[:rows]
-			order_by "#{params[:sidx]} #{params[:sord]}"
-		end
-		
-		respond_to do |format|
-			format.html
-			format.json { render :json => activities.to_jqgrid_json([:name], 
-                          params[:page], params[:rows], activities.total_entries) }	
-		end
+		@title = "Activities"
+		@activities = Activity.all
+		@activity = Activity.new
 	end
 	
 	def show

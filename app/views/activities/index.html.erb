@@ -1,16 +1,11 @@
-<h2>Activities</h2>
 
-<%= render 'shared/error_messages' %>
-
-<table>
-	<% @activities.each do |activity| %>
-		<tr>
-			<td><%= link_to activity.name, activity %></td>
-			<td><%= link_to "Edit", edit_activity_path(activity) %></td>
-			<td><%= link_to "Delete", activity, :method => :delete, :confirm => "Please confirm deletion:",
-																			:title => "Delete #{activity.name}" %></td>
-		</tr>
-	<% end %>
-</table>
-
-<%= render 'new' %>
+	
+	
+		<h2>Activities</h2>
+		<%= jqgrid("Activities", "activities", "/activities",
+			[
+				{ :field => "id", :label => "ID", :width => 35, :resizable => false },
+				{ :field => "name", :label => "Name" }				
+			]
+		) %>
+	
