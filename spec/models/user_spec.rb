@@ -4,8 +4,12 @@ describe User do
 
   before(:each) do
     @attr = { 
-			:name => "Example User", 
+			:user_name => "ExampleUser",
+			:first_name => "Example",
+			:last_name => "User",
+			:domain => "example.com",
 			:email => "user@example.com",
+			:email_confirmation => "user@example.com",
 			:password => "foobar",
 			:password_confirmation => "foobar"
 		}
@@ -16,7 +20,7 @@ describe User do
   end
 
   it "should require a name" do
-		no_name_user = User.new(@attr.merge(:name => ""))
+		no_name_user = User.new(@attr.merge(:user_name => ""))
 		no_name_user.should_not be_valid
 	end
 	
@@ -27,14 +31,14 @@ describe User do
 	
 	it "should reject names that are too long" do
     long_name = "a" * 71
-    long_name_user = User.new(@attr.merge(:name => long_name))
+    long_name_user = User.new(@attr.merge(:user_name => long_name))
     long_name_user.should_not be_valid
   end
 	
 	it "should accept valid email addresses" do
     addresses = %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp]
     addresses.each do |address|
-      valid_email_user = User.new(@attr.merge(:email => address))
+      valid_email_user = User.new(@attr.merge(:email => address, :email_confirmation => address))
       valid_email_user.should be_valid
     end
   end
@@ -42,7 +46,7 @@ describe User do
   it "should reject invalid email addresses" do
     addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
     addresses.each do |address|
-      invalid_email_user = User.new(@attr.merge(:email => address))
+      invalid_email_user = User.new(@attr.merge(:email => address, :email_confirmation => address))
       invalid_email_user.should_not be_valid
     end
   end
@@ -56,7 +60,7 @@ describe User do
 	
 	it "should reject email addresses identical up to case" do
     upcased_email = @attr[:email].upcase
-    User.create!(@attr.merge(:email => upcased_email))
+    User.create!(@attr.merge(:email => upcased_email, :email_confirmation => upcased_email))
     user_with_duplicate_email = User.new(@attr)
     user_with_duplicate_email.should_not be_valid
   end

@@ -1,14 +1,23 @@
 class User < ActiveRecord::Base
 	attr_accessor		:password
-	attr_accessible :name, :email, :password, :password_confirmation
+	attr_accessible :first_name, :last_name, :domain, :user_name,
+									:email, :email_confirmation, 
+									:password, :password_confirmation
 	
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates :name,  :presence => true,
-                    :length   => { :maximum => 70 }
+  validates :first_name,  :presence => true,
+													:length   => { :maximum => 70 }
+	validates :last_name,		:length => { :maximum => 70} 
+	validates :user_name,	:presence => true,
+													:length => { :maximum => 70 }
+	validates :domain, 			:presence => true,
+													:uniqueness => { :case_sensitive => false }
+	# Automatically create the virtual attribute 'email_confirmation'.
   validates :email, :presence => true,
                     :format   => { :with => email_regex },
-										:uniqueness => { :case_sensitive => false }
+										:uniqueness => { :case_sensitive => false },
+										:confirmation => true
 	# Automatically create the virtual attribute 'password_confirmation'.
   validates :password, :presence     => true,
                        :confirmation => true,

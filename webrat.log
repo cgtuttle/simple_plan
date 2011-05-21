@@ -1,0 +1,38 @@
+# Logfile created on Mon May 16 20:24:25 -0500 2011 by logger.rb/22285
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"", "password_confirmation"=>"", "domain"=>"", "user_name"=>"", "last_name"=>"", "password"=>"", "email"=>"", "first_name"=>""}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"", "password_confirmation"=>"", "domain"=>"", "user_name"=>"", "last_name"=>"", "password"=>"", "email"=>"", "first_name"=>""}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"", "password_confirmation"=>"", "domain"=>"", "user_name"=>"", "last_name"=>"", "password"=>"", "email"=>"", "first_name"=>""}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"user@example.com", "password_confirmation"=>"foobar", "domain"=>"example.com", "user_name"=>"", "last_name"=>"", "password"=>"foobar", "email"=>"user@example.com", "first_name"=>"User"}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"", "password_confirmation"=>"", "domain"=>"", "user_name"=>"", "last_name"=>"", "password"=>"", "email"=>"", "first_name"=>""}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"user@example.com", "password_confirmation"=>"foobar", "domain"=>"example.com", "user_name"=>"", "last_name"=>"", "password"=>"foobar", "email"=>"user@example.com", "first_name"=>"User"}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"", "password_confirmation"=>"", "domain"=>"", "user_name"=>"", "last_name"=>"", "password"=>"", "email"=>"", "first_name"=>""}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"user@example.com", "password_confirmation"=>"foobar", "domain"=>"example.com", "user_name"=>"", "last_name"=>"", "password"=>"foobar", "email"=>"user@example.com", "first_name"=>"User"}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"", "password_confirmation"=>"", "domain"=>"", "user_name"=>"", "last_name"=>"", "password"=>"", "email"=>"", "first_name"=>""}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"user@example.com", "password_confirmation"=>"foobar", "domain"=>"example.com", "user_name"=>"", "last_name"=>"", "password"=>"foobar", "email"=>"user@example.com", "first_name"=>"User"}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"", "password_confirmation"=>"", "domain"=>"", "user_name"=>"", "last_name"=>"", "password"=>"", "email"=>"", "first_name"=>""}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"user@example.com", "password_confirmation"=>"foobar", "domain"=>"example.com", "user_name"=>"", "last_name"=>"", "password"=>"foobar", "email"=>"user@example.com", "first_name"=>"User"}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"", "password_confirmation"=>"", "domain"=>"", "user_name"=>"", "last_name"=>"", "password"=>"", "email"=>"", "first_name"=>""}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"user@example.com", "password_confirmation"=>"foobar", "domain"=>"example.com", "user_name"=>"", "last_name"=>"", "password"=>"foobar", "email"=>"user@example.com", "first_name"=>"User"}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"", "password_confirmation"=>"", "domain"=>"", "user_name"=>"", "last_name"=>"", "password"=>"", "email"=>"", "first_name"=>""}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "utf8"=>"\342\234\223", "user"=>{"email_confirmation"=>"user@example.com", "password_confirmation"=>"foobar", "domain"=>"example.com", "user_name"=>"User", "last_name"=>"", "password"=>"foobar", "email"=>"user@example.com", "first_name"=>"User"}} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}

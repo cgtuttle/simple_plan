@@ -3,11 +3,11 @@
   <tr>
     <td class="main">
       <h1>
-        <%= @user.name %>
+        <%= @user.user_name %>
       </h1>
     </td>
     <td class="sidebar round">
-      <strong>Name</strong> <%= @user.name %><br />
+      <strong>Name</strong> <%= @user.user_name %><br />
       <strong>URL</strong>  <%= link_to user_path(@user), @user %>
     </td>
   </tr>
