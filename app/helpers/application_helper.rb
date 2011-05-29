@@ -14,4 +14,8 @@ module ApplicationHelper
 		logo = image_tag("SimplePlan.png", :alt => "Plan Well!")
 	end
 	
+	def simple_flowchart
+		simple_flowchart = image_tag("SimplePlan_Flowchart.png", :alt => "Simplify your process!")
+	end
+	
 end

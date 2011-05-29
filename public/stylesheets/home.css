@@ -1,0 +1,79 @@
+.container_950 {
+	width:		950px;
+	margin:		0 auto;
+	background: #FEFFF1;
+}
+
+#home_header {
+	height:						60px;
+}
+
+#left_column_home {
+	width:		50%;
+	height: 400px;
+	float:		left;
+	margin:		10px 5px;
+	background: #FEFFF1;
+}
+
+#right_column_home {
+	float: right;
+	margin:		10px 5px;
+	background: #FEFFF1;
+}
+
+.signup_button{
+	font-size: large;
+	color: #cc0000;
+	text-decoration: none;
+	display: block;
+	width: 300px;
+	padding: 10px;
+	border: 2px solid #073763;
+	text-align: center;
+	background:#cfe2f3;
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#cfe2f3), to(#FFFFFF));
+	background:-moz-linear-gradient(0% 100% 90deg, #FFF, #cfe2f3);
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-o-border-radius:5px;
+	border-radius:5px;
+}
+
+.signup_button:hover {
+	color: #8B0000;
+	text-decoration: underline;
+}
+
+#home_a {
+	float:						right;
+	color: 						#0000CD;
+	text-decoration:	underline;
+	padding:					18px 5px;
+}
+
+#home_img {
+	float: 						left;
+	height: 					24px;
+	padding: 					18px 5px;
+}
+
+#welcome_message {
+	font-size:				200%;
+	font-weight:			bold;
+	color:						#4621d7;
+}
+
+#welcome_description {
+	font-size:				150%;
+	color:						#20124d;
+	padding:					0;
+}
+
+#simple_flowchart{
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+	
+	

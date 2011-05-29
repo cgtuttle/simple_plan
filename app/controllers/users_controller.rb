@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
-  
+ 
 	def show
 		@user = User.find(params[:id])
 		@title = @user.user_name
+		@zone = "Application"
 	end
 	
 	def new
+		@zone = "Sign in"
 		@user = User.new
-		@title = "Sign up"
+		@title = "Sign up"		
   end
 	
 	def create
@@ -17,6 +19,7 @@ class UsersController < ApplicationController
 			flash[:success] = "Welcome to SimplePlan!"
       redirect_to @user
     else
+			@zone = "Sign in"
       @title = "Sign up"
 			@user.password = ""
 			@user.password_confirmation = ""

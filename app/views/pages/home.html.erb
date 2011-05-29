@@ -1,7 +1,20 @@
-<h1>Pages#home</h1>
 
-<p>
-	Welcome to SimplePlan!
-</p>
+<hr>
 
-<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<div id="left_column_home">
+	<h2 id="welcome_message">
+		Welcome to a simpler way!
+	</h2>
+	
+	<p id="welcome_description">
+		Planning trade promotions for your business doesn't have to be complicated
+	</p>
+	
+	
+</div>
+
+<div id="right_column_home">
+		<%= link_to "Sign up now for a free trial", signup_path, :class => "signup_button" %>
+</div>
+
+<%= link_to simple_flowchart, root_path, :id => "simple_flowchart" %>

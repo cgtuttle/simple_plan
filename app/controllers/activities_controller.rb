@@ -1,12 +1,15 @@
 class ActivitiesController < ApplicationController
+
 	
 	def index
 		@title = "Activities"
+		@zone = "Application"		
 		@activities = Activity.all
 		@activity = Activity.new
 	end
 	
 	def show
+		@zone = "Application"
 		@activity = Activity.find(params[:id])
 		@title = @activity.name
 	end
@@ -16,6 +19,7 @@ class ActivitiesController < ApplicationController
   end
 	
 	def edit
+		@zone = "Application"
 		@activity = Activity.find(params[:id])
 		@title = @activity.name
 	end

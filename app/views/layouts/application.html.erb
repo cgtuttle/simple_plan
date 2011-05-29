@@ -6,24 +6,35 @@
 		<%= render 'layouts/stylesheets' %>
 		<%= javascript_include_tag :defaults %>
 	</head>
-	<body>
-		<div class="container">
-      <%= render 'layouts/header' %>
-			<div id="column_box">
-					<section class="left_column">	
-						<%= render 'layouts/left_column' %>	
-						<% flash.each do |key, value| %>
-							<div class="flash <%= key %>"> <%= value %></div>
-						<% end %>
-					</section>
-				<div id="right_column_box">	
-					<section class="right_column">					
-						<%= yield %>
-					</section>
+	<% if @zone == "Sign in" then %>
+		<body>			
+			<div class="container_950">
+				<%= render 'layouts/home_header' %>
+				<%= yield %>
+			</div>			
+		</body>
+	<% end %>
+	<% if @zone == "Application" then %>
+		<body>		
+			<div class="container">
+				<%= render 'layouts/header' %>
+				<div id="column_box">
+						<section class="left_column">	
+							<%= render 'layouts/left_column' %>	
+							<% flash.each do |key, value| %>
+								<div class="flash <%= key %>"> <%= value %></div>
+							<% end %>
+						</section>
+					<div id="right_column_box">	
+						<section class="right_column">					
+							<%= yield %>
+						</section>
+					</div>
 				</div>
+				<%= render 'layouts/footer' %>
+				<%= debug(params) if Rails.env.development? %>
 			</div>
-			<%= render 'layouts/footer' %>
-			<%= debug(params) if Rails.env.development? %>
-    </div>
-	</body>
+			
+		</body>
+	<% end %>
 </html>
