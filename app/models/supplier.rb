@@ -3,4 +3,9 @@ class Supplier < ActiveRecord::Base
 
 	has_many :categories
 	has_many :programs
+	
+	validates 	:code,		:presence => true,
+												:length => { :maximum => 25 },
+												:uniqueness => { :case_sensitive => false }
+	
 end
