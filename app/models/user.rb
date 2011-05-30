@@ -6,13 +6,11 @@ class User < ActiveRecord::Base
 	
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates :first_name,  :presence => true,
-													:length   => { :maximum => 70 }
+  validates :first_name,  :length   => { :maximum => 70 }
 	validates :last_name,		:length => { :maximum => 70} 
-	validates :user_name,	:presence => true,
+	validates :user_name,		:presence => true,
 													:length => { :maximum => 70 }
-	validates :domain, 			:presence => true,
-													:uniqueness => { :case_sensitive => false }
+													
 	# Automatically create the virtual attribute 'email_confirmation'.
   validates :email, :presence => true,
                     :format   => { :with => email_regex },
