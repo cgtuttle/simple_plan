@@ -1,7 +1,6 @@
 SimplePlan::Application.routes.draw do
   resources :activities
 	resources :users
-	resources :suppliers
 	resources :sessions, :only => [:new, :create, :destroy]
 
 	match '/signup',		:to => 'users#new'
