@@ -1,6 +1,5 @@
 SimplePlan::Application.routes.draw do
   resources :roles
-
   resources :domains
   resources :activities
 	resources :users
