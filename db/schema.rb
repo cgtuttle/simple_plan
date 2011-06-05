@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110521160829) do
+ActiveRecord::Schema.define(:version => 20110605154436) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -28,19 +28,34 @@ ActiveRecord::Schema.define(:version => 20110521160829) do
     t.datetime "updated_at"
   end
 
-  create_table "customers", :force => true do |t|
-    t.string   "code"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "deals", :force => true do |t|
     t.string   "code"
     t.integer  "product_id"
     t.float    "rate"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "domain_classes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "domains", :force => true do |t|
+    t.string   "domain"
+    t.string   "name"
+    t.integer  "class_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "model_permissions", :force => true do |t|
+    t.string   "permission_type"
+    t.string   "model"
+    t.integer  "domain_class_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,17 +82,22 @@ ActiveRecord::Schema.define(:version => 20110521160829) do
     t.datetime "updated_at"
   end
 
-  create_table "reps", :force => true do |t|
-    t.string   "code"
+  create_table "rep_categories", :force => true do |t|
+    t.integer  "rep_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "suppliers", :force => true do |t|
-    t.string   "code"
-    t.string   "name"
-    t.string   "domain"
+  create_table "user_roles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
