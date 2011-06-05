@@ -1,6 +1,4 @@
-SimplePlan::Application.routes.draw do
-  resources :roles
-  resources :domains
+SimplePlan::Application.routes.draw do  resources :domains
   resources :activities
 	resources :users
 	resources :sessions, :only => [:new, :create, :destroy]
