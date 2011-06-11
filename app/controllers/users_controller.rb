@@ -1,15 +1,22 @@
 class UsersController < ApplicationController
+	include UsersHelper
  
 	def show
 		@user = User.find(params[:id])
-		@title = @user.user_name
 		@zone = "Application"
+		get_title @user
+	end
+	
+	def edit
+		@zone = "Application"
+		@user = User.find(params[:id])
+		get_title @user
 	end
 	
 	def new
 		@zone = "Sign in"
 		@user = User.new
-		@title = "Sign up"		
+		get_title @user
   end
 	
 	def create

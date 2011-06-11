@@ -1,0 +1,27 @@
+<h2>Edit Profile</h2>
+
+<%= form_for(@user) do |f| %>
+	<div class="field">
+		<%= f.label :user_name, "User Name", :class => "field_label" %><br />
+		<%= f.text_field :user_name %>
+	</div>
+	<div class="field">
+		<%= f.label :email, "email", :class => "field_label" %><br />
+		<%= f.text_field :email %>
+	</div>
+	<div class="field">
+		<%= f.label :first_name, "First Name", :class => "field_label" %><br />
+		<%= f.text_field :first_name %>
+	</div>
+	<div class="field">
+		<%= f.label :last_name, "Last Name", :class => "field_label" %><br />
+		<%= f.text_field :last_name %>
+	</div>
+	<div class="field">
+		<%= f.label :domain, "Company Domain", :class => "field_label" %><br />
+		<%= f.text_field :domain %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Update" %>
+	</div>
+<% end %>

@@ -10,7 +10,7 @@ def index
 	def show
 		@zone = "Application"
 		@user_role = User_role.find(params[:id])
-		@title = @user_role.user.name + " | " + @user_role.role.name
+		@title = @user_role.user.user_name + " | " + @user_role.role.name
 	end
 
   def new
@@ -20,7 +20,7 @@ def index
 	def edit
 		@zone = "Application"
 		@user_role = User_role.find(params[:id])
-		@title = @user_role.user.name + " | " + @user_role.role.name
+		@title = @user_role.user.user_name + " | " + @user_role.role.name
 	end
 	
 	def update

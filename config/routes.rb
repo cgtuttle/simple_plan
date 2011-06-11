@@ -1,4 +1,5 @@
-SimplePlan::Application.routes.draw do  resources :domains
+SimplePlan::Application.routes.draw do  
+	resources :domains
   resources :activities
 	resources :roles
 	resources :users

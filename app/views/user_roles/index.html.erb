@@ -7,9 +7,9 @@
 		<tr>
 			<td><%= link_to user_role.user.user_name, user_role %></td>
 			<td><%= link_to user_role.role.name, user_role %></td>
-			<td><%= link_to "Edit", edit_role_path(user_role) %></td>
+			<td><%= link_to "Edit", edit_user_role_path(user_role) %></td>
 			<td><%= link_to "Delete", user_role, :method => :delete, :confirm => "Please confirm deletion:",
-																			:title => "Delete Role" %></td>
+																			:title => "Delete User-Role" %></td>
 		</tr>
 	<% end %>
 </table>

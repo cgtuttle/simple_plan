@@ -11,8 +11,7 @@ class User < ActiveRecord::Base
 
   validates :first_name,  :length   => { :maximum => 70 }
 	validates :last_name,		:length => { :maximum => 70} 
-	validates :user_name,		:presence => true,
-													:length => { :maximum => 70 }
+	validates :user_name,		:length => { :maximum => 70 }
 													
 	# Automatically create the virtual attribute 'email_confirmation'.
   validates :email, :presence => true,

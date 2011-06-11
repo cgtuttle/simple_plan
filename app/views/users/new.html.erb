@@ -2,22 +2,6 @@
 
 <%= form_for(@user) do |f| %>
 	<%= render 'shared/error_messages' %>
-	<div class="field">
-    <%= f.label :first_name, "First" %><br />
-    <%= f.text_field :first_name %>
-  </div>
-	<div class="field">
-    <%= f.label :last_name, "Last" %><br />
-    <%= f.text_field :last_name %>
-  </div>
-	<div class="field">
-    <%= f.label :domain, "Company Domain (i.e. 'simpleplan.com')" %><br />
-    <%= f.text_field :domain %>
-  </div>
-  <div class="field">
-    <%= f.label :user_name, "Display Name (How you want your name to appear on reports and emails)" %><br />
-    <%= f.text_field :user_name %>
-  </div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
