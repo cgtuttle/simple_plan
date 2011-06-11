@@ -1,0 +1,17 @@
+<h2>User Roles</h2>
+
+<p>Current user roles</p>
+
+<table>
+	<% @user_roles.each do |user_role| %>
+		<tr>
+			<td><%= link_to user_role.user.user_name, user_role %></td>
+			<td><%= link_to user_role.role.name, user_role %></td>
+			<td><%= link_to "Edit", edit_role_path(user_role) %></td>
+			<td><%= link_to "Delete", user_role, :method => :delete, :confirm => "Please confirm deletion:",
+																			:title => "Delete Role" %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= render 'new' %>

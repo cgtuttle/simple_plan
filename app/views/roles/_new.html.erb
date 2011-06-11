@@ -1,0 +1,9 @@
+<%= form_for(@role) do |f| %>
+	<div class="field">
+		<%= f.label :name, "Add New Role", :class => "field_label" %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>
