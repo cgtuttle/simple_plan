@@ -1,0 +1,11 @@
+<h2>Edit User Role</h2>
+
+<%= form_for(@user_role) do |f| %>
+	<div class="field">
+		<%= f.label :name, "Edit User Role", :class => "field_label" %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Update" %>
+	</div>
+<% end %>

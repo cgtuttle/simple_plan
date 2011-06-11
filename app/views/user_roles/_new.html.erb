@@ -1,0 +1,13 @@
+<%= form_for(@user_role) do |f| %>
+	<div class="field">
+		<%= f.label :name, "User", :class => "field_label" %><br />
+		<%= collection_select(:user_role, :user_id, User.all, :id, :user_name, :prompt => true) %><br />
+		
+		<%= f.label :name, "Role", :class => "field_label" %><br />
+		<%= collection_select(:user_role, :role_id, Role.all, :id, :name, :prompt => true) %>
+		
+	</div>
+	<div class="actions">
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>
