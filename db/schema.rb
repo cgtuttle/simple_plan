@@ -11,7 +11,11 @@
 # It's strongly recommended to check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20110605195508) do
+=======
+ActiveRecord::Schema.define(:version => 20110605200120) do
+>>>>>>> user_roles
 =======
 ActiveRecord::Schema.define(:version => 20110605200120) do
 >>>>>>> user_roles
@@ -88,6 +92,22 @@ ActiveRecord::Schema.define(:version => 20110605200120) do
 <<<<<<< HEAD
 =======
   create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_roles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+<<<<<<< HEAD
+>>>>>>> user_roles
+=======
+	create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
