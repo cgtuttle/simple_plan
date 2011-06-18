@@ -1,0 +1,2 @@
+class AccountGroupsController < ApplicationController
+end

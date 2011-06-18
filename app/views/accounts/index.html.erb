@@ -1,0 +1,25 @@
+<h2>Accounts</h2>
+
+<table>
+	<tr>
+		<td>Domain Name</td>
+		<td>Account Name</td>
+	</tr>
+	<% @accounts.each do |account| %>
+		<tr>
+			<td><%= link_to account.domain, account %></td>
+			<td><%= link_to account.name, account %></td>
+			<td><%= link_to "Edit", edit_account_path(account) %></td>
+			<td><%= link_to "Delete", account, :method => :delete, :confirm => "Please confirm deletion:",
+																			:title => "Delete #{account.name}" %></td>
+		</tr>
+	<% end %>
+	<%= form_for(@account) do |f| %>
+		<tr>
+			<td><%= f.text_field :domain %></td>
+			<td><%= f.text_field :name %></td>
+			<td><%= f.submit "Submit" %></td>
+			<td></td>
+		</tr>
+	<% end %>
+</table>

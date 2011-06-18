@@ -1,0 +1,15 @@
+<h2>Edit Account</h2>
+
+<%= form_for(@account) do |f| %>
+	<div class="field">
+		<%= f.label :name, "Name", :class => "field_label" %><br />
+		<%= f.text_field :name %><br />
+		<%= f.label :domain, "Domain", :class => "field_label" %><br />
+		<%= f.text_field :name %><br />
+		<%= f.label :Account_group, "Account group", :class => "field_label" %><br />
+		<%= f.text_field :Account_group %><br />
+	</div>
+	<div class="actions">
+		<%= f.submit "Update" %>
+	</div>
+<% end %>

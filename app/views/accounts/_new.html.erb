@@ -1,0 +1,10 @@
+<%= form_for(@account) do |f| %>
+	<div class="field">
+		<%= f.label :domain, "Add New Account", :class => "field_label" %><br />
+		<%= f.label :domain, "Company Domain, i.e. simpleplan.com", :class => "field_label" %><br />
+		<%= f.text_field :domain %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>
