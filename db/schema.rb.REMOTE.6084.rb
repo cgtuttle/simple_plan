@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110618143837) do
+ActiveRecord::Schema.define(:version => 20110618142916) do
 
   create_table "account_groups", :force => true do |t|
     t.string   "name"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(:version => 20110618143837) do
     t.integer  "class_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "account_group"
   end
 
   create_table "activities", :force => true do |t|
