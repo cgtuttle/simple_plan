@@ -10,13 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110618143837) do
-
-  create_table "account_groups", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110619145500) do
 
   create_table "accounts", :force => true do |t|
     t.string   "domain"
@@ -53,14 +47,6 @@ ActiveRecord::Schema.define(:version => 20110618143837) do
     t.datetime "updated_at"
   end
 
-  create_table "model_permissions", :force => true do |t|
-    t.string   "permission_type"
-    t.string   "model"
-    t.integer  "domain_class_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "products", :force => true do |t|
     t.string   "code"
     t.string   "descr"
@@ -83,13 +69,6 @@ ActiveRecord::Schema.define(:version => 20110618143837) do
     t.datetime "updated_at"
   end
 
-  create_table "rep_categories", :force => true do |t|
-    t.integer  "rep_id"
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -99,13 +78,6 @@ ActiveRecord::Schema.define(:version => 20110618143837) do
   create_table "user_roles", :force => true do |t|
     t.integer  "user_id"
     t.integer  "role_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_types", :force => true do |t|
-    t.string   "code"
-    t.string   "descr"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
