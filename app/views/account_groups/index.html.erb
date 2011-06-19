@@ -1,0 +1,22 @@
+<h2>Account Groups</h2>
+
+<table>
+	<tr>
+		<td>Account Group Name</td>
+	</tr>
+	<% @account_groups.each do |account_group| %>
+		<tr>
+			<td><%= link_to account_group.name, account_group %></td>
+			<td><%= link_to "Edit", edit_account_group_path(account_group) %></td>
+			<td><%= link_to "Delete", account_group, :method => :delete, :confirm => "Please confirm deletion:",
+																			:title => "Delete #{account_group.name}" %></td>
+		</tr>
+	<% end %>
+	<%= form_for(@account_group) do |f| %>
+		<tr>
+			<td><%= f.text_field :name %></td>
+			<td><%= f.submit "Submit" %></td>
+			<td></td>
+		</tr>
+	<% end %>
+</table>
