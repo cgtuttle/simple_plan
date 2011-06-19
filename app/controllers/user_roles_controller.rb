@@ -3,13 +3,13 @@ class UserRolesController < ApplicationController
 def index
 		@title = "User roles"
 		@zone = "Application"		
-		@user_roles = User_role.all
-		@user_role = User_role.new
+		@user_roles = UserRole.all
+		@user_role = UserRole.new
 	end
 	
 	def show
 		@zone = "Application"
-		@user_role = User_role.find(params[:id])
+		@user_role = UserRole.find(params[:id])
 		@title = @user_role.user.user_name + " | " + @user_role.role.name
 	end
 
@@ -19,12 +19,12 @@ def index
 	
 	def edit
 		@zone = "Application"
-		@user_role = User_role.find(params[:id])
+		@user_role = UserRole.find(params[:id])
 		@title = @user_role.user.user_name + " | " + @user_role.role.name
 	end
 	
 	def update
-		@user_role = User_role.find(params[:id])
+		@user_role = UserRole.find(params[:id])
 		if @user_role.update_attributes(params[:user_role])
 			flash[:success] = "user role updated."
 			redirect_to user_roles_path
@@ -34,7 +34,7 @@ def index
 	end
 	
 	def create
-		@user_role = User_role.new(params[:user_role])
+		@user_role = UserRole.new(params[:user_role])
 		if @user_role.save
 			flash[:success] = "Successfully added a new user role"
 			redirect_to user_roles_path
