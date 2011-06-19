@@ -3,9 +3,11 @@ SimplePlan::Application.routes.draw do
   resources :activities
 	resources :roles
 	resources :users
-	resources :sessions, :only => [:new, :create, :destroy]
+	resources :user_roles
 	resources :accounts
-
+	resources :groups
+	resources :sessions, :only => [:new, :create, :destroy]
+	
 	match '/signup',		:to => 'users#new'
 
 	
