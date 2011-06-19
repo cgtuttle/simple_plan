@@ -26,6 +26,16 @@ class UsersController < ApplicationController
 		get_title @user
   end
 	
+	def update
+		@user = User.find(params[:id])
+		if @user.update_attributes(params[:user])
+			flash[:success] = "User updated."
+			redirect_to users_path
+		else
+			redirect_to users_path
+		end
+	end
+	
 	def create
     @user = User.new(params[:user])
     if @user.save
@@ -40,5 +50,12 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+	
+	def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted."
+    redirect_to users_path
+  end	
+
 	
 end
