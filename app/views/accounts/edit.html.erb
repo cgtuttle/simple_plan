@@ -7,7 +7,7 @@
 		<%= f.label :domain, "Domain", :class => "field_label" %><br />
 		<%= f.text_field :domain %><br />
 		<%= f.label :group_id, "Group", :class => "field_label" %><br />
-		<%= f.text_field :group_id %><br />
+		<%= collection_select(:account, :group_id, Group.all, :id, :name, :prompt => false) %><br />
 	</div>
 	<div class="actions">
 		<%= f.submit "Update" %>

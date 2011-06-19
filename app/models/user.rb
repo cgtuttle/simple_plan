@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 									
 	has_many :user_roles
 	has_many :roles, :through => :user_roles
+	belongs_to :account
 	
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

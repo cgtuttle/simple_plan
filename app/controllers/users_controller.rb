@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
 	include UsersHelper
  
+	def index
+		@title = "Users"
+		@zone = "Application"		
+		@users = User.all
+		@user = User.new
+	end
+	
 	def show
 		@user = User.find(params[:id])
 		@zone = "Application"
