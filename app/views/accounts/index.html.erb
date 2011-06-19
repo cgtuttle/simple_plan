@@ -20,7 +20,7 @@
 		<tr>
 			<td><%= f.text_field :domain %></td>
 			<td><%= f.text_field :name %></td>
-			<td><%= f.text_field :group_id %></td>
+			<td><%= collection_select(:account, :group_id, Group.all, :id, :name, :prompt => true) %><br /></td>
 			<td><%= f.submit "Submit" %></td>
 			<td></td>
 		</tr>
