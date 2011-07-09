@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 	
 	validates :email, :presence => true, :uniqueness => true
 	
-	
+	def current_user
+		self
+	end
 	
 end

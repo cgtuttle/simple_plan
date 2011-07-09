@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
+		
 	def dashboard
-		@title = "User dashboard"
+		@title = current_user.email
 		@zone = "Application"
+		@user = current_user
 	end
-
-
 
 end
