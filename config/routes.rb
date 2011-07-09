@@ -1,16 +1,17 @@
 SimplePlan::Application.routes.draw do  
-  
+    devise_for :users
+
   resources :activities
 	resources :roles
 	resources :users
 	resources :user_roles
 	resources :accounts
 	resources :groups
-	resources :sessions, :only => [:new, :create, :destroy]
 	
-	match '/signup',		:to => 'users#new'
+	namespace :user do
+		root :to => 'users#dashboard'
+	end
 
-	
   get "pages/home"
   get "pages/contact"
   get "pages/about"
@@ -19,9 +20,6 @@ SimplePlan::Application.routes.draw do
 	match '/help',			:to => 'pages#help'
 	match '/about',			:to => 'pages#about'
 	match '/contact',	:to => 'pages#contact'
-	match '/signup',  :to => 'users#new'
-  match '/signin',  :to => 'sessions#new'
-  match '/signout', :to => 'sessions#destroy'
 	
 	root :to => 'pages#home'
 

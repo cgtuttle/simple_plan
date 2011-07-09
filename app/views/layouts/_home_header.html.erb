@@ -1,8 +1,12 @@
 <header id="home_header">
 	<%= link_to logo, root_path, :id => "home_img" %>
 	<nav>	
-		<ul>
-			<li><%= link_to "Sign In", signin_path, :id => "home_a" %></li>
+		<ul class="hmenu">
+			<%= render 'devise/menu/registration_items' %>
+			<%= render 'devise/menu/login_items' %>
+			<%- flash.each do |name, msg| -%>
+				<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+			<%- end -%>
 		</ul>
-	</nav>
+	</nav>	
 </header>
