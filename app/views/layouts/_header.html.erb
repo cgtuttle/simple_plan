@@ -2,6 +2,7 @@
 	<%= link_to logo, root_path %>
 		<nav>
 			<ul>
+				<li><%= current_user.profile.name %></li>
 				<li><%= link_to('Logout', destroy_user_session_path, :method => 'delete') %></li>
 				<li><%= link_to "Help", help_path %></li>				
 			</ul>

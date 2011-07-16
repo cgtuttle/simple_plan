@@ -12,12 +12,12 @@ class User < ActiveRecord::Base
 	has_one :profile
 	after_create :setup_profile
 	
+	@user = self
+	
 	def setup_profile
 		Profile.create(:user_id => self.id, :name => self.email)
 	end
 	
-	def current_user
-		self
-	end
+	
 	
 end

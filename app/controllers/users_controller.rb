@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	
 	def dashboard
-		@title = username
+		@title = "#{firstname} #{lastname}"
 		@zone = "Application"
 		@user = current_user
 	end
@@ -19,6 +19,12 @@ class UsersController < ApplicationController
 			current_user.profile.first_name
 		else
 			username
+		end
+	end
+	
+	def lastname
+		if current_user.profile.last_name?
+			current_user.profile.last_name
 		end
 	end
 

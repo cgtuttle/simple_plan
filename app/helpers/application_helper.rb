@@ -18,4 +18,5 @@ module ApplicationHelper
 		simple_flowchart = image_tag("SimplePlan_Flowchart.png", :alt => "Simplify your process!")
 	end
 	
+	
 end

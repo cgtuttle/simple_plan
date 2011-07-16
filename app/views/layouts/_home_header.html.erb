@@ -2,8 +2,8 @@
 	<%= link_to logo, root_path, :id => "home_img" %>
 	<nav>	
 		<ul class="hmenu">
-			<%= render 'devise/menu/registration_items' %>
 			<%= render 'devise/menu/login_items' %>
+			<%= render 'devise/menu/registration_items' %>
 			<% flash.each do |key, msg| %>
 				<%= content_tag(:div, msg, :id => "flash_#{key}") %>
 			<% end %>

@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 	def show
 		@profile = Profile.find(params[:id])
 		@zone = "Application"
-		@title = @profile.name
+		@title = "#{firstname} #{lastname}"
 	end
 	
 	def index
@@ -23,6 +23,28 @@ class ProfilesController < ApplicationController
 			redirect_to profile_path
 		else
 			redirect_to profile_path
+		end
+	end
+	
+	def username
+		if profile.name?
+			@profile.name
+		else
+			@profile.user.email
+		end
+	end
+	
+	def firstname
+		if @profile.first_name?
+			@profile.first_name
+		else
+			username
+		end
+	end
+	
+	def lastname
+		if @profile.last_name?
+			@profile.last_name
 		end
 	end
 	
