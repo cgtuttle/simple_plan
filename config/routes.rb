@@ -6,16 +6,12 @@ SimplePlan::Application.routes.draw do
 		resources :user_roles
 		resources :accounts
 		resources :groups
+		resources :profiles
 		
 	namespace :user do
 		root :to => 'users#dashboard'
 	end
 
-  get "pages/home"
-  get "pages/contact"
-  get "pages/about"
-  get "pages/help"
-	
 	match '/help',			:to => 'pages#help'
 	match '/about',			:to => 'pages#about'
 	match '/contact',		:to => 'pages#contact'

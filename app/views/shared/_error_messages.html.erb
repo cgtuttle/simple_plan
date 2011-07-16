@@ -1,10 +1,10 @@
-<% if @user.errors.any? %>
+<% if object.errors.any? %>
   <div class="error" id="error_explanation">
-    <h4><%= pluralize(@user.errors.count, "error") %> 
+    <h4><%= pluralize(object.errors.count, "error") %> 
         prohibited this from being saved:</h4>
     <p>There were problems with the following fields:</p>
     <ul>
-    <% @user.errors.full_messages.each do |msg| %>
+    <% object.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
