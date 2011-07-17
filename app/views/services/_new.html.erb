@@ -1,0 +1,9 @@
+<%= form_for(@service) do |f| %>
+	<div class="field">
+		<%= f.label :name, "Add New Service", :class => "field_label" %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>

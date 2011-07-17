@@ -1,6 +1,6 @@
 class Account < ActiveRecord::Base
 
-	belongs_to :group
-	has_many :users
+	belongs_to :service
+	has_many :profiles
 
 end

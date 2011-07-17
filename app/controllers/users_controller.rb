@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 	
 	def dashboard
-		@title = "#{firstname} #{lastname}"
 		@zone = "Application"
 		@user = current_user
+		@profile = @user.profile
+		@title = "#{@profile.fname} #{lastname}"
 	end
 	
 	def username

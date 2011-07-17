@@ -8,11 +8,12 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :id
 	
 	validates :email, :presence => true, :uniqueness => true
-
+	
 	has_one :profile
 	after_create :setup_profile
 	
-	@user = self
+	
+	#@user = self
 	
 	def setup_profile
 		Profile.create(:user_id => self.id, :name => self.email)

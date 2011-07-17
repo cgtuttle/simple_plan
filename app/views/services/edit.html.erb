@@ -1,0 +1,11 @@
+<h2>Edit Service</h2>
+
+<%= form_for(@service) do |f| %>
+	<div class="field">
+		<%= f.label :name, "Edit Service", :class => "field_label" %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Update" %>
+	</div>
+<% end %>

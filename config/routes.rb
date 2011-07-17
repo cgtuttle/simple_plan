@@ -5,7 +5,7 @@ SimplePlan::Application.routes.draw do
 		resources :roles
 		resources :user_roles
 		resources :accounts
-		resources :groups
+		resources :services
 		resources :profiles
 		
 	namespace :user do

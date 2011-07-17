@@ -4,13 +4,13 @@
 	<tr>
 		<td>Domain Name</td>
 		<td>Account Name</td>
-		<td>Account Group</td>
+		<td>Account Service</td>
 	</tr>
 	<% @accounts.each do |account| %>
 		<tr>
 			<td><%= link_to account.domain, account %></td>
 			<td><%= link_to account.name, account %></td>
-			<td><%= link_to account.group.name, account %></td>
+			<td><%= link_to account.service.name, account %></td>
 			<td><%= link_to "Edit", edit_account_path(account) %></td>
 			<td><%= link_to "Delete", account, :method => :delete, :confirm => "Please confirm deletion:",
 																			:title => "Delete #{account.name}" %></td>
@@ -20,7 +20,7 @@
 		<tr>
 			<td><%= f.text_field :domain %></td>
 			<td><%= f.text_field :name %></td>
-			<td><%= collection_select(:account, :group_id, Group.all, :id, :name, :prompt => true) %><br /></td>
+			<td><%= collection_select(:account, :service_id, Service.all, :id, :name, :prompt => true) %><br /></td>
 			<td><%= f.submit "Submit" %></td>
 			<td></td>
 		</tr>

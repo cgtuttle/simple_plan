@@ -10,14 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110716155102) do
+ActiveRecord::Schema.define(:version => 20110717141410) do
 
   create_table "accounts", :force => true do |t|
     t.string   "domain"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "group_id"
+    t.integer  "service_id"
   end
 
   create_table "activities", :force => true do |t|
@@ -42,12 +42,6 @@ ActiveRecord::Schema.define(:version => 20110716155102) do
     t.float    "rate"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "groups", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -85,6 +79,12 @@ ActiveRecord::Schema.define(:version => 20110716155102) do
   end
 
   create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "services", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
