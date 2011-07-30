@@ -3,10 +3,10 @@ SimplePlan::Application.routes.draw do
 		
 		resources :activities
 		resources :roles
-		resources :user_roles
 		resources :accounts
 		resources :services
 		resources :profiles
+		resources :partnerships
 		
 	namespace :user do
 		root :to => 'users#dashboard'

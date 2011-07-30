@@ -11,9 +11,19 @@
 			<td><%= link_to account.domain, account %></td>
 			<td><%= link_to account.name, account %></td>
 			<td><%= link_to account.service.name, account %></td>
-			<td><%= link_to "Edit", edit_account_path(account) %></td>
-			<td><%= link_to "Delete", account, :method => :delete, :confirm => "Please confirm deletion:",
-																			:title => "Delete #{account.name}" %></td>
+			<td>
+				<% if can? :update, @account %>
+					<%= link_to "Edit", edit_account_path(account) %>
+				<% end %>	
+			</td>
+				
+			<td>
+				<% if can? :destroy, @account %>
+					<%= link_to "Delete", account, :method => :delete, :confirm => "Please confirm deletion:",
+																			:title => "Delete #{account.name}" %>
+				<% end %>
+																			
+			</td>
 		</tr>
 	<% end %>
 	<%= form_for(@account) do |f| %>
