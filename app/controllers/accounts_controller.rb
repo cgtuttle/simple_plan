@@ -56,7 +56,7 @@ class AccountsController < ApplicationController
 	def find_user_partners
 		account_id = find_user_account
 		@user_providers = Partnership.find(:all, :conditions => ["provider_id = ? or customer_id = ?", account_id, account_id])
-		@user_accounts = Account.find(:all, :conditions => ["id = ?", @user_providers])
+		@user_accounts = Account.find(:all, :conditions => ["id IN (?)", @user_providers])
   end
 		
 	def find_user_account
