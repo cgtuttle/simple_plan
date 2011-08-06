@@ -3,11 +3,13 @@
 <table>
 	<tr>
 		<th>Provider</th>
+		<th>Seller</th>
 		<th>Customer</th>
 	</tr>
 	<% @partnerships.each do |partnership| %>
 		<tr>
 			<td><%= link_to partnership.provider.name, partnership %></td>
+			<td><%= link_to partnership.seller.name, partnership %></td>
 			<td><%= link_to partnership.customer.name, partnership %></td>
 			<td>
 				<% if can? :update, @partnership %>
@@ -27,6 +29,7 @@
 	<%= form_for(@partnership) do |f| %>
 		<tr>
 			<td><%= collection_select(:partnership, :provider_id, Account.all, :id, :name, :prompt => true) %><br />
+			<td><%= collection_select(:partnership, :seller_id, Account.all, :id, :name, :prompt => true) %><br />
 			<td><%= collection_select(:partnership, :customer_id, Account.all, :id, :name, :prompt => true) %><br /></td>
 			<td><%= f.submit "Submit" %></td>
 			<td></td>
