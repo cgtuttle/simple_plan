@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110806150434) do
+ActiveRecord::Schema.define(:version => 20110816014624) do
 
   create_table "accounts", :force => true do |t|
     t.string   "domain"
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(:version => 20110806150434) do
 
   create_table "profiles", :force => true do |t|
     t.string   "name"
-    t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -106,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20110806150434) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.integer  "account_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

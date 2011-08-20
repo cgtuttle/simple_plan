@@ -1,7 +1,7 @@
 class Account < ActiveRecord::Base
 
 	belongs_to :service
-	has_many :profiles
+	has_many :users
 	
 	has_many :provider_partners,	:foreign_key => 'provider_id',
 																:class_name => 'Partnership',

@@ -4,6 +4,10 @@ class Profile < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :account
 	
+	def account_by_domain(submitted_domain)
+		account.find_by_domain
+	end
+	
 	def fname
 		if first_name?
 			first_name

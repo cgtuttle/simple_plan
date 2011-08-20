@@ -1,5 +1,7 @@
 <h2>Edit Profile</h2>
 
+	<%= link_to "Set up your company", new_account_path %>
+	
 	<%= form_for(@profile) do |f| %>
 		<div class="field">
 			<p><%= f.label :name, "User name", :class => "field label" %><br/>
@@ -12,10 +14,6 @@
 		<div class="field">
 			<p><%= f.label :last_name, "Last name", :class => "field label" %><br/>
 			<%= f.text_field :last_name %></p>
-		</div>
-		<div class="field">
-			<p><%= f.label :account, "Account", :class => "field label" %><br/>
-			<%= collection_select(:profile, :account_id, Account.all, :id, :name, :prompt => false) %><p/>
 		</div>
 		<div class = "actions">
 			<p><%= f.submit "Update" %></p>
