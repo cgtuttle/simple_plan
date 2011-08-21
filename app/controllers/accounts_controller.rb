@@ -1,7 +1,9 @@
 class AccountsController < ApplicationController
 	load_and_authorize_resource
 	before_filter :find_user_partners
-	
+	before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :find_user, :except => [:index, :show]
+  respond_to :html
 	
 	def index
 		@title = "Accounts"
@@ -12,7 +14,7 @@ class AccountsController < ApplicationController
 	
 	def show
 		@zone = "Application"
-		#@account = Account.find(params[:id])
+		@account = Account.find(params[:id])
 		@title = @account.name
 		@name = @title
 	end
@@ -23,12 +25,12 @@ class AccountsController < ApplicationController
 	
 	def edit
 		@zone = "Application"
-		#@account = Account.find(params[:id])
+		@account = Account.find(params[:id])
 		@title = @account.name
 	end
 	
 	def update
-		#@account = Account.find(params[:id])
+		@account = Account.find(params[:id])
 		if @account.update_attributes(params[:account])
 			flash[:success] = "Account updated."
 			redirect_to accounts_path
@@ -38,7 +40,7 @@ class AccountsController < ApplicationController
 	end
 	
 	def create
-		#@account = Account.new(params[:account])
+		@account = Account.new(params[:account])
 		if @account.save
 			flash[:success] = "Successfully added a new account"
 			redirect_to accounts_path
@@ -63,7 +65,7 @@ class AccountsController < ApplicationController
   	@current_user = current_user
 		@current_profile = @current_user.profile
 		@user_name = @current_profile.name
-		@user_account_id = @current_profile.account_id
+		@user_account_id = @current_user.account_id
 	end
   
  

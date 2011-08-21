@@ -8,7 +8,6 @@ class ProfilesController < ApplicationController
 		@profile = Profile.find(params[:id])
 		@zone = "Application"
 		@title = "#{@profile.fname} #{@profile.lname}"
-		@account = Account.find(@profile.account_id)
 	end
 	
 	def index
