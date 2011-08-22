@@ -3,7 +3,10 @@ class RegistrationsController < Devise::RegistrationsController
   prepend_before_filter :authenticate_scope!, :only => [:edit, :update, :destroy]
   include Devise::Controllers::InternalHelpers
 
-  # GET /resource/sign_up
+  def show
+	end
+	
+	# GET /resource/sign_up
   def new
     resource = build_resource({})
     respond_with_navigational(resource){ render_with_scope :new }

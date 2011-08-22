@@ -1,0 +1,24 @@
+<h3>Users in <%= @account.name %></h3>
+
+  <div class="index-list">
+  <table>
+    <tr>
+      <th>Email</th>
+      <th>Sign in count</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+
+  <% @account_users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.sign_in_count %></td>
+      <td><%= user.role %></td>
+      <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+<br />
+
+<%= link_to 'Invite New User', new_user_invitation_path %>

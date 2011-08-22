@@ -2,7 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 gem 'pg'
-gem 'devise'
+gem 'devise',           '1.2.0'
+gem 'devise_invitable', '0.4.0'
 gem 'cancan'
 
 group :development do

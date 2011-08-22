@@ -7,8 +7,11 @@ class Ability
 			can :manage, :all
 		when 'admin'
 			can :manage, Account
+			can :manage, User
 		when 'manager'
 		when 'user'
+			can :manage, Account
+			can :dashboard, User
 		else
 		end
 		

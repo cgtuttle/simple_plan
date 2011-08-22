@@ -6,6 +6,7 @@ SimplePlan::Application.routes.draw do
 		resources :services
 		resources :profiles
 		resources :partnerships
+		#resources :users
 		
 	namespace :user do
 		root :to => 'users#dashboard'
@@ -15,6 +16,7 @@ SimplePlan::Application.routes.draw do
 	match '/about',			:to => 'pages#about'
 	match '/contact',		:to => 'pages#contact'
 	match '/user',			:to => 'users#show'
+	match '/users',			:to => 'users#index'
 	
 	root :to => 'pages#home'
 
