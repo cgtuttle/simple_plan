@@ -1,5 +1,4 @@
 class Category < ActiveRecord::Base
-	attr_accessible :code, :name, :supplier_id
-
-	belongs_to :supplier
+	belongs_to :account
+	belongs_to :category_product
 end

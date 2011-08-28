@@ -10,14 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110821150213) do
+ActiveRecord::Schema.define(:version => 20110828181318) do
 
   create_table "accounts", :force => true do |t|
-    t.string   "domain"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "service_id"
+    t.string   "service",    :limit => 63
     t.integer  "user_id"
   end
 
@@ -30,19 +29,27 @@ ActiveRecord::Schema.define(:version => 20110821150213) do
   add_index "activities", ["name"], :name => "index_activities_on_type", :unique => true
 
   create_table "categories", :force => true do |t|
-    t.string   "code"
-    t.string   "name"
-    t.integer  "supplier_id"
+    t.string   "code",       :limit => 15
+    t.string   "name",       :limit => 63
+    t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "deals", :force => true do |t|
-    t.string   "code"
+    t.string   "code",        :limit => 15, :null => false
+    t.string   "name",        :limit => 63
+    t.string   "descr"
     t.integer  "product_id"
-    t.float    "rate"
+    t.float    "deal_rate"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.integer  "program_id"
+    t.integer  "category_id"
+    t.integer  "customer_id"
+    t.integer  "activity_id"
+    t.float    "deal_vol"
+    t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,28 +80,25 @@ ActiveRecord::Schema.define(:version => 20110821150213) do
   end
 
   create_table "programs", :force => true do |t|
-    t.string   "code"
-    t.string   "name"
+    t.string   "code",        :limit => 15, :null => false
+    t.string   "name",        :limit => 63
     t.string   "descr"
     t.integer  "supplier_id"
-    t.integer  "category_id"
-    t.integer  "rep_id"
-    t.integer  "customer_id"
+    t.integer  "seller_id"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "services", :force => true do |t|
-    t.string   "name"
+    t.float    "budget_rate"
+    t.float    "budget_vol"
+    t.float    "plan_rate"
+    t.float    "plan_vol"
+    t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -107,9 +111,12 @@ ActiveRecord::Schema.define(:version => 20110821150213) do
     t.datetime "updated_at"
     t.string   "role"
     t.integer  "account_id"
+    t.string   "invitation_token",       :limit => 60
+    t.datetime "invitation_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
