@@ -10,20 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110828181318) do
+ActiveRecord::Schema.define(:version => 20110828191533) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
+    t.string   "service",    :limit => 63
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "service",    :limit => 63
     t.integer  "user_id"
   end
 
   create_table "activities", :force => true do |t|
-    t.string   "name"
+    t.string   "name",       :limit => 127
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "code",       :limit => 15
+    t.string   "descr"
+    t.integer  "account_id"
   end
 
   add_index "activities", ["name"], :name => "index_activities_on_type", :unique => true
@@ -32,6 +35,13 @@ ActiveRecord::Schema.define(:version => 20110828181318) do
     t.string   "code",       :limit => 15
     t.string   "name",       :limit => 63
     t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "category_products", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,28 +65,65 @@ ActiveRecord::Schema.define(:version => 20110828181318) do
   end
 
   create_table "partnerships", :force => true do |t|
-    t.integer  "provider_id"
+    t.integer  "supplier_id"
     t.integer  "customer_id"
+    t.integer  "seller_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "seller_id"
   end
 
   create_table "products", :force => true do |t|
-    t.string   "code"
+    t.string   "code",       :limit => 15
+    t.string   "name",       :limit => 127
     t.string   "descr"
-    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   create_table "profiles", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
+  end
+
+  create_table "program_activities", :force => true do |t|
+    t.integer  "program_id"
+    t.integer  "activity_id"
+    t.float    "budget_rate"
+    t.float    "vol_alloc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "program_categories", :force => true do |t|
+    t.integer  "program_id"
+    t.integer  "category_id"
+    t.float    "budget_rate"
+    t.float    "vol_alloc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "program_customers", :force => true do |t|
+    t.integer  "program_id"
+    t.integer  "customer_id"
+    t.float    "vol_alloc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "program_products", :force => true do |t|
+    t.integer  "program_id"
+    t.integer  "product_id"
+    t.integer  "customer_id"
+    t.integer  "category_id"
+    t.float    "plan_rate"
+    t.float    "plan_vol"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "programs", :force => true do |t|
@@ -109,7 +156,7 @@ ActiveRecord::Schema.define(:version => 20110828181318) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role"
+    t.string   "role",                   :limit => 63
     t.integer  "account_id"
     t.string   "invitation_token",       :limit => 60
     t.datetime "invitation_sent_at"

@@ -1,7 +1,8 @@
 class Activity < ActiveRecord::Base
-attr_accessible :name
 
-has_many :deals
+has_many 		:deals
+belongs_to	:account
+belongs_to	:program_activity
 
 validates :name, 	:presence 	=> true,
 									:length			=> { :maximum => 50 },

@@ -1,1 +1,44 @@
-DONE_Update accounts table
+DONE:	change accounts table
+DONE:	change partnerships table
+DONE:		rename provider_id to supplier_id
+DONE:	change activities table
+DONE:		add code 15
+DONE:		name limit 127
+DONE:		add descr
+DONE:		add account_id
+DONE:	change products table
+DONE:		remove category_id
+DONE:		add account_id
+DONE:		change code: limit 15, null false
+DONE:		add name: limit 127
+DONE:	change profiles table
+DONE:		remove name
+DONE:	change users table
+DONE:		change role limit 63
+DONE:	add models
+DONE:		program_activities
+DONE:		program_customers
+DONE:		program_categories
+DONE:		category_products
+DONE:		program_products
+DONE:	update models w/belongs_to
+DONE:		program
+DONE:		activity
+DONE:		category
+DONE:		product
+			add controllers
+				CategoryProducts
+				ProgramCategories
+				ProgramProducts
+				ProgramActivities
+				ProgramCustomers
+			add views
+				categories
+				products
+				programs
+				deals
+				category_products
+				program_categories
+				program_products
+				program_activities
+				program_customers
