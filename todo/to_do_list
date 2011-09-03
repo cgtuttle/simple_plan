@@ -1,3 +1,5 @@
+To-do List
+----------------------------------------
 DONE:	change accounts table
 DONE:	change partnerships table
 DONE:		rename provider_id to supplier_id
@@ -26,12 +28,18 @@ DONE:		program
 DONE:		activity
 DONE:		category
 DONE:		product
+DONE:	fix profiles show, edit view
+DONE:		no :name field available
 			add controllers
-				CategoryProducts
-				ProgramCategories
-				ProgramProducts
-				ProgramActivities
-				ProgramCustomers
+				categories
+				programs
+				deals
+				products
+				category_products
+				program_categories
+				program_products
+				program_activities
+				program_customers
 			add views
 				categories
 				products
@@ -42,3 +50,4 @@ DONE:		product
 				program_products
 				program_activities
 				program_customers
+			
