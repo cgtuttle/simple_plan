@@ -1,6 +1,5 @@
 class AccountsController < ApplicationController
 	load_and_authorize_resource
-	before_filter :find_user_partners
 	before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_user, :except => [:index, :show]
   respond_to :html
@@ -8,7 +7,7 @@ class AccountsController < ApplicationController
 	def index
 		@title = "Accounts"
 		@zone = "Application"	
-		@accounts = @user_accounts
+		@accounts = Account.all
 		@account = Account.new
 	end
 	
@@ -54,17 +53,11 @@ class AccountsController < ApplicationController
     flash[:success] = "Account deleted."
     redirect_to accounts_path
   end	
-  
-	def find_user_partners
-		account_id = find_user_account
-		@user_providers = Partnership.find(:all, :conditions => ["provider_id = ? or customer_id = ?", account_id, account_id])
-		@user_accounts = Account.find(:all, :conditions => ["id IN (?)", @user_providers])
-  end
 		
 	def find_user_account
   	@current_user = current_user
 		@current_profile = @current_user.profile
-		@user_name = @current_profile.name
+		@user_name = @current_user.email
 		@user_account_id = @current_user.account_id
 	end
   

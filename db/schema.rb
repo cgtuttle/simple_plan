@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110828191533) do
+ActiveRecord::Schema.define(:version => 20110910142820) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(:version => 20110828191533) do
     t.string   "descr"
     t.integer  "account_id"
   end
-
-  add_index "activities", ["name"], :name => "index_activities_on_type", :unique => true
 
   create_table "categories", :force => true do |t|
     t.string   "code",       :limit => 15
@@ -65,9 +63,9 @@ ActiveRecord::Schema.define(:version => 20110828191533) do
   end
 
   create_table "partnerships", :force => true do |t|
-    t.integer  "supplier_id"
-    t.integer  "customer_id"
-    t.integer  "seller_id"
+    t.integer  "account_id"
+    t.integer  "partner_id"
+    t.string   "partner_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -138,7 +136,7 @@ ActiveRecord::Schema.define(:version => 20110828191533) do
     t.float    "budget_vol"
     t.float    "plan_rate"
     t.float    "plan_vol"
-    t.integer  "owner_id"
+    t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

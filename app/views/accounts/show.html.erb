@@ -4,4 +4,32 @@
 </h3>
 
 <p><%= @account.name %></p>
-<p><%= @account.domain %></p>
+
+
+<table>
+	<tr>
+		<th>Partner</th>
+		<th>Type</th>
+	</tr>
+	<% for partnership in @account.partnerships %>
+		<tr>
+			<td><%= partnership.partner_type %></td>
+			<td><%= partnership.account.name %></td>
+			<td><%= partnership.partner.name %></td>
+			<td>
+				<% if can? :update, partnership %>
+					<%= link_to "Edit", edit_partnership_path(partner) %>
+				<% end %>	
+			</td>
+				
+			<td>
+				<% if can? :destroy, partnership %>
+					<%= link_to "Delete", partnership.partner.name, :method => :delete, :confirm => "Please confirm deletion:",
+																			:title => "Delete" %>
+				<% end %>
+																			
+			</td>
+		</tr>
+	<% end %>
+	
+</table>

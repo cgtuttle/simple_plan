@@ -1,25 +1,22 @@
-<h2>Partnerships</h2>
+<h2>Partners</h2>
 
 <table>
 	<tr>
-		<th>Provider</th>
-		<th>Seller</th>
-		<th>Customer</th>
+		<th>Partner</th>
+		<th>Type</th>
 	</tr>
-	<% @partnerships.each do |partnership| %>
+	<% for partnership in @account.partnerships %>
 		<tr>
-			<td><%= link_to partnership.provider.name, partnership %></td>
-			<td><%= link_to partnership.seller.name, partnership %></td>
-			<td><%= link_to partnership.customer.name, partnership %></td>
+			<td><%= partnership.partner.name %></td>
+			<td><%= partnership.partner_type %></td>
 			<td>
-				<% if can? :update, @partnership %>
-					<%= link_to "Edit", edit_partnership_path(partnership) %>
+				<% if can? :update, partnership %>
+					<%= link_to "Edit", edit_partnership_path(partner) %>
 				<% end %>	
-			</td>
-				
+			</td>	
 			<td>
-				<% if can? :destroy, @partnership %>
-					<%= link_to "Delete", partnership, :method => :delete, :confirm => "Please confirm deletion:",
+				<% if can? :destroy, partnership %>
+					<%= link_to "Delete", partnership.partner.name, :method => :delete, :confirm => "Please confirm deletion:",
 																			:title => "Delete" %>
 				<% end %>
 																			
@@ -28,11 +25,13 @@
 	<% end %>
 	<%= form_for(@partnership) do |f| %>
 		<tr>
-			<td><%= collection_select(:partnership, :provider_id, Account.all, :id, :name, :prompt => true) %><br />
-			<td><%= collection_select(:partnership, :seller_id, Account.all, :id, :name, :prompt => true) %><br />
-			<td><%= collection_select(:partnership, :customer_id, Account.all, :id, :name, :prompt => true) %><br /></td>
+			
+			<td><%=collection_select(:partnership, :partner_id, Account.find(:all), :id, :name, :prompt => true) %></td>
+			<td><%=collection_select(:partnership, :partner_type, Account::SERVICE, :to_s, :titleize) %></td>
+			
 			<td><%= f.submit "Submit" %></td>
 			<td></td>
 		</tr>
 	<% end %>
+	
 </table>

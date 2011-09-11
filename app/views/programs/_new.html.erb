@@ -1,0 +1,30 @@
+<p>Add New Program</p>
+<table>
+	<tr>
+		<%= form_for(@program) do |f| %>
+			<div class="field">
+				<td>
+					<%= f.text_field :code %>
+				</td>
+				<td>
+					<%= f.text_field :name %>
+				</td>
+				<td>
+					<%= f.text_field :descr %>
+				</td>
+				<td>
+					<%= f.date_select(:start_date) %>
+				</td>
+				<td>
+					<%= f.date_select(:end_date) %>
+				</td>
+			</div>
+			<div class="actions">
+				<td>
+					<%= f.submit "Submit" %>
+				</td>
+			</div>
+			<td></td>
+		<% end %>
+	<tr/>
+</table>

@@ -1,0 +1,15 @@
+<h2>Edit Program</h2>
+
+<%= form_for(@program) do |f| %>
+	<div class="field">
+		<%= f.label :name, "Code", :class => "field_label" %><br />
+		<%= f.text_field :code %><br/>
+	</div>
+	<div class="field">
+		<%= f.label :name, "Name", :class => "field_label" %><br />
+		<%= f.text_field :name %><br/>
+	</div>	
+	<div class="actions">
+		<%= f.submit "Update" %>
+	</div>
+<% end %>

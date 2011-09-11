@@ -1,9 +1,15 @@
-<%= form_for(@activity) do |f| %>
-	<div class="field">
-		<%= f.label :name, "Add New Activity", :class => "field_label" %><br />
-		<%= f.text_field :name %>
-	</div>
-	<div class="actions">
-		<%= f.submit "Submit" %>
-	</div>
-<% end %>
+<p>Add New Activity</p>
+<table>
+	<tr>
+		<%= form_for(@activity) do |f| %>		
+			<div class="field">
+				<td><%= f.text_field :code %></td>
+				<td><%= f.text_field :name %></td>
+				<td><%= f.text_field :descr %></td>
+			</div>
+			<div class="actions">
+				<td><%= f.submit "Submit" %></td>
+			</div>
+		<% end %>		
+	</tr>
+</table>

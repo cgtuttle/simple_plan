@@ -1,0 +1,48 @@
+<h2><%= @title %></h2>
+<h3>Total Budget <%= currency_zero(@ttl_cost) %></h3>
+
+<table>
+	<tr>
+		
+		<td>Code</td>
+		<td>Name</td>
+		<td>Description</td>
+		<td>Account</td>
+		<td>Start</td>
+		<td>End</td>
+		<td><%= @service_type.humanize %></td>
+		<td>Budgeted<br />Rate</td>
+		<td>Budgeted<br />Volume</td>
+		<td>Budgeted<br />Cost</td>
+		<td />
+		<td />
+		
+	</tr>
+	<% @programs.each do |program| %>
+		<tr>
+			
+			<%= render :partial => "shared/index", :locals => { :object => program } %>
+			
+			<td><%= program.account.name %></td>
+			<td><%= program.start_date && program.start_date.to_s(:just_date) %></td>
+			<td><%= program.end_date && program.end_date.to_s(:just_date) %></td>
+			<td><%= render :partial => "service", :locals => { :program => program } %>
+			<td><%= program.budget_rate && number_to_currency(program.budget_rate) %></td>
+			<td><%= program.budget_vol && float_zero(program.budget_vol) %></td>
+			<td><%= currency_zero(program.budget_cost) %></td>
+			
+			<% if program.account_id == current_account.id %>
+				<td><%= link_to "Edit", edit_program_path(program) %></td>
+				<td><%= link_to "Delete", program, :method => :delete, :confirm => "Please confirm deletion:",
+																						:title => "Delete #{program.name}" %></td>
+			<% else %>
+				<td />
+				<td />
+			<% end %>
+
+			
+		</tr>
+	<% end %>
+</table>
+
+<%= render 'new' %>

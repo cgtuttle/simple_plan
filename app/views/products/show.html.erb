@@ -1,0 +1,8 @@
+<%= render :partial => "shared/show", :locals => { :object => @product } %>
+	
+	<div>
+		<p><%= link_to "Edit", edit_product_path(@product) %></p>
+		<p><%= link_to "Delete", @product, :method => :delete, :confirm => "Please confirm deletion:",
+																						:title => "Delete #{@product.name}" %></P>
+		<p><%= link_to "Back", :back %></p>
+	</div>																		

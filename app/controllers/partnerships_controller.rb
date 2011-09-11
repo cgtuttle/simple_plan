@@ -1,15 +1,18 @@
 class PartnershipsController < ApplicationController
-	load_and_authorize_resource
-	
+include ApplicationHelper
+
 	def new
 		redirect_to partnerships_path
 	end
 	
 	def create
+		@partnership = Partnership.new(params[:partnership])
+		@partnership.account_id = current_account
 		if @partnership.save
-			flash[:success] = "Successfully added a new partnership"
+			flash[:success] = "Successfully added a new partner"
 			redirect_to partnerships_path
 		else
+			flash[:error] = "Unable to add partner"
 			redirect_to partnerships_path
 		end
 	end
@@ -24,6 +27,7 @@ class PartnershipsController < ApplicationController
 		@zone = "Application"
 		@partnerships = Partnership.all
 		@partnership = Partnership.new
+		@account = current_account
 	end
 	
 	def destroy
@@ -46,5 +50,5 @@ class PartnershipsController < ApplicationController
 			redirect_to partnerships_path
 		end
 	end
-	
+
 end

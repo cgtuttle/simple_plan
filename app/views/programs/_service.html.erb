@@ -1,0 +1,6 @@
+<% if current_account.service != 'supplier' %>
+	<%= program.supplier.name %>
+<% else %>
+	<%= program.seller.name %>
+<% end %>
+			

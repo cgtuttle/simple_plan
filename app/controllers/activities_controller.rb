@@ -1,9 +1,10 @@
 class ActivitiesController < ApplicationController
+include ApplicationHelper
+before_filter	:authorize_activities
 	
 	def index
 		@title = "Activities"
-		@zone = "Application"		
-		@activities = Activity.all
+		@zone = "Application"
 		@activity = Activity.new
 	end
 	
@@ -35,10 +36,12 @@ class ActivitiesController < ApplicationController
 	
 	def create
 		@activity = Activity.new(params[:activity])
-		if @activity.save
+		@activity.account_id = current_account
+		if @activity.save!
 			flash[:success] = "Successfully added a new activity"
 			redirect_to activities_path
 		else
+			flash[:error] = "Unable to create new activity"
 			redirect_to activities_path
 		end
 	end
@@ -48,5 +51,9 @@ class ActivitiesController < ApplicationController
     flash[:success] = "Activity deleted."
     redirect_to activities_path
   end	
+	
+	def authorize_activities
+		@activities = Activity.find(:all, :conditions => [ "account_id IN (?) OR account_id = (?)", current_partners, current_account])
+	end
 	
 end

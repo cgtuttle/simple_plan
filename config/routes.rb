@@ -6,7 +6,11 @@ SimplePlan::Application.routes.draw do
 		resources :services
 		resources :profiles
 		resources :partnerships
-		#resources :users
+		resources	:categories
+		resources	:products
+		resources	:programs
+		resources	:deals
+		resources	:events
 		
 	namespace :user do
 		root :to => 'users#dashboard'

@@ -9,6 +9,13 @@ module ApplicationHelper
     end
   end
 	
+	def currency_zero(number)
+		number_to_currency(number, :separator => ".", :delimiter => ",", :precision => 0)
+	end
+	
+	def float_zero(number)
+		number_with_precision(number, :delimiter => ",", :precision => 0)
+	end
 	
 	def logo
 		logo = image_tag("SimplePlan.png", :alt => "Plan Well!")
@@ -18,5 +25,13 @@ module ApplicationHelper
 		simple_flowchart = image_tag("SimplePlan_Flowchart.png", :alt => "Simplify your process!")
 	end
 	
+	def current_account
+		current_user.account
+	end
 	
+	def current_partners
+		Account.find(:all, :conditions => ["id IN (SELECT partner_id FROM partnerships WHERE account_id = ?)", current_account])
+	end
+	
+
 end
