@@ -7,7 +7,9 @@ before_filter	:authorize_programs
 		@zone = "Application"	
 		@program = Program.new
 		@ttl_cost = ttl_cost
-		@service_type = service_type
+		@service_needed = service_needed
+		@suppliers = Account.find(:all, :conditions => {:service => 'supplier', :id => current_partners})
+		@sellers = Account.find(:all, :conditions => {:service => 'seller', :id => current_partners})
 	end
 	
 	def show
@@ -61,13 +63,13 @@ before_filter	:authorize_programs
 		@programs = Program.find(:all, :conditions => [ "account_id IN (?) OR account_id = (?)", current_partners, current_account])
 	end
 	
-	def service_type
-		if current_account.service != 'supplier'
-			'supplier'
-		else
+	def service_needed
+		case current_account.service
+		when 'supplier'
 			'seller'
+		when 'seller'
+			'supplier'
 		end
 	end	
-	
 	
 end

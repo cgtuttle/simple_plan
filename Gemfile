@@ -5,6 +5,7 @@ gem 'pg'
 gem 'devise',           '1.2.0'
 gem 'devise_invitable', '0.4.0'
 gem 'cancan'
+gem 'jquery-rails', '>= 1.0.12'
 
 group :development do
 	gem 'rspec-rails', '2.5.0'

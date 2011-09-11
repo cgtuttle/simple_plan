@@ -1,6 +1,6 @@
 <h2><%= @title %></h2>
 <h3>Total Budget <%= currency_zero(@ttl_cost) %></h3>
-
+<p><% current_account.service %></p>
 <table>
 	<tr>
 		
@@ -10,7 +10,7 @@
 		<td>Account</td>
 		<td>Start</td>
 		<td>End</td>
-		<td><%= @service_type.humanize %></td>
+		<td><%= @service_needed.humanize %></td>
 		<td>Budgeted<br />Rate</td>
 		<td>Budgeted<br />Volume</td>
 		<td>Budgeted<br />Cost</td>

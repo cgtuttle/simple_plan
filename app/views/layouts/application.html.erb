@@ -6,6 +6,11 @@
 		<%= csrf_meta_tag %>
 		<%= render 'layouts/stylesheets' %>
 		<%= javascript_include_tag :defaults %>
+		<%= javascript_include_tag 'jquery.min'%>
+		<%= javascript_include_tag 'jquery-ui.min'%>
+		<%= javascript_include_tag 'jquery_ujs'%>
+		<%= javascript_include_tag 'application'%>
+		
 	</head>
 	
 	<% if @zone == "Sign in" or @zone == nil then %>

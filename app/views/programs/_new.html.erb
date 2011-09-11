@@ -1,4 +1,5 @@
 <p>Add New Program</p>
+
 <table>
 	<tr>
 		<%= form_for(@program) do |f| %>
@@ -12,7 +13,16 @@
 				<td>
 					<%= f.text_field :descr %>
 				</td>
-				<td>
+				<% if @service_needed == "supplier" %>
+					<td>
+						<%= collection_select(@program, :supplier_id, @suppliers, :id, :name) %>
+					</td>
+				<% else %>
+					<td>
+						<%= collection_select(@program, :seller_id, @sellers, :id, :name) %>
+					</td>
+				<% end %>
+				<td >
 					<%= f.date_select(:start_date) %>
 				</td>
 				<td>
