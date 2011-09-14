@@ -4,29 +4,26 @@
 	<tr>
 		<%= form_for(@program) do |f| %>
 			<div class="field">
-				<td>
-					<%= f.text_field :code %>
-				</td>
-				<td>
-					<%= f.text_field :name %>
-				</td>
-				<td>
-					<%= f.text_field :descr %>
-				</td>
+				<td><%= f.text_field :code %></td>
+				
+				<td><%= f.text_field :name %></td>
+				
+				<td><%= f.text_field :descr %></td>
+				
+				<td ><%= f.date_select(:start_date) %></td>
+				
+				<td><%= f.date_select(:end_date) %>
+				
 				<% if @service_needed == "supplier" %>
-					<td>
-						<%= collection_select(@program, :supplier_id, @suppliers, :id, :name) %>
-					</td>
+					<td>Supplier: <%= f.collection_select(:supplier_id, @suppliers, :id, :name) %></td>
 				<% else %>
-					<td>
-						<%= collection_select(@program, :seller_id, @sellers, :id, :name) %>
-					</td>
+					<td>Seller: <%= f.collection_select(:seller_id, @sellers, :id, :name) %></td>
 				<% end %>
-				<td >
-					<%= f.date_select(:start_date) %>
-				</td>
-				<td>
-					<%= f.date_select(:end_date) %>
+				
+				<td><%= f.number_field :budget_rate, :step => 0.01 %></td>
+				
+				<td><%= f.number_field :budget_vol %></td>
+				
 				</td>
 			</div>
 			<div class="actions">
@@ -34,7 +31,7 @@
 					<%= f.submit "Submit" %>
 				</td>
 			</div>
-			<td></td>
+			<td />
 		<% end %>
 	<tr/>
 </table>

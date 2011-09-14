@@ -41,6 +41,13 @@ before_filter	:authorize_programs
 	def create
 		@program = Program.new(params[:program])
 		@program.account_id = current_account.id
+		
+		if current_account.service == 'supplier'
+			@program.supplier = current_account
+		else
+			@program.seller = current_account
+		end
+		
 		if @program.save
 			flash[:success] = "Successfully added a new program"
 			redirect_to programs_path

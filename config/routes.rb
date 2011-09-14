@@ -1,4 +1,12 @@
 SimplePlan::Application.routes.draw do  
+  get "deals/edit"
+
+  get "deals/new"
+
+  get "deals/show"
+
+  get "deals/index"
+
     devise_for :users, :controllers => { :registrations => "registrations" }
 		
 		resources :activities
