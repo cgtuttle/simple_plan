@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.1.0'
 gem 'pg'
-gem 'devise',           '1.2.0'
-gem 'devise_invitable', '0.4.0'
+gem 'devise',           '1.4.5'
+gem 'devise_invitable', '0.5.4'
 gem 'cancan'
-gem 'jquery-rails', '>= 1.0.12'
+gem 'jquery-rails'
 
 group :development do
 	gem 'rspec-rails', '2.5.0'

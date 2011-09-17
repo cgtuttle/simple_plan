@@ -10,9 +10,9 @@
 				
 				<td><%= f.text_field :descr %></td>
 				
-				<td ><%= f.date_select(:start_date) %></td>
+				<td><%= f.text_field :start_date %></td>
 				
-				<td><%= f.date_select(:end_date) %>
+				<td><%= f.text_field :end_date %>
 				
 				<% if @service_needed == "supplier" %>
 					<td>Supplier: <%= f.collection_select(:supplier_id, @suppliers, :id, :name) %></td>

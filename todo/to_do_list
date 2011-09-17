@@ -34,7 +34,7 @@ DONE:	change activities name
 DONE:		remove unique constraint
 			add controllers, resources
 DONE:		categories
-				programs
+DONE:		programs
 				deals
 DONE:		products
 				category_products
@@ -45,7 +45,7 @@ DONE:		products
 			add views index, _new, show, edit
 DONE:		categories
 DONE:		products index, _new, edit, show
-				programs
+DONE:		programs
 				deals
 				category_products
 				program_categories
@@ -55,7 +55,7 @@ DONE:		products index, _new, edit, show
 			add left menu items
 DONE:		categories
 				products
-				programs
+DONE:		programs
 				deals
 			resize all code columns to 31
 DONE:	add Partners
@@ -69,3 +69,6 @@ DONE:	rename partners to partnerships
 DONE:		model
 DONE:		controller
 DONE:		views
+			update 3.1 to assets
+			clean up css for tables
+			
