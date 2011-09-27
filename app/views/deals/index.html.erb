@@ -1,2 +1,35 @@
-<h1>Deals#index</h1>
-<p>Find me in app/views/deals/index.html.erb</p>
+<h3>Program: <%= link_to @program.code, program_path(@program) %> - <%= @program.name %></h3>
+<h4>Deals</h4>
+<table>
+  <tr>
+    
+    <th>Customer</th>
+    <th>Status</th>
+    <th>Offered To</th>
+    <th>Offered On</th>
+    <th>Accepted By</th>
+    <th>Accepted On</th>
+        
+  </tr>
+  
+  <% @deals.each do |deal| %>
+    <tr>
+
+      <td><%= deal.customer.name %></td>
+      <td><%= deal.status %></td>
+      <td><%= deal.offered_to %></td>
+      <td><%= deal.offered_on %></td>
+      <td><%= deal.accepted_by %></td>
+      <td><%= deal.accepted_on %></td>
+      <td><%= link_to "Edit", edit_program_deal_path(@program, deal)%></td>
+      <td><%= link_to "Delete", program_deal_path(@program.id, deal.id), :method => :delete, :confirm => "Please confirm deletion:",
+        :title => "Delete Deal for #{deal.customer.name}" %></td>
+    </tr>
+  <% end %>
+  
+  <tr>
+    <%= render :partial => 'new', :locals => { :deal => @program.deals.new } %>
+  </tr>
+  
+</table>
+

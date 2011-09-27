@@ -11,3 +11,19 @@ $(function (){
 $(function (){
 	$('#program_end_date').datepicker();
 });
+
+$(function (){
+	$('#deal_detail_start_date').datepicker();
+});
+
+$(function (){
+	$('#deal_detail_end_date').datepicker();
+});
+
+$(function (){
+	$('#deal_offered_on').datepicker();
+});
+
+$(function (){
+	$('#deal_accepted_on').datepicker();
+});

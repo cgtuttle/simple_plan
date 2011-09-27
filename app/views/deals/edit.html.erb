@@ -1,2 +1,34 @@
-<h1>Deals#edit</h1>
-<p>Find me in app/views/deals/edit.html.erb</p>
+<h2>Edit Deal</h2>
+
+<%= form_for [@program, @deal] do |f| %>
+  <div class="field">
+    <%= f.label :name, "Customer", :class => "field_label" %>
+    <%= f.collection_select(:customer_id, @customers, :id, :name) %><br />
+  </div>
+  <div class="field">
+    <%= f.label :name, "Status", :class => "field_label" %>
+    <%= f.collection_select(:status, Deal::DEAL_STATUS, :to_s, :humanize) %><br />
+  </div> 
+  <div class="field">
+    <%= f.label :name, "Offered To", :class => "field_label" %>
+    <%= f.text_field :offered_to %><br />
+  </div> 
+  <div class="field">
+    <%= f.label :name, "Offer Date", :class => "field_label" %>
+    <%= f.text_field :offered_on %><br />
+  </div> 
+  <div class="field">
+    <%= f.label :name, "Accepted By", :class => "field_label" %>
+    <%= f.text_field :accepted_by %><br />
+  </div> 
+  <div class="field"> 
+    <%= f.label :name, "Date Accepted", :class => "field_label" %>
+    <%= f.text_field :accepted_on %><br /> 
+  </div>
+  
+  <div class="actions">
+    <%= submit_tag "Update" %>
+    <%= submit_tag "Cancel" %>
+  </div>
+
+<% end %>

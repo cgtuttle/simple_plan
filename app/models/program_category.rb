@@ -1,4 +1,4 @@
 class ProgramCategory < ActiveRecord::Base
-	has_many 	:programs
-	has_many	:categories
+	belongs_to :program
+	belongs_to :category
 end

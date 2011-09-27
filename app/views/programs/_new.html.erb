@@ -1,37 +1,32 @@
 <p>Add New Program</p>
 
 <table>
-	<tr>
-		<%= form_for(@program) do |f| %>
-			<div class="field">
-				<td><%= f.text_field :code %></td>
-				
-				<td><%= f.text_field :name %></td>
-				
-				<td><%= f.text_field :descr %></td>
-				
-				<td><%= f.text_field :start_date %></td>
-				
-				<td><%= f.text_field :end_date %>
-				
-				<% if @service_needed == "supplier" %>
-					<td>Supplier: <%= f.collection_select(:supplier_id, @suppliers, :id, :name) %></td>
-				<% else %>
-					<td>Seller: <%= f.collection_select(:seller_id, @sellers, :id, :name) %></td>
-				<% end %>
-				
-				<td><%= f.number_field :budget_rate, :step => 0.01 %></td>
-				
-				<td><%= f.number_field :budget_vol %></td>
-				
-				</td>
-			</div>
-			<div class="actions">
-				<td>
-					<%= f.submit "Submit" %>
-				</td>
-			</div>
-			<td />
-		<% end %>
-	<tr/>
+  <tr>
+    <%= form_for(@program) do |f| %>
+      <div class="field">
+        <td><%= f.text_field :code %></td> 
+        <td><%= f.text_field :name %></td> 
+        <td><%= f.text_field :descr %></td>
+        <td><%= f.text_field :start_date %></td>
+        <td><%= f.text_field :end_date %>
+
+        <% if @service_needed == "supplier" %>
+            <td>Supplier: <%= f.collection_select(:supplier_id, @suppliers, :id, :name) %></td>
+        <% else %>
+            <td>Seller: <%= f.collection_select(:seller_id, @sellers, :id, :name) %></td>
+        <% end %>
+
+        <td><%= f.number_field :budget_rate, :step => 0.01 %></td>
+        <td><%= f.number_field :budget_vol %></td>
+
+      </div>
+
+      <div class="actions">
+        <td>
+          <%= f.submit "Submit" %>
+        </td>
+      </div>
+  
+    <% end %>
+  <tr/>
 </table>

@@ -1,6 +1,7 @@
 class ProgramsController < ApplicationController
 include ApplicationHelper
 before_filter	:authorize_programs
+before_filter	:find_customers
 
   def index
 		@title = "Programs"
@@ -68,6 +69,10 @@ before_filter	:authorize_programs
 	
 	def authorize_programs
 		@programs = Program.find(:all, :conditions => [ "account_id IN (?) OR account_id = (?)", current_partners, current_account])
+	end
+	
+	def find_customers
+		@customers = Account.find(:all, :conditions => {:service => 'customer', :id => current_partners})
 	end
 	
 	def service_needed

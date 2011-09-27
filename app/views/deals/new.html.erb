@@ -1,2 +1,41 @@
-<h1>Deals#new</h1>
-<p>Find me in app/views/deals/new.html.erb</p>
+<p>Add New Deal</p>
+
+<table>
+	<tr>
+		<th>Code</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Start</th>
+		<th>End</th>
+		<th>Rate</th>
+		<th>Volume</th>
+	</tr>
+	<tr>
+		<%= form_for([@program, @deal]) do |f| %>
+			<div class="field">
+				
+				<td><%= f.text_field :code %></td>
+				
+				<td><%= f.text_field :name %></td>
+				
+				<td><%= f.text_field :descr %></td>
+				
+				<td><%= f.text_field :start_date %></td>
+				
+				<td><%= f.text_field :end_date %>
+				
+				<td><%= f.number_field :deal_rate, :step => 0.01 %></td>
+				
+				<td><%= f.number_field :deal_vol %></td>
+				
+				</td>
+			</div>
+			<div class="actions">
+				<td>
+					<%= f.submit "Submit" %>
+				</td>
+			</div>
+			<td />
+		<% end %>
+	<tr/>
+</table>

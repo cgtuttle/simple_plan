@@ -1,39 +1,37 @@
 <h2>Edit Program</h2>
 
 <%= form_for(@program) do |f| %>
-	<div class="field">
-		<%= f.label :name, "Code", :class => "field_label" %><br />
-		<%= f.text_field :code %><br/>
-	</div>
-	<div class="field">
-		<%= f.label :name, "Name", :class => "field_label" %><br />
-		<%= f.text_field :name %><br/>
-	</div>
-	<div class="field">
-		<%= f.label :name, "Descr", :class => "field_label" %><br />
-		<%= f.text_field :Desr %><br/>
-	</div>
-	<div class="field">
-		<%= f.label :name, "Name", :class => "field_label" %><br />
-		<%= f.text_field :name %><br/>
-	</div>
-	<div class="field">
-		<%= f.label :name, "Name", :class => "field_label" %><br />
-		<%= f.text_field :name %><br/>
-	</div>
-	<div class="field">
-		<%= f.label :name, "Name", :class => "field_label" %><br />
-		<%= f.text_field :name %><br/>
-	</div>
-	<div class="field">
-		<%= f.label :name, "Name", :class => "field_label" %><br />
-		<%= f.text_field :name %><br/>
-	</div>
-	<div class="field">
-		<%= f.label :name, "Name", :class => "field_label" %><br />
-		<%= f.text_field :name %><br/>
-	</div>
-	<div class="actions">
-		<%= f.submit "Update" %>
-	</div>
+  <div class="field">
+    <%= f.label :name, "Code", :class => "field_label" %><br />
+    <%= f.text_field :code %><br/>
+  </div>
+  <div class="field">
+    <%= f.label :name, "Name", :class => "field_label" %><br />
+    <%= f.text_field :name %><br/>
+  </div>
+  <div class="field">
+    <%= f.label :name, "Descr", :class => "field_label" %><br />
+    <%= f.text_field :descr %><br/>
+  </div>
+
+  <div class="field">
+    <%= f.label :name, "Seller", :class => "field_label" %><br />
+    <%= f.text_field :seller_id %><br/>
+  </div>
+
+  <div class="field">
+    <%= f.label :name, "Start", :class => "field_label" %><br />
+    <%= f.text_field :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :name, "End", :class => "field_label" %><br />
+    <%= f.text_field :end_date %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+  
+  <p><%= link_to "Cancel", :back %></p>
+  
 <% end %>

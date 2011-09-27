@@ -32,6 +32,9 @@ module ApplicationHelper
 	def current_partners
 		Account.find(:all, :conditions => ["id IN (SELECT partner_id FROM partnerships WHERE account_id = ?)", current_account])
 	end
-
+	
+	def current_programs
+		@programs
+	end
 	
 end

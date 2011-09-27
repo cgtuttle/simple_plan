@@ -1,4 +1,4 @@
 class ProgramActivity < ActiveRecord::Base
-	has_many :programs
-	has_many :activities
+	belongs_to :program
+	belongs_to :activity
 end

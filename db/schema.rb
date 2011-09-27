@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110910142820) do
+ActiveRecord::Schema.define(:version => 20110925142440) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -44,22 +44,30 @@ ActiveRecord::Schema.define(:version => 20110910142820) do
     t.datetime "updated_at"
   end
 
-  create_table "deals", :force => true do |t|
-    t.string   "code",        :limit => 15, :null => false
-    t.string   "name",        :limit => 63
-    t.string   "descr"
+  create_table "deal_details", :force => true do |t|
+    t.integer  "deal_id"
     t.integer  "product_id"
-    t.float    "deal_rate"
+    t.integer  "activity_id"
+    t.float    "rate"
+    t.float    "volume"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "deals", :force => true do |t|
     t.integer  "program_id"
-    t.integer  "category_id"
     t.integer  "customer_id"
-    t.integer  "activity_id"
-    t.float    "deal_vol"
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
+    t.date     "offered_on"
+    t.date     "accepted_on"
+    t.string   "offered_to"
+    t.string   "accepted_by"
+    t.text     "notes"
   end
 
   create_table "partnerships", :force => true do |t|
@@ -100,14 +108,6 @@ ActiveRecord::Schema.define(:version => 20110910142820) do
     t.integer  "program_id"
     t.integer  "category_id"
     t.float    "budget_rate"
-    t.float    "vol_alloc"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "program_customers", :force => true do |t|
-    t.integer  "program_id"
-    t.integer  "customer_id"
     t.float    "vol_alloc"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,8 +1,8 @@
 <%= render :partial => "shared/base_fields", :locals => { :object => @program } %>
 	
-	<div>
-		<p><%= link_to "Edit", edit_program_path(@program) %></p>
-		<p><%= link_to "Delete", @program, :method => :delete, :confirm => "Please confirm deletion:",
-																						:title => "Delete #{@program.name}" %></P>
-		<p><%= link_to "Back", :back %></p>
-	</div>																		
+  <div>
+    <p><%= link_to "Edit", edit_program_path(@program) %></p>
+    <p><%= link_to "Delete", @program, :method => :delete, :confirm => "Please confirm deletion:",
+        :title => "Delete #{@program.name}" %></P>
+    <p><%= link_to "Back", :back %></p>
+  </div>																		

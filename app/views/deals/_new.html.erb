@@ -1,0 +1,21 @@
+<%= form_for [@program, deal] do |f| %>
+  <div class="field">
+    
+    <td><%= f.collection_select(:customer_id, @customers, :id, :name) %></td>
+    <td><%= f.collection_select(:status, Deal::DEAL_STATUS, :to_s, :humanize) %></td>
+    <td><%= f.text_field :offered_to %></td>
+    <td><%= f.text_field :offered_on %></td>
+    <td><%= f.text_field :accepted_by %></td>
+    <td><%= f.text_field :accepted_on %></td>
+  
+  
+  </div>
+  <div class="actions">
+    <td>
+      <%= f.submit "Submit" %>
+    </td>
+  </div>
+  <td />
+<% end %>
+  
+
