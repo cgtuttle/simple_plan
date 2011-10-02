@@ -1,4 +1,4 @@
-<h3>Program: <%= link_to @program.code, program_path(@program) %> - <%= @program.name %></h3>
+<h4><%= link_to @program.code, programs_path %> (<%= @program.name %>)</h4>
 <h4>Deals</h4>
 <table>
   <tr>
@@ -15,7 +15,7 @@
   <% @deals.each do |deal| %>
     <tr>
 
-      <td><%= deal.customer.name %></td>
+      <td><%= link_to deal.customer.name, deal_deal_products_path(deal) %></td>
       <td><%= deal.status %></td>
       <td><%= deal.offered_to %></td>
       <td><%= deal.offered_on %></td>
@@ -24,7 +24,6 @@
       <td><%= link_to "Edit", edit_program_deal_path(@program, deal)%></td>
       <td><%= link_to "Delete", program_deal_path(@program.id, deal.id), :method => :delete, :confirm => "Please confirm deletion:",
                       :title => "Delete Deal for #{deal.customer.name}" %></td>
-      <td><%= link_to "Products", deal_deal_products_path(deal) %></td>
     </tr>
   <% end %>
   

@@ -5,6 +5,8 @@ class Deal < ActiveRecord::Base
   
 	has_many		:deal_products
 	
+	#TODO:	Make customer unique
+	
 	DEAL_STATUS = %w[planned offered accepted rejected canceled]
 	
 	def cost

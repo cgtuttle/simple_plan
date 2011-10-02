@@ -1,5 +1,5 @@
-<h4><%= @deal.program.code %> (<%= @deal.program.name %>)
-  >> <%= @customer.name %></h4>
+<h4><%= link_to @deal.program.code, programs_path %> (<%= @deal.program.name %>)
+  >> <%= link_to @customer.name, program_deals_path(@program) %></h4>
 <h4>Products</h4>
 <table>
   <tr>

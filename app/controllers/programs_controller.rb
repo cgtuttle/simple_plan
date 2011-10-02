@@ -1,10 +1,11 @@
 class ProgramsController < ApplicationController
 include ApplicationHelper
 before_filter	:authorize_programs
+before_filter :find_account
 before_filter	:find_customers
 
   def index
-		@title = "Programs"
+		@title = "#{@account.name} Programs"
 		@zone = "Application"	
 		@program = Program.new
 		@ttl_cost = ttl_cost
@@ -69,6 +70,10 @@ before_filter	:find_customers
 	
 	def authorize_programs
 		@programs = Program.find(:all, :conditions => [ "account_id IN (?) OR account_id = (?)", current_partners, current_account])
+	end
+	
+	def find_account
+		@account = GlobalHelper::current_account(current_user)
 	end
 	
 	def find_customers
