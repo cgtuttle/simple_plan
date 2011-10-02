@@ -23,7 +23,8 @@
       <td><%= deal.accepted_on %></td>
       <td><%= link_to "Edit", edit_program_deal_path(@program, deal)%></td>
       <td><%= link_to "Delete", program_deal_path(@program.id, deal.id), :method => :delete, :confirm => "Please confirm deletion:",
-        :title => "Delete Deal for #{deal.customer.name}" %></td>
+                      :title => "Delete Deal for #{deal.customer.name}" %></td>
+      <td><%= link_to "Products", deal_deal_products_path(deal) %></td>
     </tr>
   <% end %>
   

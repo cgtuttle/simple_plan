@@ -12,10 +12,10 @@ module SimplePlan
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    # Custom directories with classes and modules you want to be autoloadable.
-			config.autoload_paths += %W(#{config.root}/lib)
-
-		# Custome application configuration
+    # config/application.rb
+		config.autoload_paths += %W(#{config.root}/lib)
+		
+		# Custom application configuration
     # Set to true if you want to allow users to sign up to an account/subdomain versus being invited
      config.allow_account_sign_up = true
     # Set to false if you want redirected to sign_in page on authenticate_user! Leaving true redirects to account home with flash alert

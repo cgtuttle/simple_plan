@@ -1,6 +1,6 @@
 class Activity < ActiveRecord::Base
 
-has_many 		:deals
+has_many 		:deal_activities
 belongs_to	:account
 belongs_to	:program_activity
 

@@ -1,0 +1,23 @@
+<h4><%= @deal.program.code %> (<%= @deal.program.name %>)
+  >> <%= @customer.name %></h4>
+<h4>Products</h4>
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Rate</th>
+    <th>Volume</th>
+    <th>Start</th>
+    <th>End</th>
+  </tr>
+  
+  <% @deal_products.each do |product| %>
+    <tr>
+      <td><%= product.product.code %></td>
+      <td><%= product.rate %></td>
+      <td><%= product.volume %></td>
+      <td><%= product.start_date %></td>
+      <td><%= product.end_date %></td>
+
+    </tr>
+  <% end %>  
+</table>

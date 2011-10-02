@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe DealDetailsController do
+describe DealProductsController do
 
 end

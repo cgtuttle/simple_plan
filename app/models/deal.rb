@@ -3,7 +3,7 @@ class Deal < ActiveRecord::Base
 	belongs_to 	:customer, :class_name => "Account"
   belongs_to  :category
   
-	has_many		:deal_details
+	has_many		:deal_products
 	
 	DEAL_STATUS = %w[planned offered accepted rejected canceled]
 	
