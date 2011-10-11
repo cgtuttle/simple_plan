@@ -1,0 +1,24 @@
+/* 
+    Document   : table_elements
+    Created on : Oct 8, 2011, 1:05:11 PM
+    Author     : ctuttle
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.number_field {
+	width:	100px;
+}
+
+.date_field {
+	width:	120px;
+}
+
+.text_field {
+	width:	auto;
+}
+

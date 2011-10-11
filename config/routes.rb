@@ -12,7 +12,6 @@ SimplePlan::Application.routes.draw do
   resources :program_categories
   resources :program_products
   resources :program_activities
-	#resources :deal_products
 	
 	resources	:programs do
 		resources	:deals	

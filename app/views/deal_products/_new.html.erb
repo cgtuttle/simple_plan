@@ -1,0 +1,17 @@
+<%= form_for [@deal, deal_product] do |f|  %>
+  <div class="field">
+    <td><%= f.collection_select(:product_id, @products, :id, :code) %></td>
+    <td><%= f.number_field :rate, :step => 0.01, :class => "number_field" %></td>
+    <td><%= f.number_field :volume, :step => 1, :class => "number_field" %></td>
+    <td><%= f.text_field :start_date, :class => "date_field" %></td>
+    <td><%= f.text_field :end_date, :class => "date_field" %></td>
+  
+  
+  </div>
+  <div class="actions">
+    <td>
+      <%= f.submit "Submit" %>
+    </td>
+  </div>
+
+<% end %>

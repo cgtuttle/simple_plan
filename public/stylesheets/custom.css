@@ -26,7 +26,7 @@
 	background-color:	#B4CDCD; /* lightcyan3 */
 	height:						100%;
 	margin:						0 -150px 0 150px;
-	overflow:					scroll;
+	overflow:					auto;
 }
 
 .grd_css{

@@ -1,2 +1,30 @@
-<h1>DealActivities#index</h1>
-<p>Find me in app/views/deal_activities/index.html.erb</p>
+<h4><%= link_to @deal.program.code, programs_path %> (<%= @deal.program.name %>)
+ >> <%= link_to @customer.name, program_deals_path(@program) %>
+ >> <%= link_to @product.code, deal_deal_products_path(@deal) %> </h4>
+
+<h4>Activities</h4>
+<table>
+  <tr>
+    <th>Activity</th>
+    <th>Rate</th>
+    <th>Vol. Alloc.</th>
+    <th>Start</th>
+    <th>End</th>
+  </tr>
+  
+  <% @deal_activities.each do |activity| %>
+    <tr>
+      <td><%= activity.activity.code %></td>
+      <td><%= activity.rate %></td>
+      <td><%= activity.volume_allocation %></td>
+      <td><%= activity.start_date %></td>
+      <td><%= activity.end_date %></td>
+
+    </tr>
+  <% end %>
+    
+  <tr>
+    <%= render :partial => 'new', :locals => { :deal_activity => @deal_product.deal_activities.new } %>
+  </tr>
+  
+</table>

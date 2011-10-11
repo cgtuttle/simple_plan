@@ -1,6 +1,6 @@
 <%= form_for [@program, deal] do |f| %>
   <div class="field">
-    
+    <%#TODO: Add class tags to these for proper sizing%>
     <td><%= f.collection_select(:customer_id, @customers, :id, :name) %></td>
     <td><%= f.collection_select(:status, Deal::DEAL_STATUS, :to_s, :humanize) %></td>
     <td><%= f.text_field :offered_to %></td>

@@ -4,7 +4,7 @@
 <table>
   <tr>
     <th>Product</th>
-    <th>Rate</th>
+    <th>Budgeted<br />Rate</th>
     <th>Volume</th>
     <th>Start</th>
     <th>End</th>
@@ -12,12 +12,17 @@
   
   <% @deal_products.each do |product| %>
     <tr>
-      <td><%= product.product.code %></td>
+      <%#TODO: Move path below to "Activities" Link%>
+      <td><%= link_to product.product.code, deal_product_deal_activities_path(product) %></td>
       <td><%= product.rate %></td>
       <td><%= product.volume %></td>
       <td><%= product.start_date %></td>
       <td><%= product.end_date %></td>
-
     </tr>
   <% end %>  
+    
+  <tr>
+    <%= render :partial => 'new', :locals => { :deal_product => @deal.deal_products.new } %>
+  </tr>
+  
 </table>

@@ -13,11 +13,11 @@ $(function (){
 });
 
 $(function (){
-	$('#deal_detail_start_date').datepicker();
+	$('#deal_product_start_date').datepicker();
 });
 
 $(function (){
-	$('#deal_detail_end_date').datepicker();
+	$('#deal_product_end_date').datepicker();
 });
 
 $(function (){
@@ -26,4 +26,12 @@ $(function (){
 
 $(function (){
 	$('#deal_accepted_on').datepicker();
+});
+
+$(function (){
+	$('#deal_activity_start_date').datepicker();
+});
+
+$(function (){
+	$('#deal_activity_end_date').datepicker();
 });

@@ -33,6 +33,18 @@ module ApplicationHelper
 		Account.find(:all, :conditions => ["id IN (SELECT partner_id FROM partnerships WHERE account_id = ?)", current_account])
 	end
 	
+	def current_customers(user)
+		Account.find(:all, :conditions => {:service => 'customer', :id => current_partners})
+	end
+	
+	def current_products
+		Product.find(:all, :conditions => ["account_id IN (?) or account_id = ?", current_partners, current_account])
+	end
+	
+	def current_activities
+		Activity.find(:all, :conditions => ["account_id IN (?) OR account_id = ?", current_partners, current_account])
+	end
+	
 	
 	
 end

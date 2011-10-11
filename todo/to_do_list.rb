@@ -23,6 +23,7 @@ DONE:		program_customers
 DONE:		program_categories
 DONE:		category_products
 DONE:		program_products
+DONE:		deal_activities
 DONE:	update models w/belongs_to
 DONE:		program
 DONE:		activity
@@ -32,32 +33,32 @@ DONE:	fix profiles show, edit view
 DONE:		no :name field available
 DONE:	change activities name
 DONE:		remove unique constraint
-			add controllers, resources
+TODO:	add controllers, resources
 DONE:		categories
 DONE:		programs
-				deals
+DONE:		deals
 DONE:		products
-				category_products
-				program_categories
-				program_products
-				program_activities
-				program_customers
-			add views index, _new, show, edit
+TODO:		category_products
+TODO:		program_categories
+TODO:		program_products
+TODO:		program_activities
+DONE:		deal_activities
+TODO:	add views index, _new, show, edit
 DONE:		categories
 DONE:		products index, _new, edit, show
 DONE:		programs
-				deals
-				category_products
-				program_categories
-				program_products
-				program_activities
-				program_customers
-			add left menu items
+DONE:		deals
+TODO:		category_products
+TODO:		program_categories
+TODO:		program_products
+TODO:		program_activities
+TODO:		add left menu items
 DONE:		categories
-				products
+TODO:		products
 DONE:		programs
-				deals
-			resize all code columns to 31
+TODO:		deals
+TODO:		deal_details
+TODO:	resize all code columns to 31
 DONE:	add Partners
 DONE:		model
 DONE:			account_id
@@ -69,6 +70,7 @@ DONE:	rename partners to partnerships
 DONE:		model
 DONE:		controller
 DONE:		views
-			update 3.1 to assets
-			clean up css for tables
+TODO:	update 3.1 to assets
+TODO:	clean up css for tables
+DONE:	rename deal_details to deal_products
 			
