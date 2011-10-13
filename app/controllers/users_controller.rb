@@ -10,6 +10,9 @@ before_filter :find_account_users
 		@title = "#{@profile.fname} #{lastname}"
 	end
 	
+	def user
+	end
+	
 	def dashboard
 		@zone = "Application"
 		@user = current_user
