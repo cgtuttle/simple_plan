@@ -28,6 +28,8 @@ SimplePlan::Application.routes.draw do
 	namespace :user do
 		root :to => 'users#dashboard'
 	end
+	
+	match 'users' => 'users#dashboard', :as => 'user_root'
 
 	match '/help',			:to => 'pages#help'
 	match '/about',			:to => 'pages#about'
