@@ -1,9 +1,9 @@
 SimplePlan::Application.routes.draw do  
 
-   devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users, :controllers => { :registrations => "registrations" }
 		
   resources :activities
-	resources :accounts
+	resources	:accounts
 	resources :services
 	resources :profiles
 	resources :partnerships
@@ -12,7 +12,7 @@ SimplePlan::Application.routes.draw do
   resources :program_categories
   resources :program_products
   resources :program_activities
-	
+
 	resources	:programs do
 		resources	:deals	
 	end

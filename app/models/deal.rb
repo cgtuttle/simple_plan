@@ -9,11 +9,5 @@ class Deal < ActiveRecord::Base
 	
 	DEAL_STATUS = %w[planned offered accepted rejected canceled]
 	
-	def cost
-		if self.deal_rate && self.deal_vol
-			self.deal_rate * self.deal_vol
-		else
-			0
-		end
-	end
+	
 end

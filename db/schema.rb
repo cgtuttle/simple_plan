@@ -10,14 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111010010525) do
+ActiveRecord::Schema.define(:version => 20111016144859) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
-    t.string   "service",    :limit => 63
+    t.string   "service",      :limit => 63
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "current_plan"
   end
 
   create_table "activities", :force => true do |t|
@@ -89,6 +90,18 @@ ActiveRecord::Schema.define(:version => 20111010010525) do
     t.datetime "updated_at"
   end
 
+  create_table "plans", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.string   "descr"
+    t.integer  "account_id"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.float    "budget"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", :force => true do |t|
     t.string   "code",       :limit => 15
     t.string   "name",       :limit => 127
@@ -150,6 +163,7 @@ ActiveRecord::Schema.define(:version => 20111010010525) do
     t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "plan_id"
   end
 
   create_table "users", :force => true do |t|

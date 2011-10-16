@@ -8,7 +8,7 @@ before_filter	:find_customers
 		@title = "#{@account.name} Programs"
 		@zone = "Application"	
 		@program = Program.new
-		@ttl_cost = ttl_cost
+		@ttl_budget_cost = Program.ttl_budget_cost(current_partners, current_account)
 		@service_needed = service_needed
 		@suppliers = Account.find(:all, :conditions => {:service => 'supplier', :id => current_partners})
 		@sellers = Account.find(:all, :conditions => {:service => 'seller', :id => current_partners})
@@ -63,11 +63,7 @@ before_filter	:find_customers
     flash[:success] = "Program deleted."
     redirect_to programs_path
   end	
-	
-	def ttl_cost
-		Program.sum('budget_rate * budget_vol', :conditions => [ "account_id IN (?) OR account_id = (?)", current_partners, current_account]) 			
-	end
-	
+
 	def authorize_programs
 		@programs = Program.find(:all, :conditions => [ "account_id IN (?) OR account_id = (?)", current_partners, current_account])
 	end
