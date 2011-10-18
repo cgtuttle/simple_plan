@@ -1,0 +1,25 @@
+<h4><%= @account.name %> Plans</h4>
+
+  <table>
+    <tr>
+      <th />
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Budget</th>
+    </tr>
+    
+    <% @plans.each do |plan| %>
+      <tr>
+        <td><%= link_to "Programs", plan_programs_path(plan) %></td>
+        <td><%= plan.code %></td>
+        <td><%= plan.name %></td>
+        <td><%= plan.descr %></td>
+        <td><%= plan.date_start %></td>
+        <td><%= plan.date_end %></td>
+        <td><%= plan.budget %></td>
+      </tr>
+    <% end %>
+  </table>

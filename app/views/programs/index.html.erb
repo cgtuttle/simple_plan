@@ -1,5 +1,5 @@
-<h4><%= @account.name %></h4>
-<h4>Total Budget <%= currency_zero(@ttl_budget_cost) %></h4>
+<h4><%= link_to @plan.code, plans_path %></h4>
+<h4>Total Program Plan: <%= currency_zero(@ttl_budget_cost) %> of <%= currency_zero(@plan_budget) %> Budget</h4>
 <table>
   <tr>
     <th />

@@ -14,7 +14,7 @@
 }	
 
 .left_column {
-	background-color: #E0FFFF; /* lightcyan1 */
+	background-color: #B4CFFF;
 	float: 						left;
 	width: 						150px;
 	height: 					100%;
@@ -23,7 +23,7 @@
 }
 
 .right_column {
-	background-color:	#B4CDCD; /* lightcyan3 */
+	background-color:	#FEFFF1;
 	height:						100%;
 	margin:						0 -150px 0 150px;
 	overflow:					auto;

@@ -1,5 +1,6 @@
 class ProgramsController < ApplicationController
 include ApplicationHelper
+before_filter	:find_plan
 before_filter	:authorize_programs
 before_filter :find_account
 before_filter	:find_customers
@@ -8,7 +9,8 @@ before_filter	:find_customers
 		@title = "#{@account.name} Programs"
 		@zone = "Application"	
 		@program = Program.new
-		@ttl_budget_cost = Program.ttl_budget_cost(current_partners, current_account)
+		@ttl_budget_cost = Program.ttl_budget_cost(current_partners, current_account, @plan)
+		@plan_budget = Program.plan_budget(@plan)
 		@service_needed = service_needed
 		@suppliers = Account.find(:all, :conditions => {:service => 'supplier', :id => current_partners})
 		@sellers = Account.find(:all, :conditions => {:service => 'seller', :id => current_partners})
@@ -43,7 +45,7 @@ before_filter	:find_customers
 	def create
 		@program = Program.new(params[:program])
 		@program.account_id = current_account.id
-		
+		@program.plan_id = @plan.id
 		if current_account.service == 'supplier'
 			@program.supplier = current_account
 		else
@@ -65,7 +67,8 @@ before_filter	:find_customers
   end	
 
 	def authorize_programs
-		@programs = Program.find(:all, :conditions => [ "account_id IN (?) OR account_id = (?)", current_partners, current_account])
+		@programs = Program.find(:all, :conditions => [ "(account_id IN (?) OR account_id = (?)) AND plan_id = ?", 
+				current_partners, current_account, @plan.id])
 	end
 	
 	def find_account
@@ -74,6 +77,10 @@ before_filter	:find_customers
 	
 	def find_customers
 		@customers = GlobalHelper::current_customers(current_user)
+	end
+	
+	def find_plan
+		@plan = Plan.find(params[:plan_id])
 	end
 	
 	def service_needed

@@ -12,6 +12,10 @@ SimplePlan::Application.routes.draw do
   resources :program_categories
   resources :program_products
   resources :program_activities
+	
+	resources	:plans do
+		resources	:programs
+	end
 
 	resources	:programs do
 		resources	:deals	
