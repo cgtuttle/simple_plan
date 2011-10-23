@@ -72,11 +72,11 @@ before_filter	:find_customers
 	end
 	
 	def find_account
-		@account = GlobalHelper::current_account(current_user)
+		@account = current_account
 	end
 	
 	def find_customers
-		@customers = GlobalHelper::current_customers(current_user)
+		@customers = current_customers(current_user)
 	end
 	
 	def find_plan
