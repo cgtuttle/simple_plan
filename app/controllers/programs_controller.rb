@@ -22,9 +22,9 @@ before_filter	:find_customers
 		@title = @program.name
 	end
 
-  def new
-		redirect_to programs_path
-  end
+  #def new
+	#	redirect_to programs_path
+  #end
 	
 	def edit
 		@zone = "Application"
