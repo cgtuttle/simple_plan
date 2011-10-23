@@ -14,18 +14,18 @@
 }	
 
 .left_column {
-	background-color: #B4CFFF;
+	background-color: #FFFFF0;
 	float: 						left;
-	width: 						150px;
+	width: 						100px;
 	height: 					100%;
 	font-size:				100%;
 	font-family:			arial;
 }
 
 .right_column {
-	background-color:	#FEFFF1;
+	background-color:	#F8F8FF;
 	height:						100%;
-	margin:						0 -150px 0 150px;
+	margin:						0 -100px 0 100px;
 	overflow:					auto;
 }
 
@@ -64,6 +64,11 @@ header img {
 	float: left;
 	height: 25px;
 	padding: 5px;
+}
+
+header_flash {
+	float: left;
+	width: 25%
 }
 
 section {

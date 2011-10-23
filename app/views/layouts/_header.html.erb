@@ -1,12 +1,17 @@
 <header class="grd_css">
-	<%= link_to logo, root_path %>
-		<nav>
-			<ul>
-				<li><%= current_user.profile.fname %> <%= current_user.profile.lname %></li>
-				<li> (<%= current_user.role %>) </li>
-				<li><%= current_user.account.name %></li>
-				<li><%= link_to('Logout', destroy_user_session_path, :method => 'delete') %></li>
-				<li><%= link_to "Help", help_path %></li>				
-			</ul>
-		</nav>
+  <%= link_to logo, root_path %>
+  <header_flash>
+    <% flash.each do |key, value| %>
+      <div class="flash <%= key %>"> <%= value %></div>
+    <% end %>
+  </header_flash>
+  <nav>
+    <ul>
+      <li><%= current_user.profile.fname %> <%= current_user.profile.lname %></li>
+      <li> (<%= current_user.role %>) </li>
+      <li><%= current_user.account.name %></li>
+      <li><%= link_to('Logout', destroy_user_session_path, :method => 'delete') %></li>
+      <li><%= link_to "Help", help_path %></li>				
+    </ul>
+  </nav>
 </header>

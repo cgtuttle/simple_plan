@@ -1,4 +1,4 @@
-<h4><%= link_to @program.code, programs_path %> (<%= @program.name %>)</h4>
+<h4><%= @plan.code %> <%= link_to @program.code, plan_programs_path(@plan.id) %> (<%= @program.name %>)</h4>
 <h4>Deals</h4>
 <table>
   <tr>

@@ -35,3 +35,11 @@ $(function (){
 $(function (){
 	$('#deal_activity_end_date').datepicker();
 });
+
+$(function (){
+	$('#plan_start_date').datepicker();
+});
+
+$(function (){
+	$('#plan_end_date').datepicker();
+});

@@ -1,14 +1,14 @@
 class ProgramsController < ApplicationController
 include ApplicationHelper
 before_filter	:find_plan
-before_filter	:authorize_programs
+before_filter	:find_programs
 before_filter :find_account
 before_filter	:find_customers
 
   def index
 		@title = "#{@account.name} Programs"
 		@zone = "Application"	
-		@program = Program.new
+		@program = @plan.programs.new
 		@ttl_budget_cost = Program.ttl_budget_cost(current_partners, current_account, @plan)
 		@plan_budget = Program.plan_budget(@plan)
 		@service_needed = service_needed
@@ -43,7 +43,7 @@ before_filter	:find_customers
 	end
 	
 	def create
-		@program = Program.new(params[:program])
+		@program = @plan.programs.build(params[:program])
 		@program.account_id = current_account.id
 		@program.plan_id = @plan.id
 		if current_account.service == 'supplier'
@@ -54,9 +54,9 @@ before_filter	:find_customers
 		
 		if @program.save
 			flash[:success] = "Successfully added a new program"
-			redirect_to programs_path
+			redirect_to plan_programs_path
 		else
-			redirect_to programs_path
+			redirect_to plan_programs_path
 		end
 	end
 	
@@ -66,9 +66,9 @@ before_filter	:find_customers
     redirect_to programs_path
   end	
 
-	def authorize_programs
-		@programs = Program.find(:all, :conditions => [ "(account_id IN (?) OR account_id = (?)) AND plan_id = ?", 
-				current_partners, current_account, @plan.id])
+	def find_programs
+		@programs = @plan.programs.find(:all, :conditions => [ "(account_id IN (?) OR account_id = (?))", 
+				current_partners, current_account])
 	end
 	
 	def find_account

@@ -3,6 +3,7 @@ include ApplicationHelper
 before_filter	:find_program
 before_filter :find_deals
 before_filter	:find_customers
+before_filter :find_plan
 
   def create
 		@deal = @program.deals.build(params[:deal])
@@ -66,6 +67,10 @@ before_filter	:find_customers
 		#@customers = Account.find(:all, :conditions => {:service => 'customer', :id => current_partners})
 		@customers = Account.find(:all, :conditions => ["id NOT IN (SELECT customer_id FROM deals WHERE program_id = ?)
 				AND service = ? AND id IN (?)", @program.id, "customer", current_partners])
+	end
+	
+	def find_plan
+		@plan = @program.plan
 	end
 	
 end

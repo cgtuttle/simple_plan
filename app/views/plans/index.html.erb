@@ -17,9 +17,14 @@
         <td><%= plan.code %></td>
         <td><%= plan.name %></td>
         <td><%= plan.descr %></td>
-        <td><%= plan.date_start %></td>
-        <td><%= plan.date_end %></td>
+        <td><%= plan.start_date %></td>
+        <td><%= plan.end_date %></td>
         <td><%= plan.budget %></td>
       </tr>
     <% end %>
+      
+    <tr>
+      <%= render 'new' %>
+    </tr>
+    
   </table>

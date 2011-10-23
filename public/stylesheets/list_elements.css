@@ -1,0 +1,16 @@
+/* 
+    Document   : list_elements
+    Created on : Oct 23, 2011, 9:24:00 AM
+    Author     : ctuttle
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.vl_element {
+	padding: 1px 3px 1px 3px;
+}
