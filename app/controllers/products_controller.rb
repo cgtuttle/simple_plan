@@ -51,6 +51,12 @@ before_filter	:authorize_products
     redirect_to products_path
   end	
 	
+	def upload
+		uploaded_io = params[:person][:picture]
+		File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
+    file.write(uploaded_io.read)
+	end
+	
 	def authorize_products
 		@products = Product.find(:all, :conditions => [ "account_id IN (?) OR account_id = (?)", current_partners, current_account])
 	end

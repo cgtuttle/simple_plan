@@ -1,9 +1,11 @@
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<%= stylesheet_link_tag 'application', :media => 'screen' %>
+<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+<%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
+<!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+<%= stylesheet_link_tag 'custom', :media => 'screen' %>
 <%= stylesheet_link_tag 'home', :media => 'screen' %>
 <%= stylesheet_link_tag 'table_elements', :media => 'screen' %>
 <%= stylesheet_link_tag 'list_elements', :media => 'screen' %>
-<%= stylesheet_link_tag 'flash', :media => 'screen' %>
 <%= stylesheet_link_tag 'jquery-ui-1.8.16.custom.css' %>

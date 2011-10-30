@@ -1,3 +1,32 @@
+html {
+	margin:		0;
+	padding:	0;
+	border:		0;
+}
+
+/*Typeset*/
+
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
+article, aside, dialog, figure, footer, header, hgroup, nav, section {
+	display:	block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin:	5px;
+}
+
+body {
+	font-family:	Arial, Helvetica, sans-serif;
+	font-size:		75%;
+}
+
+h1 {font-size:3em;}
+h2 {font-size:2em;}
+h3 {font-size:1.5em;}
+h4 {font-size:100%;}
+
+/*Layout*/
+
 .container {
 	position: fixed;
 	top:			0;
@@ -29,6 +58,8 @@
 	overflow:					auto;
 }
 
+/*Gradient*/
+
 .grd_css{
 	width: 100%;
   background-color: #B4CDCD;
@@ -50,9 +81,6 @@
 .field_label{
 	font-size: 100%;
 	font-weight: normal;
-}
-
-body{
 }
 
 header {
