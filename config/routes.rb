@@ -40,6 +40,7 @@ SimplePlan::Application.routes.draw do
 	match '/contact',		:to => 'pages#contact'
 	match '/user',			:to => 'users#show'
 	match '/users',			:to => 'users#index'
+	match '/products/import',		:to => 'products#csv_import', :as => 'product_csv_import'
 	
 	root :to => 'pages#home'
 

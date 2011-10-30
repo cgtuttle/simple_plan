@@ -1,4 +1,4 @@
-<h2>Products</h2>
+<h4>Products</h4>
 
   <table>
     <tr>
@@ -9,35 +9,45 @@
       <td></td>
       <td></td>
     </tr>
-      <% @products.each do |product| %>
-    <tr>
-      <td><%= link_to product.code, product %></td>
-        <% if !product.name %>
-          <td></td>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.code, product %></td>
+          <% if !product.name %>
+            <td></td>
+          <% else %>
+            <td><%= product.name %></td>
+          <% end %>
+
+          <% if !product.descr %>
+            <td />
+          <% else %>
+            <td><%= product.descr %></td>
+          <% end %>
+
+        <td><%= product.account.name %></td>
+
+        <% if product.account_id == current_account.id %>
+            <td><%= link_to "Edit", edit_product_path(product) %></td>
+            <td><%= link_to "Delete", product, :method => :delete, :confirm => "Please confirm deletion:",
+        :title => "Delete #{product.name}" %></td>
         <% else %>
-          <td><%= product.name %></td>
+            <td />
+            <td />
         <% end %>
 
-        <% if !product.descr %>
-          <td />
-        <% else %>
-          <td><%= product.descr %></td>
-        <% end %>
 
-      <td><%= product.account.name %></td>
-
-      <% if product.account_id == current_account.id %>
-          <td><%= link_to "Edit", edit_product_path(product) %></td>
-          <td><%= link_to "Delete", product, :method => :delete, :confirm => "Please confirm deletion:",
-      :title => "Delete #{product.name}" %></td>
-      <% else %>
-          <td />
-          <td />
-      <% end %>
-
-
-    </tr>
-  <% end %>
+      </tr>
+    <% end %>
+    <%= render 'new' %>
   </table>
 
-<%= render 'new' %>
+
+<br />
+<%= form_for :dump, :url=>{
+	:controller=>"products",
+	:action=>"csv_import"},
+        :html => { :multipart => true } do |f| %>
+        <p>Import CSV Data</p>
+        <%= f.file_field :file %>
+        <%= submit_tag 'Import' %>
+<% end %>

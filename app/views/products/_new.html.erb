@@ -1,21 +1,20 @@
-<p>Add New Product</p>
-<table>
-  <tr>
-    <%= form_for(@product) do |f| %>
-      <div class="field">
-        <td>
-          <%= f.text_field :code %>
-        </td>
-        <td>
-          <%= f.text_field :name %>
-        </td>
-      </div>
-      <div class="actions">
-        <td>
-          <%= f.submit "Submit" %>
-        </td>
-      </div>
-        <td></td>
-    <% end %>
-  <tr/>
-</table>
+<tr>
+  <%= form_for(@product) do |f| %>
+    <div class="field">
+      <td>
+        <%= f.text_field :code %>
+      </td>
+      <td>
+        <%= f.text_field :name %>
+      </td>
+    </div>
+    <div class="actions">
+      <td>
+        <%= f.submit "Submit" %>
+      </td>
+    </div>
+      <td></td>
+      <td></td>
+      <td></td>
+  <% end %>
+<tr/>

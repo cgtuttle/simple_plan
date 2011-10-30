@@ -1,0 +1,8 @@
+<%= form_for :dump, :url=>{
+	:controller=>"products",
+	:action=>"csv_import"},
+        :html => { :multipart => true } do |f| %>
+        CSV:
+        <%= f.file_field :file %>
+        <%= submit_tag 'Import' %>
+<% end %>
