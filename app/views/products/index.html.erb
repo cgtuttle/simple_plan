@@ -40,14 +40,3 @@
     <% end %>
     <%= render 'new' %>
   </table>
-
-
-<br />
-<%= form_for :dump, :url=>{
-	:controller=>"products",
-	:action=>"csv_import"},
-        :html => { :multipart => true } do |f| %>
-        <p>Import CSV Data</p>
-        <%= f.file_field :file %>
-        <%= submit_tag 'Import' %>
-<% end %>

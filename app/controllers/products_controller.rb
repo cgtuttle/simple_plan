@@ -52,25 +52,6 @@ before_filter	:authorize_products
     redirect_to products_path
   end
 	
-	def csv_import
-		row_count = 0
-		@parsed_file=CSV::Reader.parse(params[:dump][:file])
- 		@parsed_file.each do |row|
-			col = 2
-			pr = Product.new(
-					:code => row[0],
-					:name => row[1],
-					:account_id => current_account.id
-			)
-			if pr.save
-				flash[:success] = "Import was successful."
-			else
-				flash[:error] = "Unsuccessful import"
-			end
-			redirect_to products_path
-		end
-	end
-	
 	def authorize_products
 		@products = Product.find(:all, :conditions => [ "account_id IN (?) OR account_id = (?)", current_partners, current_account])
 	end
