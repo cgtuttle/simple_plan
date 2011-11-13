@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111023154036) do
+ActiveRecord::Schema.define(:version => 20111110194355) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -80,6 +80,26 @@ ActiveRecord::Schema.define(:version => 20111023154036) do
     t.string   "offered_to"
     t.string   "accepted_by"
     t.text     "notes"
+  end
+
+  create_table "import_map_columns", :force => true do |t|
+    t.integer  "import_map_id"
+    t.string   "table_column"
+    t.boolean  "is_required"
+    t.boolean  "import"
+    t.string   "import_column"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "import_maps", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.string   "model_name"
+    t.integer  "account_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "partnerships", :force => true do |t|

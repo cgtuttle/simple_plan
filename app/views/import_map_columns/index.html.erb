@@ -1,0 +1,39 @@
+<h4>Import Map Columns for <%= @map.model_name %> </h4>
+
+<h5>Target Columns</h5>
+
+<table>
+  <tr>
+    <% @target_columns.each do |c| %>
+      <td><%= c.name.humanize %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <% @target_columns.each do |c| %>
+      
+    <% end %>
+  </tr>
+</table>
+
+<h5>Import File</h5>
+<%= form_for :dump, :url=>{:controller=>"import_map_columns", :action=>"index"}, :html => { :multipart => true } do |f| %>
+  <%= check_box_tag "headers" %>
+  <%= hidden_field_tag "import_map_id", @map.id %>
+  <table>
+   <tr>
+     <td>
+      <label for="dump_file">
+        Select a CSV File :
+      </label>
+     </td>
+     <td >
+       <%= f.file_field :file %>
+     </td>
+   </tr>
+   <tr>
+     <td colspan='2'>
+       <%= submit_tag 'Continue' %>
+     </td>
+   </tr>
+ </table>
+<% end %>

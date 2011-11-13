@@ -2,15 +2,14 @@ class ProductsController < ApplicationController
 include ApplicationHelper
 require 'csv'
 before_filter	:authorize_products
+before_filter { |c| c.set_zone "Application" }
 
   def index
 		@title = "Products"
-		@zone = "Application"	
 		@product = Product.new
 	end
 	
 	def show
-		@zone = "Application"
 		@product = Product.find(params[:id])
 		@title = @product.name
 	end
@@ -20,7 +19,6 @@ before_filter	:authorize_products
   end
 	
 	def edit
-		@zone = "Application"
 		@product = Product.find(params[:id])
 		@title = @product.name
 	end

@@ -1,0 +1,43 @@
+<h4>Import Maps</h4>
+  <table>
+    <tr>
+      <td>Code</td>
+      <td>Name</td>
+      <td>Table</td>
+      <td>Account</td>
+      <td>User</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <% @maps.each do |map| %>
+      <tr>
+        <td><%= link_to "Map", import_map_import_map_columns_path(map) %></td>
+        
+        
+        <td><%= map.code %></td>
+        
+        <% if !map.name %>
+          <td></td>
+        <% else %>
+          <td><%= map.name %></td>
+        <% end %>
+
+        <td><%= map.model_name %></td>
+
+        <td><%= map.account.name %></td>
+        <td><%= map.user_id %>
+
+        <% if map.account_id == current_account.id %>
+        <td><%= link_to "Edit", edit_import_map_path(map) %>          
+          <td><%= link_to "Delete", map, :method => :delete, :confirm => "Please confirm deletion:",
+          :title => "Delete #{map.name}" %></td>
+        <% else %>
+            <td />
+            <td />
+        <% end %>
+
+
+      </tr>
+    <% end %>
+    <%= render 'new' %>
+  </table>

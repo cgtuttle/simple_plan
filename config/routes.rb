@@ -29,6 +29,10 @@ SimplePlan::Application.routes.draw do
 		resources :deal_activities
 	end
 	
+	resources :import_maps do
+		resources :import_map_columns
+	end
+	
 	namespace :user do
 		root :to => 'users#dashboard'
 	end
