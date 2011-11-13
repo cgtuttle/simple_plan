@@ -13,7 +13,9 @@ class ImportMapColumnsController < ApplicationController
   end
 	
 	def create
-		
+		if params['open']
+			
+		end
 	end
 	
 	def find_map
