@@ -26,17 +26,13 @@
 
         <td><%= product.account.name %></td>
 
-        <% if product.account_id == current_account.id %>
-            <td><%= link_to "Edit", edit_product_path(product) %></td>
-            <td><%= link_to "Delete", product, :method => :delete, :confirm => "Please confirm deletion:",
-        :title => "Delete #{product.name}" %></td>
-        <% else %>
-            <td />
-            <td />
-        <% end %>
-
-
-      </tr>
+        <td><%= link_to "Edit", edit_product_path(product) %></td>
+        <td><%= link_to "Delete", product, :method => :delete, :confirm => "Please confirm deletion:",
+          :title => "Delete #{product.name}" %></td>
+        
+        <td />
+        <td />
+     </tr>
     <% end %>
     <%= render 'new' %>
   </table>

@@ -4,22 +4,17 @@ class ImportMapColumnsController < ApplicationController
 	before_filter :find_map_columns
 	before_filter { |c| c.set_zone "Application" }
 	
-  def index
-		logger.debug "Header checkbox = #{params["headers"]}"
-		logger.debug "(csv_import) Map ID = #{params["import_map_id"]}"
-		@map_column = ImportMapColumn.new
-		@obj = @map.model_name.constantize
-		find_target_columns
+  def index	
+		logger.debug "index -> #{@import_columns.inspect}"
   end
 	
 	def create
-		if params['open']
-			
-		end
+		find_import_columns
+		logger.debug "create -> #{@import_columns.inspect}"
+		render :action => 'index'
 	end
 	
 	def find_map
-		logger.debug "(find_map) Map ID = #{params["import_map_id"]}"
 		@map = ImportMap.find(params[:import_map_id])
 	end
 	
@@ -27,27 +22,19 @@ class ImportMapColumnsController < ApplicationController
 		@map_columns = @map.import_map_columns.find(:all)
 	end
 
-	def find_target_columns
-		@target_columns = Array.new
-		@obj.columns.each do |c|
-			#logger.debug "@obj.columns (c) = #{c.name}"
-			@import = true
-			ImportMapColumn::NO_IMPORT.each do |n|
-				#logger.debug "c.name, n = #{n}, #{c.name}"
-				if c.name == n
-					@import = false
-					break
-				end
-			end
-			if @import
-				@target_columns << c
-			end
-		end
-	end
-	
 	def find_import_columns
 		@import_columns = Array.new
-		
-	end
-	
+		@parsed_file=CSV::Reader.parse(params[:dump][:file])
+		if params["header"] = 1
+			@parsed_file.each_with_index do |row, i|
+				n = 0
+				if i = 1
+					row.each do |col|
+						@import_columns << col
+					end
+				end
+				break
+			end
+		end
+	end	
 end

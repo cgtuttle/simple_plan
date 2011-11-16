@@ -13,6 +13,7 @@ class ImportMapsController < ApplicationController
 		@map.user_id = current_user
 		if @map.save
 			flash[:success] = "Successfully added a new import map"
+			create_import_map_columns
 			redirect_to import_maps_path
 		else
 			redirect_to import_maps_path
@@ -41,6 +42,25 @@ class ImportMapsController < ApplicationController
 	
 	def find_maps
 		@maps = ImportMap.find(:all, :conditions => [ "account_id IN (?) OR account_id = (?)", current_partners, current_account])
+	end
+	
+	def create_import_map_columns
+		@obj = @map.model_name.constantize
+		@target_columns = Array.new
+		@obj.columns.each do |c|
+			@import = true
+			ImportMap::NO_IMPORT.each do |n|
+				if c.name == n
+					@import = false
+					break
+				end
+			end
+			if @import
+				@column = @map.import_map_columns.new
+				@column.table_column = c.name
+				@column.save
+			end
+		end
 	end
 	
 end

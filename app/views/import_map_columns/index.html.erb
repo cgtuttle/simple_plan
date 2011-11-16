@@ -4,27 +4,26 @@
 
 <table>
   <tr>
-    <% @target_columns.each do |c| %>
-      <td><%= c.name.humanize %></td>
+    <% @map_columns.each do |c| %>
+      <td><%= c.table_column.humanize %></td>
     <% end %>
   </tr>
-  <tr>
-    <% @target_columns.each do |c| %>
-      
-    <% end %>
-  </tr>
+  <% if @import_columns %>
+    <tr>
+      <% @map_columns.each do |c| %>
+          <td><%= select c, :import_column, @import_columns, { :prompt => '-Select-' } %></td>
+      <% end %>
+    </tr>
+  <% end %>
 </table>
-
-
 
 <h5>Import File</h5>
 
 <%= form_for :dump, :url=>{:controller=>"import_map_columns", :action=>"index"}, :html => { :multipart => true } do |f| %>
-  <%= check_box_tag "headers" %>
   <%= hidden_field_tag "import_map_id", @map.id %>
-  
   <p> Select a CSV File :</p>
   <%= f.file_field :file %>
-  <%= submit_tag :name => 'open', 'Continue' %>
-
+  <%= check_box_tag 'header' %>
+  <%= submit_tag 'Continue', :name => 'open' %>
+  <%= submit_tag 'Cancel', :name => 'cancel' %>
 <% end %>
