@@ -12,7 +12,6 @@ SimplePlan::Application.routes.draw do
   resources :program_categories
   resources :program_products
   resources :program_activities
-	resources :import_map_columns
 	
 	resources	:plans do
 		resources	:programs
@@ -31,7 +30,17 @@ SimplePlan::Application.routes.draw do
 	end
 	
 	resources :import_maps do
-		resources :import_map_columns
+		member do
+			get 'select'
+			put 'complete'
+		end
+		resources :import_map_columns do
+			#collection do
+				#put 'import'
+				#post 'complete'
+				#post 'open'
+			#end
+		end	
 	end
 	
 	namespace :user do

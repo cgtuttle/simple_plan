@@ -1,6 +1,6 @@
   <h5>Import File</h5>
-
-  <%= form_for :dump, :url=>{:controller=>"import_map_columns", :action=>"index"}, :html => { :multipart => true } do |f| %>
+   
+  <%= form_for :dump, :url => open_import_map_import_map_columns_path(@map), :method => :post do |f| %>
     <%= hidden_field_tag "import_map_id", @map.id %>
     <p> Select a CSV File :</p>
     <%= f.file_field :file %>

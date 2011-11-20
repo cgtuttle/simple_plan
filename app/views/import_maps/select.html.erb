@@ -1,0 +1,14 @@
+<h4>File Import</h4>
+<br></br>
+
+  <%= form_for :dump, :url => complete_import_map_path, :html => { :method => :put } do |f| %>
+    <p>Select a CSV File</p>
+    
+    <%= hidden_field_tag "import_map_id", @map.id %>
+    <%= f.file_field :file %>
+    <br></br>
+    <p><%= check_box_tag 'header' %> File includes header</p>
+    <br></br>
+    <%= submit_tag 'Continue', :name => 'import_file', :action => 'execute' %>
+    <%= submit_tag 'Cancel', :name => 'import_file' %>
+  <% end %>

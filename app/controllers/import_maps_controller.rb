@@ -1,5 +1,6 @@
 class ImportMapsController < ApplicationController
 	include ApplicationHelper
+	include FileImportHelper
 	before_filter :find_maps
 	before_filter { |c| c.set_zone "Application" }
 	
@@ -25,19 +26,34 @@ class ImportMapsController < ApplicationController
 	end
 	
 	def update
-		@map = ImportMap.find(params[:id])
-		if @map.update_attributes(params[:map])
-			flash[:success] = "Map updated."
-			redirect_to import_maps_path
-		else
-			redirect_to import_maps_path
+		case params[:update]
+		when 'Update'
+			@map = ImportMap.find(params[:id])
+			if @map.update_attributes(params[:map])
+				flash[:success] = "Map updated."
+			end
+		when 'Import'
+			flash[:success] = "Import successful."	
+			
 		end
+		redirect_to import_maps_path
 	end
 	
 	def destroy
 		ImportMap.find(params[:id]).destroy
     flash[:success] = "Map deleted."
     redirect_to import_maps_path
+	end
+	
+	def select
+		@map = ImportMap.find(params[:id])
+	end
+		
+	def complete
+		@map = ImportMap.find(params[:import_map_id])
+		logger.debug "complete -> @map = #{@map}, params = #{params.inspect}"
+		find_import_columns
+		logger.debug "complete (after find) -> @import_columns = #{@import_columns.inspect}"
 	end
 	
 	def find_maps

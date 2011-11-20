@@ -1,0 +1,21 @@
+<h4>Table: <%= @map.model_name %></h4>
+<br></br>
+<%= form_for @map do |map_form| %>
+
+  <table>
+    <tr>
+      <th>Target Column</th>
+      <th>Import Column</th>
+    </tr>
+    <%= map_form.fields_for :import_map_columns do |columns_form| %>
+      <tr>
+        <td><%= columns_form.text_field :table_column %></td>
+        <td><%= columns_form.collection_select :import_column, @import_columns, to_s, :titleize %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<%= map_form.submit "Import", :name => 'update' %>
+<%= map_form.submit "Cancel", :name => 'update' %>
+<% end %>
+
