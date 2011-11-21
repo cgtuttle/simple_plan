@@ -7,7 +7,7 @@ module FileImportHelper
 		if params['header'] == '1'
 			@parsed_file.each_with_index do |row, i|				
 				if i == 0
-					row.each do |col|
+					row.each_with_index do |col, j|
 						@import_columns << col
 					end
 				end

@@ -33,8 +33,13 @@ class ImportMapsController < ApplicationController
 				flash[:success] = "Map updated."
 			end
 		when 'Import'
-			flash[:success] = "Import successful."	
-			
+			@map = ImportMap.find(params[:id])
+			logger.debug "update -> params[:import_map = #{params[:import_map].inspect}"
+			if @map.update_attributes(params[:import_map])
+				flash[:success] = "Column update successful."	
+			else
+				flash[:error] = "Update failure."
+			end
 		end
 		redirect_to import_maps_path
 	end
