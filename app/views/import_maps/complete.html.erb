@@ -8,17 +8,17 @@
       <th>Target Column</th>
       <th>Import Column</th>
     </tr>
-    <% for import_map_column in @map.import_map_columns %>
-      <%= fields_for "import_map[import_map_columns_attributes][]", import_map_column do |columns_form| %>
+    
+      <%= map_form.fields_for :import_map_columns do |columns_form| %>
         <tr>
           <td><%= columns_form.text_field :table_column %></td>
           <td><%= columns_form.text_field :import_column %></td>
         </tr>
       <% end %>
-    <% end %>
+    
     
   </table>
-
+<br></br>
 <%= submit_tag "Import", :name => 'update' %>
 <%= submit_tag "Cancel", :name => 'update' %>
 <% end %>
