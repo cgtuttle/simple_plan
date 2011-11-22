@@ -12,6 +12,7 @@ class ImportMapsController < ApplicationController
 		@map = ImportMap.new(params[:import_map])
 		@map.account_id = current_account.id
 		@map.user_id = current_user
+		
 		if @map.save
 			flash[:success] = "Successfully added a new import map"
 			create_import_map_columns

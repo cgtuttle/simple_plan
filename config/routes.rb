@@ -35,11 +35,6 @@ SimplePlan::Application.routes.draw do
 			put 'complete'
 		end
 		resources :import_map_columns do
-			#collection do
-				#put 'import'
-				#post 'complete'
-				#post 'open'
-			#end
 		end	
 	end
 	
