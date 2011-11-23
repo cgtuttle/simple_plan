@@ -12,7 +12,7 @@
       <%= map_form.fields_for :import_map_columns do |columns_form| %>
         <tr>
           <td><%= columns_form.text_field :table_column %></td>
-          <td><%= columns_form.text_field :import_column %></td>
+          <td><%= columns_form.collection_select :import_column, @import_columns, :to_s, :titleize, :prompt => '--Select--' %></td>
         </tr>
       <% end %>
     

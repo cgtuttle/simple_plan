@@ -1,5 +1,6 @@
 module FileImportHelper
-
+	require 'csv'
+	
 	def find_import_columns
 		@import_columns = Array.new
 		@parsed_file=CSV::Reader.parse(params[:dump][:file])
@@ -17,7 +18,7 @@ module FileImportHelper
 			@parsed_file.each_with_index do |row, i|
 				if i == 0
 					row.each_with_index do |col, j|
-					 @import_columns << j + 1
+					 @import_columns << (j + 1).to_s
 					end
 				end
 				break
