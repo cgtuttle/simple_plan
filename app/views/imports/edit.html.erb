@@ -1,0 +1,26 @@
+<h4>Import Data</h4>
+
+<table>
+
+  <%= form_for @import do |f| %>
+    <tr>
+      
+        <% (1..@column_count).each do %>
+          <td><%= select_tag "field_choices[]", options_for_select(@field_choices), :prompt => '--Select--' %></td>
+        <% end %>
+      
+    </tr>
+    
+    <%= f.fields_for :cells do |ff| %>
+      <% if ff.object.column == 1 %>
+        <tr>
+      <% end %>
+          <td><%= ff.object.value %></td>
+      <% if ff.object.column == @column_count %>
+        </tr>
+      <% end %>
+      
+    <% end %>
+    
+  <% end %>
+</table>

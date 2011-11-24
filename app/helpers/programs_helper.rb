@@ -1,6 +1,0 @@
-module ProgramsHelper
-	
-	
-	
-	
-end

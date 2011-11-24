@@ -2,7 +2,7 @@ module FileImportHelper
 	require 'csv'
 	
 	def find_import_columns
-		@import_columns = Array.new
+		@import_columns = Array.new@parsed_file=CSV::Reader.parse(params[:dump][:file])
 		@parsed_file=CSV::Reader.parse(params[:dump][:file])
 		logger.debug "find_import_columns -> header = #{params['header']}, @parsed_file = #{@parsed_file}"		
 		if params['header'] == '1'

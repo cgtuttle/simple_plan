@@ -8,7 +8,7 @@
   <p class="vl_element"><%= link_to "Partners", partnerships_path %></p>
   <p class="vl_element"><%= link_to "Accounts", accounts_path %></p>
   <p class="vl_element"><%= link_to "Profile", profile_path(current_user.profile) %></p>
-  <p class="vl_element"><%= link_to "Import Data", import_maps_path %></p>
+  <p class="vl_element"><%= link_to "Import Data", new_import_path %></p>
   <% if can? :update, User %>
     <p class="vl_element"><%= link_to "Users", users_path %></p>
   <% end %>
