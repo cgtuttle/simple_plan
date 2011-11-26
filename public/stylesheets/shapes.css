@@ -1,0 +1,50 @@
+.shape {
+	width: 200px;
+	height: 20px;
+	float: left;
+}
+
+.arrow-up, .arrow-down, .arrow-left, .arrow-right, .circle-4, .circle-6, .circle-8, .circle-10, .circle-12 {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.arrow-up {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #95AD95;
+				border-top: 0px;
+}
+
+.arrow-down {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #95AD95;
+}
+
+.arrow-right {
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid #95AD95;
+}
+
+.arrow-left {
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent; 
+        border-right:10px solid #95AD95;
+}
+
+.circle-4, .circle-6, .circle-8, .circle-10, .circle-12 { display: block; display: block;	background: #95AD95;}
+.circle-4 {	width: 4px;	height:	4px;	-moz-border-radius: 2px;	-webkit-border-radius: 2px;}
+.circle-6 {	width: 6px;	height:	6px;	-moz-border-radius: 3px;	-webkit-border-radius: 3px;}
+.circle-8 {	width: 8px;	height:	8px;	-moz-border-radius: 4px;	-webkit-border-radius: 4px;}
+.circle-10 { width: 10px;	height:	10px;	-moz-border-radius: 5px;	-webkit-border-radius: 5px;}
+.circle-12 { width: 12px;	height:	12px;	-moz-border-radius: 6px;	-webkit-border-radius: 6px;}
