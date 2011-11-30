@@ -1,32 +1,29 @@
 <h2>Activities</h2>
 
 <table>
-	<tr>
-		<td>Code</td>
-		<td>Name</td>
-		<td>Description</td>
-		<td>Owner</td>
-		<td></td>
-		<td></td>
-	</tr>
-	<% @activities.each do |activity| %>
-		<tr>
-			<td><%= link_to activity.code, activity %>
-			<td><%= activity.name %></td>
-			<td><%= activity.descr %></td>
-			<td><%= activity.account.name %>
-			
-			<% if activity.account_id == current_account.id %>			
-				<td><%= link_to "Edit", edit_activity_path(activity) %></td>
-				<td><%= link_to "Delete", activity, :method => :delete, :confirm => "Please confirm deletion:",
-																				:title => "Delete #{activity.name}" %></td>
-			<% else %>
-				<td />
-				<td />
-			<% end %>
-			
-		</tr>
-	<% end %>
+  <tr>
+    <td>Code</td>
+    <td>Name</td>
+    <td>Description</td>
+    <td>Owner</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <% @activities.each do |activity| %>
+    <tr>
+      <td><%= link_to activity.code, activity %>
+      <td><%= activity.name %></td>
+      <td><%= activity.descr %></td>
+      <td><%= activity.account.name %>
+  
+  
+      <td><%= link_to "Edit", edit_activity_path(activity) %></td>
+      <td><%= link_to "Delete", activity, :method => :delete, :confirm => "Please confirm deletion:",
+          :title => "Delete #{activity.name}" %></td>
+  
+  
+    </tr>
+  <% end %>
 </table>
 
 <%= render 'new' %>

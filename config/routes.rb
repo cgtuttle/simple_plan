@@ -19,6 +19,9 @@ SimplePlan::Application.routes.draw do
 	end
 
 	resources	:programs do
+		collection do
+			get 'worksheet'
+		end
 		resources	:deals	
 	end
 	
@@ -28,15 +31,6 @@ SimplePlan::Application.routes.draw do
 		
 	resources :deal_products do
 		resources :deal_activities
-	end
-	
-	resources :import_maps do
-		member do
-			get 'select'
-			put 'complete'
-		end
-		resources :import_map_columns do
-		end	
 	end
 	
 	namespace :user do
@@ -50,7 +44,6 @@ SimplePlan::Application.routes.draw do
 	match '/contact',		:to => 'pages#contact'
 	match '/user',			:to => 'users#show'
 	match '/users',			:to => 'users#index'
-	match '/products/import',		:to => 'products#csv_import', :as => 'product_csv_import'
 	
 	root :to => 'pages#home'
 

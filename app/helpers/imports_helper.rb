@@ -1,6 +1,6 @@
 module ImportsHelper
 	require 'csv'
-	
+
 	def import_file
 		if params[:file]
 			@column_count = 0
@@ -28,8 +28,6 @@ module ImportsHelper
 	end
 	
 	def field_choices
-		logger.debug "field_choices -> @model = #{@model}"
-		logger.debug "field_choices -> @row_count = #{@row_count}"
 		@obj = @model.constantize
 		@field_choices = Array.new
 		@obj.columns.each do |c|
@@ -52,9 +50,10 @@ module ImportsHelper
 			@source = @import.cells.find_all_by_row(i)
 			@import_row = Hash.new
 			@source.each do |f|
-				@import_row[f.destination] = f.value
+				if f.destination != ""
+					@import_row[f.destination] = f.value
+				end
 			end
-			logger.debug "save_import -> @import_row = #{@import_row.inspect}"
 			@row = @obj.new(@import_row)
 			@row.account_id = current_account
 			@row.save			

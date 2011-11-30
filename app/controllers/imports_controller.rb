@@ -5,6 +5,9 @@ class ImportsController < ApplicationController
 	
 	def new
 		@import = Import.new
+		if params[:model]
+			@model = params[:model]
+		end
 	end
 	
 	def create
@@ -15,10 +18,11 @@ class ImportsController < ApplicationController
 				@import.user_id = current_user.id
 				@model = @import.model
 				@import.save
-				import_file			
+				import_file
 				field_choices
 				render 'edit'
-				logger.debug "create -> @row_count = #{@row_count}"
+			else
+				redirect_to new_import_path
 			end
 		else
 			redirect_to new_import_path
@@ -30,23 +34,27 @@ class ImportsController < ApplicationController
 	end
 	
 	def update
-		@import = Import.find(params[:id])
-		@first_row = params[:first_row]
-		@row_count = params[:row_count]
-		@field_choices = params[:field_choices]
-		@import.first_row = @first_row
-		@import.row_count = @row_count
-		@import.cells.each do |cell|
-			if cell.column <= @field_choices.length && cell.row >= params[:import][:first_row].to_i
-				cell.destination = @field_choices[cell.column-1]
-			end		
+		if params[:import_file] == 'Import'
+			@import = Import.find(params[:id])
+			@first_row = params[:first_row]
+			@row_count = params[:row_count]
+			@field_choices = params[:field_choices]
+			@import.first_row = @first_row
+			@import.row_count = @row_count
+			@import.cells.each do |cell|
+				if cell.column <= @field_choices.length && cell.row >= params[:import][:first_row].to_i
+					cell.destination = @field_choices[cell.column-1]
+				end		
+			end
+			if @import.update_attributes(params[:import])
+				save_import
+				flash[:success] = "Import completed successfully."
+			end
+			@controller = @import.model.pluralize.downcase
+			redirect_to :action => :index, :controller => @controller
+		else
+			redirect_to new_import_path
 		end
-		if @import.update_attributes(params[:import])
-			save_import
-			flash[:success] = "Import completed successfully."
-		end
-		@controller = @import.model.pluralize.downcase
-		redirect_to :action => :index, :controller => @controller
 	end
 	
 	

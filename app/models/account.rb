@@ -7,7 +7,7 @@ class Account < ActiveRecord::Base
 	has_many 	:programs
   has_many  :deals
 	has_many	:plans
-	has_many	:import_maps
+	has_many	:imports
 	
 	has_many	:partnerships	
 	has_many	:partners,	:through => :partnerships, :source => "partner"

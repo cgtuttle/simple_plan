@@ -30,7 +30,8 @@ module ApplicationHelper
 	end
 	
 	def current_partners
-		Account.find(:all, :conditions => ["id IN (SELECT partner_id FROM partnerships WHERE account_id = ?)", current_account])
+		#Account.find(:all, :conditions => ["id IN (SELECT partner_id FROM partnerships WHERE account_id = ?)", current_account])
+		current_account.partners
 	end
 	
 	def current_customers(user)

@@ -1,4 +1,4 @@
-<h4>Products</h4>
+<h2>Products</h2>
 
   <table>
     <tr>
@@ -36,4 +36,4 @@
     <%= render 'new' %>
   </table>
   <br />
-  <%= link_to "Import Data", import_maps_path %>
+  <%= link_to "Import Data", new_import_path(:model => 'Product') %>

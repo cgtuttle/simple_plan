@@ -33,17 +33,9 @@
         <td><%= program.budget_vol && float_zero(program.budget_vol) %></td>
         <td><%= currency_zero(program.budget_cost) %></td>
       </div>
-
-      <% if program.account_id == current_account.id %>
-        <td><%= link_to "Edit", edit_program_path(program) %></td>
-        <td><%= link_to "Delete", program, :method => :delete, :confirm => "Please confirm deletion:",
-                                                      :title => "Delete #{program.name}" %></td>
-      <% else %>
-        <td />
-        <td />
-      <% end %>
-
-
+      <td><%= link_to "Edit", edit_program_path(program) %></td>
+      <td><%= link_to "Delete", program, :method => :delete, :confirm => "Please confirm deletion:",
+                                                    :title => "Delete #{program.name}" %></td>
     </tr>
   <% end %>
     <tr>

@@ -1,9 +1,3 @@
-.shape {
-	width: 200px;
-	height: 20px;
-	float: left;
-}
-
 .arrow-up, .arrow-down, .arrow-left, .arrow-right, .circle-4, .circle-6, .circle-8, .circle-10, .circle-12 {
 	margin-left: auto;
 	margin-right: auto;

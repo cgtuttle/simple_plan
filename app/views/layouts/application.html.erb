@@ -8,7 +8,6 @@
       <%= javascript_include_tag :defaults %>
       <%= javascript_include_tag 'jquery.min'%>
       <%= javascript_include_tag 'jquery-ui.min'%>
-      <%= javascript_include_tag 'jquery_ujs'%>
       <%= javascript_include_tag 'application'%>
     
   </head>
@@ -29,8 +28,6 @@
         <%= render 'layouts/header' %>
         <div id="column_box">
           
-          
-          
           <section class="left_column">	
             <%= render 'layouts/left_column' %>	
             
@@ -39,9 +36,6 @@
           <section class="right_column">					
             <%= yield %>
           </section>
-          
-          
-          
           
         </div>
           <%= render 'layouts/footer' %>
