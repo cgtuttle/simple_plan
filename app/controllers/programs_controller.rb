@@ -1,13 +1,13 @@
 class ProgramsController < ApplicationController
 include ApplicationHelper
-before_filter	:find_plan
-before_filter	:find_programs
-before_filter :find_account
-before_filter	:find_customers
+before_filter { |c| c.set_zone "Application" }
+before_filter	:validate_plan
+#before_filter	:find_programs
+#before_filter :find_account
+#before_filter	:find_customers
 
   def index
-		@title = "#{@account.name} Programs"
-		@zone = "Application"	
+		@title = "#{current_account.name} Programs"
 		@program = @plan.programs.new
 		@ttl_budget_cost = Program.ttl_budget_cost(current_partners, current_account, @plan)
 		@plan_budget = Program.plan_budget(@plan)
@@ -16,18 +16,16 @@ before_filter	:find_customers
 		@sellers = Account.find(:all, :conditions => {:service => 'seller', :id => current_partners})
 	end
 	
+	def worksheet
+		
+	end
+	
 	def show
-		@zone = "Application"
 		@program = Program.find(params[:id])
 		@title = @program.name
 	end
 
-  #def new
-	#	redirect_to programs_path
-  #end
-	
 	def edit
-		@zone = "Application"
 		@program = Program.find(params[:id])
 		@title = @program.name
 	end
@@ -64,11 +62,13 @@ before_filter	:find_customers
     Program.find(params[:id]).destroy
     flash[:success] = "Program deleted."
     redirect_to programs_path
-  end	
+  end
+
+=begin	
 
 	def find_programs
 		@programs = @plan.programs.find(:all, :conditions => [ "(account_id IN (?) OR account_id = (?))", 
-				current_partners, current_account])
+			current_partners, current_account])			
 	end
 	
 	def find_account
@@ -78,9 +78,18 @@ before_filter	:find_customers
 	def find_customers
 		@customers = current_customers(current_user)
 	end
+
+=end
 	
-	def find_plan
+	def validate_plan
+		logger.debug "validate_plan -> partner_plans= #{current_account.partner_plans.inspect}"
 		@plan = Plan.find(params[:plan_id])
+		if current_account.partner_plans.include?(@plan)
+			current_user.profile.set_last_plan(@plan.id)
+		else
+			flash[:error]='This plan is not available'
+			redirect_to plans_path
+		end
 	end
 	
 	def service_needed

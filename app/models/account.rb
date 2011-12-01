@@ -18,5 +18,9 @@ class Account < ActiveRecord::Base
 	
 	SERVICE = %w[customer supplier seller]
 	
+	def partner_plans
+		Plan.find(:all, :conditions => ["account_id = ? OR account_id IN (?)", self.id, self.partners])
+	end
+	
 
 end

@@ -30,6 +30,11 @@ class Profile < ActiveRecord::Base
 		end
 	end
 	
+	def set_last_plan(plan_id)		
+		self.last_plan = plan_id.to_i
+		self.save
+	end
+	
 	
 	
 end
