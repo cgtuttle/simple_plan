@@ -17,7 +17,9 @@ before_filter	:validate_plan
 	end
 	
 	def worksheet
-		
+		@title = "#{current_account.name} Worksheet"
+		@program = @plan.programs.new
+		@program.account_id = current_account
 	end
 	
 	def show
@@ -82,8 +84,12 @@ before_filter	:validate_plan
 =end
 	
 	def validate_plan
-		logger.debug "validate_plan -> partner_plans= #{current_account.partner_plans.inspect}"
-		@plan = Plan.find(params[:plan_id])
+		if !params[:plan_id]
+			plan_id = current_user.profile.last_plan
+		else
+			plan_id = params[:plan_id]
+		end
+		@plan = Plan.find(plan_id)
 		if current_account.partner_plans.include?(@plan)
 			current_user.profile.set_last_plan(@plan.id)
 		else

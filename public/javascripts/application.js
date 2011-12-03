@@ -5,7 +5,9 @@
 //= require jquery_ujs
 
 $(function (){
-	$('#program_start_date').datepicker();
+	$('#program_start_date').datepicker({
+    dateFormat: "mm/dd/yy"
+  });
 });
 
 $(function (){

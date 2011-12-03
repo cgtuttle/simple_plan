@@ -1,3 +1,17 @@
-<h2>Planning and Execution Worksheet</h2>
-<h4>Plan: <%= @plan.code %>
+<h2><%=  @title %></h2>
+<h4>Plan: <%= @plan.code %></h4>
+
+<table id="worksheet">
+  <% @plan.programs.each do |p| %>
+    <tr>
+      <%= form_for p do |f| %>
+        <td><%= f.object.seller_id %></td>
+        <td><%= f.object.code %></td>
+        <td><%= f.text_field :start_date, :class => 'date_field', :value => (f.object.start_date.to_s(:just_date) unless f.object.start_date.nil?)%></td>
+        <td><%= f.text_field :end_date, :class => 'date_field', :value => (f.object.start_date.to_s(:just_date) unless f.object.start_date.nil?)%></td>
+      <% end %>
+    </tr>
+  <% end %>
   
+        
+</table>

@@ -13,7 +13,8 @@
 table, th, td {
 	border:							1px solid #5c9ccc;
 	border-collapse:		collapse;
-	padding:						3px;
+	padding-left:				5px;
+	padding-right:				15px;
 	color:							#005C5C;
 }
 
@@ -35,26 +36,14 @@ th {
 }
 
 .date_field {
-	width:	120px;
+	padding-right:	0;
+	width:	100px;
 }
 
 .text_field {
-	width:	auto;
+	padding-right: 15px;
 }
 
 .file_import_table {
 	width: 200px;
 }
-
-.f-50{width:50px;}
-.f-60{width:60px;}
-.f-70{width:70px;}
-.f-80{width:80px;}
-.f-90{width:90px;}
-.f-100{width:100px;}
-.f-110{width:110px;}
-.f-120{width:120px;}
-.f-130{width:130px;}
-.f-140{width:140px;}
-.f-150{width:150px;}
-
