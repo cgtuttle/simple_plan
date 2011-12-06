@@ -3,11 +3,17 @@ class Account < ActiveRecord::Base
 	has_many 	:users
 	has_many 	:categories
 	has_many 	:products
-	has_many 	:activities
-	has_many 	:programs
-  has_many  :deals
+	has_many 	:activities	
+
 	has_many	:plans
 	has_many	:imports
+	
+	has_many  :deals
+	has_many	:customer_deals, :class_name => "Deal", :foreign_key => "customer_id"
+	
+	has_many 	:programs
+	has_many	:seller_programs, :class_name => "Program", :foreign_key => "seller_id"
+	has_many	:supplier_programs, :class_name => "Program", :foreign_key => "supplier_id"
 	
 	has_many	:partnerships	
 	has_many	:partners,	:through => :partnerships, :source => "partner"

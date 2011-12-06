@@ -10,12 +10,17 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
-table, th, td {
-	border:							1px solid #5c9ccc;
+table {
 	border-collapse:		collapse;
-	padding-left:				5px;
-	padding-right:				15px;
+}
+
+th, td {
+	border-width:				1px;
+	border-style:				solid;
+	border-color:				#5c9ccc;	
 	color:							#005C5C;
+	height:							1.25em;
+	padding:						2px;
 }
 
 tr:nth-child(odd) {
@@ -46,4 +51,14 @@ th {
 
 .file_import_table {
 	width: 200px;
+}
+
+table .subtable {
+	border-width: 1px;
+	border-style: solid;
+	margin:				-3px;
+}
+
+tr .no-greenbars {
+	background-color: #DBFFDB;
 }

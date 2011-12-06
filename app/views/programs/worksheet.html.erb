@@ -1,16 +1,36 @@
 <h2><%=  @title %></h2>
 <h4>Plan: <%= @plan.code %></h4>
 
-<table id="worksheet">
+
+<table class="worksheet">
   <% @plan.programs.each do |p| %>
-    <tr>
-      <%= form_for p do |f| %>
-        <td><%= f.object.seller_id %></td>
-        <td><%= f.object.code %></td>
-        <td><%= f.text_field :start_date, :class => 'date_field', :value => (f.object.start_date.to_s(:just_date) unless f.object.start_date.nil?)%></td>
-        <td><%= f.text_field :end_date, :class => 'date_field', :value => (f.object.start_date.to_s(:just_date) unless f.object.start_date.nil?)%></td>
-      <% end %>
-    </tr>
+    
+      <tr>            
+        <td><%= p.seller != nil ? p.seller.name : nil %></td>        
+        <td><%= p.code != nil ? p.code : nil %></td>
+        <td><%= p.start_date != nil ? p.start_date.to_s(:just_date) : nil%></td>
+        <td><%= p.end_date != nil ? p.end_date.to_s(:just_date) : nil%></td>
+        <td>
+          <table class="subtable">
+            <% p.deals.each do |d| %>
+              <tr class="no-greenbars">
+                <td><%= d.customer != nil ? d.customer.name : nil %></td>
+                <td><%= d.status %></td>
+                <td>
+                  <table class="subtable">
+                    <% d.deal_products.each do |dp| %>
+                      <tr class="no-greenbars">
+                        <td><%= dp.product_id %></td>
+                      </tr>
+                    <% end %>
+                  </table>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </td>  
+      </tr>
+    
   <% end %>
   
         

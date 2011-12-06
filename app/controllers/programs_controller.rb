@@ -2,9 +2,6 @@ class ProgramsController < ApplicationController
 include ApplicationHelper
 before_filter { |c| c.set_zone "Application" }
 before_filter	:validate_plan
-#before_filter	:find_programs
-#before_filter :find_account
-#before_filter	:find_customers
 
   def index
 		@title = "#{current_account.name} Programs"
@@ -20,6 +17,10 @@ before_filter	:validate_plan
 		@title = "#{current_account.name} Worksheet"
 		@program = @plan.programs.new
 		@program.account_id = current_account
+	end
+	
+	def test
+		@programs = Program.find(:all)
 	end
 	
 	def show
@@ -65,23 +66,6 @@ before_filter	:validate_plan
     flash[:success] = "Program deleted."
     redirect_to programs_path
   end
-
-=begin	
-
-	def find_programs
-		@programs = @plan.programs.find(:all, :conditions => [ "(account_id IN (?) OR account_id = (?))", 
-			current_partners, current_account])			
-	end
-	
-	def find_account
-		@account = current_account
-	end
-	
-	def find_customers
-		@customers = current_customers(current_user)
-	end
-
-=end
 	
 	def validate_plan
 		if !params[:plan_id]

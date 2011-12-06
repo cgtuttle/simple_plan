@@ -1,8 +1,8 @@
 class Program < ActiveRecord::Base
 	include ApplicationHelper
 	
-	belongs_to 	:seller, :class_name => "Account"
-	belongs_to 	:supplier, :class_name => "Account"
+	belongs_to 	:seller, :class_name => "Account", :foreign_key => "seller_id"
+	belongs_to 	:supplier, :class_name => "Account", :foreign_key => "supplier_id"
 	belongs_to	:account
 	belongs_to	:plan
   

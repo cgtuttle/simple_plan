@@ -15,12 +15,17 @@ SimplePlan::Application.routes.draw do
 	resources :imports
 	
 	resources	:plans do
-		resources	:programs
+		resources	:programs do
+			collection do
+				get 'worksheet'
+			end
+		end
 	end
 
 	resources	:programs do
 		collection do
 			get 'worksheet'
+			get 'test'
 		end
 		resources	:deals	
 	end
