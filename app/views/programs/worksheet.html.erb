@@ -14,13 +14,23 @@
           <table class="subtable">
             <% p.deals.each do |d| %>
               <tr class="no-greenbars">
-                <td><%= d.customer != nil ? d.customer.name : nil %></td>
-                <td><%= d.status %></td>
+                <td class="f-50"><%= d.id != nil ? d.id : nil %></td>
+                <td class="f-100"><%= d.customer != nil ? d.customer.name : nil %></td>
+                <td class="f-100"><%= d.status %></td>
                 <td>
                   <table class="subtable">
                     <% d.deal_products.each do |dp| %>
                       <tr class="no-greenbars">
-                        <td><%= dp.product_id %></td>
+                        <td class="f-100"><%= dp.product.code %></td>
+                        <td>
+                          <table class="subtable">
+                            <% dp.deal_activities.each do |da| %>
+                              <tr class="no-greenbars">
+                                <td class="f-100"><%= da.activity.code %>
+                              </tr>
+                            <% end %>
+                          </table>
+                        </td>
                       </tr>
                     <% end %>
                   </table>
