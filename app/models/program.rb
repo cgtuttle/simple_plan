@@ -7,6 +7,8 @@ class Program < ActiveRecord::Base
 	belongs_to	:plan
   
   has_many 		:deals
+	has_many		:deal_products, :through => :deals
+	has_many		:deal_activities, :through => :deal_products
 	has_many    :program_products
 	has_many   	:program_categories
 	has_many  	:program_activities

@@ -73,7 +73,9 @@ before_filter	:validate_plan
 		else
 			plan_id = params[:plan_id]
 		end
-		@plan = Plan.find(plan_id)
+		#@plan = Plan.find(plan_id)
+		#@plan = Plan.includes([:programs]).find(plan_id)
+		@plan = Plan.find(plan_id, {:include => {:programs => :deals}})
 		if current_account.partner_plans.include?(@plan)
 			current_user.profile.set_last_plan(@plan.id)
 		else
