@@ -1,0 +1,63 @@
+<h2><%=  @title %></h2>
+<h4>Plan: <%= @plan.code %></h4>
+
+<table>
+  <th>Program</th>
+  <th>Rep</th>
+  <th>Code</th>
+  <th>Program Start</th>
+  <th>Program End</th>
+  <th>Event</th>
+  <th>Product</th>
+  <th>Activity</th>
+
+  <%= form_for @plan do |plan| %>  
+    <%= plan.fields_for :programs do |p| %>
+      <% if p.object.deals.length > 0 %>
+        <%= p.fields_for :deals do |d| %>
+          <% if d.object.deal_products.length > 0 %>
+            <%= d.fields_for :deal_products do |dp| %>
+              <% if dp.object.deal_activities.length > 0 %>
+                <%= dp.fields_for :deal_activities do |da| %>
+                  <tr>
+                    <td><%= p.object.id %></td>
+                    <td><%= p.object.seller != nil ? p.object.seller.name : nil %></td>
+                    <td><%= p.object.code != nil ? p.object.code : nil %></td>
+                    <td><%= p.object.start_date != nil ? p.object.start_date.to_s(:just_date) : nil%></td>
+                    <td><%= p.object.end_date != nil ? p.object.end_date.to_s(:just_date) : nil%></td>
+                    <td><%= d.object.id %></td>
+                    <td><%= dp.object.product.code %></td>
+                    <td><%= da.object.activity.name %></td>
+                  </tr>
+                <% end %>
+              <% else %>
+                <tr>
+                  <%= render "empty", :p => p %>
+                  <td><%= d.object.id %></td>
+                  <td><%= dp.object.product.code %></td>
+                  <td></td>
+                </tr>
+              <% end %>
+            <% end %>
+          <% else %>
+            <tr>
+              <%= render "empty", :p => p %>
+              <td><%= d.object.id %></td>
+              <td></td>
+              <td></td>
+            </tr>
+              
+          <% end %>
+        <% end %>
+      <% else %>
+        <tr>
+          <%= render "empty", :p => p %>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      <% end %>
+    <% end %> 
+  <% end %>
+  
+</table>

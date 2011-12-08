@@ -15,6 +15,9 @@ SimplePlan::Application.routes.draw do
 	resources :imports
 	
 	resources	:plans do
+		member do
+			get 'worksheet'
+		end
 		resources	:programs do
 			collection do
 				get 'worksheet'

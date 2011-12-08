@@ -20,7 +20,8 @@ th, td {
 	border-color:				#5c9ccc;	
 	color:							#005C5C;
 	height:							1.25em;
-	padding:						2px;
+	padding-left: 			2px;
+	padding-right:			1em;
 }
 
 tr:nth-child(odd) {
@@ -51,12 +52,6 @@ th {
 
 .file_import_table {
 	width: 200px;
-}
-
-table .subtable {
-	border-width: 1px;
-	border-style: solid;
-	margin:				-3px;
 }
 
 tr .no-greenbars {
