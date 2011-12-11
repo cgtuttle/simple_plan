@@ -7,9 +7,10 @@ gem 'devise_invitable', '0.5.4'
 gem 'cancan'
 gem 'jquery-rails'
 
-group :development do
+group :development do	
 	gem 'rspec-rails', '2.6.1.beta1'
 	gem 'sqlite3-ruby', :require => 'sqlite3'
+	gem 'rails-erd'
 end
 
 group :test do

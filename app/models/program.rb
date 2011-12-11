@@ -13,6 +13,8 @@ class Program < ActiveRecord::Base
 	has_many   	:program_categories
 	has_many  	:program_activities
 	
+	scope				:by_code, order => 'code'
+	
 	accepts_nested_attributes_for :deals
 	
 	#TODO: Remove plan_rate and plan_vol

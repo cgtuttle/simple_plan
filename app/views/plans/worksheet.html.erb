@@ -2,8 +2,8 @@
 <h4>Plan: <%= @plan.code %></h4>
 
 <table>
-  <th>Program</th>
   <th>Rep</th>
+  <th>Program</th>
   <th>Code</th>
   <th>Program Start</th>
   <th>Program End</th>
@@ -20,8 +20,8 @@
               <% if dp.object.deal_activities.length > 0 %>
                 <%= dp.fields_for :deal_activities do |da| %>
                   <tr>
-                    <td><%= p.object.id %></td>
                     <td><%= p.object.seller != nil ? p.object.seller.name : nil %></td>
+                    <td><%= p.object.id %></td>
                     <td><%= p.object.code != nil ? p.object.code : nil %></td>
                     <td><%= p.object.start_date != nil ? p.object.start_date.to_s(:just_date) : nil%></td>
                     <td><%= p.object.end_date != nil ? p.object.end_date.to_s(:just_date) : nil%></td>

@@ -1,0 +1,249 @@
+digraph SimplePlan {
+  fontname = "Arial Bold"; pad = "0.4,0.4"; margin = "0,0"; rankdir = "LR"; concentrate = "true"; labelloc = "t"; ranksep = "0.5"; fontsize = "13"; nodesep = "0.4";
+  node [fontname = "Arial", margin = "0.07,0.05", shape = "Mrecord", penwidth = "1.0", fontsize = "10"];
+  edge [fontname = "Arial", labelangle = "32", labeldistance = "1.8", penwidth = "1.0", fontsize = "7", arrowsize = "0.9", dir = "both"];
+  label = "SimplePlan domain model\n\n";
+  m_Account [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Account</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="current_plan">current_plan <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="service">service <font face="Arial Italic" color="grey60">string (63)</font></td></tr>
+  <tr><td align="left" width="130" port="user_id">user_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+  m_Activity [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Activity</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string (15)√¢‚?¨≈†√¢À?‚??</font></td></tr>
+  <tr><td align="left" width="130" port="descr">descr <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string (127)</font></td></tr>
+</table>
+>];
+  m_Category [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Category</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string (15)</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string (63)</font></td></tr>
+</table>
+>];
+  m_CategoryProduct [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">CategoryProduct</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="category_id">category_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="product_id">product_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+  m_Cell [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Cell</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="column">column <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="destination">destination <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="row">row <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="value">value <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_Deal [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Deal</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="accepted_by">accepted_by <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="accepted_on">accepted_on <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="notes">notes <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="offered_on">offered_on <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="offered_to">offered_to <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="owner_id">owner_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="status">status <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_DealActivity [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">DealActivity</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="end_date">end_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="rate">rate <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="volume">volume <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="volume_allocation">volume_allocation <font face="Arial Italic" color="grey60">float</font></td></tr>
+</table>
+>];
+  m_DealProduct [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">DealProduct</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="end_date">end_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="rate">rate <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="volume">volume <font face="Arial Italic" color="grey60">float</font></td></tr>
+</table>
+>];
+  m_Import [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Import</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="first_row">first_row <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="model">model <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="row_count">row_count <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="user_id">user_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+  m_Partnership [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Partnership</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="partner_type">partner_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_Plan [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Plan</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="budget">budget <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="descr">descr <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="end_date">end_date <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">date</font></td></tr>
+</table>
+>];
+  m_Product [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Product</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string (15)</font></td></tr>
+  <tr><td align="left" width="130" port="descr">descr <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string (127)</font></td></tr>
+</table>
+>];
+  m_Profile [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Profile</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="first_name">first_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="last_name">last_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="last_plan">last_plan <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+  m_Program [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Program</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="budget_rate">budget_rate <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="budget_vol">budget_vol <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string (15)√¢‚?¨≈†√¢À?‚??</font></td></tr>
+  <tr><td align="left" width="130" port="descr">descr <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="end_date">end_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string (63)</font></td></tr>
+  <tr><td align="left" width="130" port="plan_rate">plan_rate <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="plan_vol">plan_vol <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+</table>
+>];
+  m_ProgramActivity [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ProgramActivity</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="budget_rate">budget_rate <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="vol_alloc">vol_alloc <font face="Arial Italic" color="grey60">float</font></td></tr>
+</table>
+>];
+  m_ProgramCategory [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ProgramCategory</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="budget_rate">budget_rate <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="vol_alloc">vol_alloc <font face="Arial Italic" color="grey60">float</font></td></tr>
+</table>
+>];
+  m_ProgramProduct [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ProgramProduct</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="category_id">category_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="customer_id">customer_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="plan_rate">plan_rate <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="plan_vol">plan_vol <font face="Arial Italic" color="grey60">float</font></td></tr>
+</table>
+>];
+  m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">User</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="current_sign_in_at">current_sign_in_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="current_sign_in_ip">current_sign_in_ip <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">string√¢‚?¨≈†√¢À?‚??</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_password">encrypted_password <font face="Arial Italic" color="grey60">string (128)</font></td></tr>
+  <tr><td align="left" width="130" port="invitation_sent_at">invitation_sent_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="invitation_token">invitation_token <font face="Arial Italic" color="grey60">string (60)</font></td></tr>
+  <tr><td align="left" width="130" port="last_sign_in_at">last_sign_in_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="last_sign_in_ip">last_sign_in_ip <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="remember_created_at">remember_created_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="reset_password_sent_at">reset_password_sent_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="reset_password_token">reset_password_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="role">role <font face="Arial Italic" color="grey60">string (63)</font></td></tr>
+  <tr><td align="left" width="130" port="sign_in_count">sign_in_count <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+  m_Account -> m_User [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_User -> m_Profile [arrowhead = "none", weight = "2", arrowtail = "none"]
+  m_Account -> m_Program [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Account -> m_Partnership [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Account -> m_Partnership [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Account -> m_Import [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Account -> m_Account [arrowhead = "normal", weight = "1", arrowtail = "none", constraint = "false", style = "dotted"]
+  m_Account -> m_Category [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Account -> m_Plan [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Account -> m_Activity [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Account -> m_Product [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Account -> m_Program [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Account -> m_Deal [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Account -> m_Account [arrowhead = "normal", weight = "1", arrowtail = "none", constraint = "false", style = "dotted"]
+  m_Account -> m_Deal [arrowhead = "normal", weight = "1", arrowtail = "none"]
+  m_Account -> m_Program [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_ProgramActivity -> m_Activity [arrowhead = "normal", weight = "1", arrowtail = "none"]
+  m_Activity -> m_DealActivity [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_ProgramCategory -> m_Category [arrowhead = "normal", weight = "1", arrowtail = "none"]
+  m_CategoryProduct -> m_Category [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Category -> m_Deal [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_CategoryProduct -> m_Product [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Import -> m_Cell [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Deal -> m_DealProduct [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Program -> m_Deal [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_DealProduct -> m_DealActivity [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Product -> m_DealProduct [arrowhead = "normal", weight = "1", arrowtail = "none"]
+  m_Plan -> m_Program [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_ProgramProduct -> m_Product [arrowhead = "normal", weight = "1", arrowtail = "none"]
+  m_Product -> m_Deal [arrowhead = "normal", weight = "1", arrowtail = "none"]
+  m_Account -> m_Profile [arrowhead = "normal", weight = "1", arrowtail = "none"]
+  m_Program -> m_DealProduct [arrowhead = "normal", weight = "1", arrowtail = "none", constraint = "false", style = "dotted"]
+  m_Program -> m_ProgramActivity [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Program -> m_DealActivity [arrowhead = "normal", weight = "1", arrowtail = "none", constraint = "false", style = "dotted"]
+  m_Program -> m_ProgramCategory [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Program -> m_ProgramProduct [arrowhead = "normal", weight = "2", arrowtail = "none"]
+  m_Activity -> m_ProgramActivity [arrowhead = "normal", weight = "1", arrowtail = "none"]
+  m_Category -> m_ProgramCategory [arrowhead = "normal", weight = "1", arrowtail = "none"]
+  m_Product -> m_ProgramProduct [arrowhead = "normal", weight = "1", arrowtail = "none"]
+}

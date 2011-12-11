@@ -13,16 +13,6 @@ before_filter	:validate_plan
 		@sellers = Account.find(:all, :conditions => {:service => 'seller', :id => current_partners})
 	end
 	
-	def worksheet
-		@title = "#{current_account.name} Worksheet"
-		@program = @plan.programs.new
-		@program.account_id = current_account
-	end
-	
-	def test
-		@programs = Program.find(:all)
-	end
-	
 	def show
 		@program = Program.find(params[:id])
 		@title = @program.name
@@ -73,9 +63,7 @@ before_filter	:validate_plan
 		else
 			plan_id = params[:plan_id]
 		end
-		#@plan = Plan.find(plan_id)
-		#@plan = Plan.includes([:programs]).find(plan_id)
-		@plan = Plan.find(plan_id, {:include => {:programs => :deals}})
+		@plan = Plan.find(plan_id)
 		if current_account.partner_plans.include?(@plan)
 			current_user.profile.set_last_plan(@plan.id)
 		else

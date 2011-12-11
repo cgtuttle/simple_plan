@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111130213719) do
+ActiveRecord::Schema.define(:version => 20111210224311) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,11 @@ ActiveRecord::Schema.define(:version => 20111130213719) do
     t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "category_assignments", :force => true do |t|
+    t.integer "category_id"
+    t.integer "partner_id"
   end
 
   create_table "category_products", :force => true do |t|
@@ -92,27 +97,6 @@ ActiveRecord::Schema.define(:version => 20111130213719) do
     t.text     "notes"
   end
 
-  create_table "import_map_columns", :force => true do |t|
-    t.integer  "import_map_id"
-    t.string   "table_column"
-    t.boolean  "is_required"
-    t.boolean  "import"
-    t.string   "import_column"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "import_maps", :force => true do |t|
-    t.string   "code"
-    t.string   "name"
-    t.string   "model_name"
-    t.integer  "account_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "full_filename"
-  end
-
   create_table "imports", :force => true do |t|
     t.integer  "account_id"
     t.integer  "user_id"
@@ -141,6 +125,8 @@ ActiveRecord::Schema.define(:version => 20111130213719) do
     t.float    "budget"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "release_status"
+    t.integer  "owner_id"
   end
 
   create_table "products", :force => true do |t|

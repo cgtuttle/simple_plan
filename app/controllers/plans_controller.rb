@@ -1,22 +1,23 @@
 class PlansController < ApplicationController
 include ApplicationHelper
 before_filter	:validate_plan
+before_filter :find_plans
 before_filter { |c| c.set_zone "Application" }	
 	
   def index
-		@zone = "Application"	
 		@account = current_account
 		@plan = Plan.new
   end
 	
 	def worksheet
-		logger.debug "worksheet -> @plan.programs = #{@plan.programs.inspect}"
+		@programs = @plan.programs(:order => 'code ASC')
+		@programs.sort!{ |a,b| a.code <=> b.code }
+		logger.debug "worksheet -> @programs = #{@programs.inspect}"
 	end
 	
 	def create
 		@plan = Plan.new(params[:plan])
-		@plan.account_id = current_account.id
-		
+		@plan.account_id = current_account.id		
 		if @plan.save
 			flash[:success] = "Successfully added a new plan"
 			redirect_to plans_path
@@ -26,14 +27,12 @@ before_filter { |c| c.set_zone "Application" }
 	end
 	
 	def validate_plan
-		if !params[:plan_id]
+		if !params[:id]
 			plan_id = current_user.profile.last_plan
 		else
-			plan_id = params[:plan_id]
+			plan_id = params[:id]
 		end
-		#@plan = Plan.find(plan_id)
-		#@plan = Plan.includes([:programs]).find(plan_id)
-		@plan = Plan.find(plan_id, {:include => {:programs => :deals}})
+		@plan = Plan.released.find(plan_id)
 		if current_account.partner_plans.include?(@plan)
 			current_user.profile.set_last_plan(@plan.id)
 		else
