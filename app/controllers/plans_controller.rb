@@ -10,9 +10,8 @@ before_filter { |c| c.set_zone "Application" }
   end
 	
 	def worksheet
-		@programs = @plan.programs(:order => 'code ASC')
-		@programs.sort!{ |a,b| a.code <=> b.code }
-		logger.debug "worksheet -> @programs = #{@programs.inspect}"
+		@programs = @plan.programs.by_seller
+		#@programs = @plan.programs.joins(:seller).all(:order => 'accounts.name')
 	end
 	
 	def create

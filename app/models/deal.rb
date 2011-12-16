@@ -2,6 +2,7 @@ class Deal < ActiveRecord::Base
 	belongs_to 	:program
 	belongs_to 	:customer, :class_name => "Account"
   belongs_to  :category
+
   
 	has_many		:deal_products
 	

@@ -28,5 +28,9 @@ class Account < ActiveRecord::Base
 		Plan.find(:all, :conditions => ["account_id = ? OR account_id IN (?)", self.id, self.partners])
 	end
 	
+	def self.by_name
+		self.all(:order => 'name ASC')
+	end
+	
 
 end
