@@ -9,6 +9,8 @@ class Plan < ActiveRecord::Base
 	
 	scope :released, where(:release_status => 1)
 	
-	
+	def rep_name(program)
+		self.program.seller.name		
+	end
 	
 end
