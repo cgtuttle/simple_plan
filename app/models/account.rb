@@ -14,6 +14,8 @@ class Account < ActiveRecord::Base
 	has_many 	:programs
 	has_many	:seller_programs, :class_name => "Program", :foreign_key => "seller_id"
 	has_many	:supplier_programs, :class_name => "Program", :foreign_key => "supplier_id"
+	has_many	:seller_deals, :through => :seller_programs, :source => :deals
+	has_many  :customers, :through => :seller_deals
 	
 	has_many	:partnerships	
 	has_many	:partners,	:through => :partnerships, :source => "partner"
@@ -30,6 +32,14 @@ class Account < ActiveRecord::Base
 	
 	def self.by_name
 		self.all(:order => 'name ASC')
+	end
+	
+	def ordered_seller_programs
+		self.seller_programs.order(programs_order).all
+	end
+	
+	def programs_order
+		"start_date ASC"
 	end
 	
 

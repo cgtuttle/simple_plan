@@ -65,3 +65,15 @@ tr.no-greenbars:nth-child(odd)  {
 tr.no-greenbars:nth-child(even)  {
 	background-color: #EFF8F3;
 }
+
+td.grayed-out {
+	color: #80CCFF;
+}
+
+td.category {
+	font-weight: bold;
+}
+
+td.light-category {
+	font-weight: normal;
+}

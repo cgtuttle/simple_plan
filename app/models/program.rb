@@ -2,7 +2,7 @@ class Program < ActiveRecord::Base
 	include ApplicationHelper
 	
 	belongs_to 	:seller, :class_name => "Account", :foreign_key => "seller_id"
-	belongs_to 	:supplier, :class_name => "Account", :foreign_key => "supplier_id"
+	belongs_to 	:supplier, :class_name => "Account", :foreign_key => "supplier_id"	
 	belongs_to	:account
 	belongs_to	:plan
   
@@ -12,6 +12,8 @@ class Program < ActiveRecord::Base
 	has_many    :program_products
 	has_many   	:program_categories
 	has_many  	:program_activities
+	has_many  	:customers, :through => :deals, :class_name => "Account"
+	 
 	
 	accepts_nested_attributes_for :deals
 	
@@ -26,6 +28,10 @@ class Program < ActiveRecord::Base
 		Plan.find(plan).budget
 	end
 	
+	def find_deals
+		self.deals.all(:order => deals_order)
+	end
+	
 	def budget_cost
 		if self.budget_rate && self.budget_vol
 			self.budget_rate * self.budget_vol
@@ -34,14 +40,9 @@ class Program < ActiveRecord::Base
 		end
 	end
 	
-	def self.by_seller
-		self.joins(:seller).all(:order => 'accounts.name')
+	def deals_order
+		'id'
 	end
-		
-	def self.by_code
-		self.find(:all, :order => 'code ASC')
-	end
-	
 	
 	
 end

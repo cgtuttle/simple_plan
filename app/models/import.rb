@@ -8,6 +8,6 @@ class Import < ActiveRecord::Base
 	
 	
 	NO_IMPORT = %w[id account_id created_at updated_at]
-	MODELS = %w{Activity Category Deal Product}
+	MODELS = %w{Activity Category Deal Product Program DealProduct DealActiviy}
 	
 end

@@ -1,0 +1,24 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<%= "new_view" %>
+
+<% if @prev != record[:rep] %>
+      <td>      
+        <%= record[:rep] %>
+      </td>
+    <% else %>
+      <td class="faint">      
+        <%= record[:rep] %>
+      </td>
+    <% end %>
+    <% @prev = record[:rep] %>
+    <td><%= record[:customer] %></td>
+    <td><%= record[:program] %></td>
+    <td><%= record[:program_start] %></td>
+    <td><%= record[:program_end] %></td>
+    <td><%= record[:deal] %></td>
+    <td><%= record[:product] %></td>
+    <td><%= record[:activity] %></td>   

@@ -1,0 +1,11 @@
+<tr>
+  <td></td>
+  <td><%= account != nil ? account.name : nil %></td>
+  <td><%#= deal.program != nil ? deal.program.code : nil %></td>
+  <td><%#= deal.program.start_date != nil ? deal.program.start_date.to_s(:just_date) : nil%></td>
+  <td><%#= deal.program.end_date != nil ? deal.program.end_date.to_s(:just_date) : nil%></td>
+  <td><%#= customer_deal != nil ? customer_deal.id : nil %></td>
+  <td></td>
+  <td></td>
+  <%= render account.customer_deals %>
+</tr>

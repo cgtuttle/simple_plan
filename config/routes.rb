@@ -1,5 +1,7 @@
 SimplePlan::Application.routes.draw do  
 
+  get "worksheets/index"
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 		
   resources :activities
@@ -13,10 +15,13 @@ SimplePlan::Application.routes.draw do
   resources :program_products
   resources :program_activities
 	resources :imports
+	resources :worksheets
 	
 	resources	:plans do
 		member do
 			get 'worksheet'
+			get 'worksheet_1'
+			get 'dashboard'
 		end
 		resources	:programs do
 			collection do

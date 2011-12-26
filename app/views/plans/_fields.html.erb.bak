@@ -1,0 +1,10 @@
+
+  <td><%= p.object.seller != nil ? p.object.seller.name : nil %></td>
+  <td><%= d != nil ? d.object.customer.name : nil %></td>
+  <td><%= p.object.code != nil ? p.object.code : nil %></td>
+  <td><%= p.object.start_date != nil ? p.object.start_date.to_s(:just_date) : nil%></td>
+  <td><%= p.object.end_date != nil ? p.object.end_date.to_s(:just_date) : nil%></td>
+  <td><%= d != nil ? d.object.id : nil %></td>
+  <td><%= dp != nil ? dp.object.product.code : nil %></td>
+  <td><%= da != nil ? da.object.activity.name : nil %></td>
+  

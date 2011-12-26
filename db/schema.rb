@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111210224311) do
+ActiveRecord::Schema.define(:version => 20111217222618) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -216,5 +216,16 @@ ActiveRecord::Schema.define(:version => 20111210224311) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "worksheets", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "seller_name"
+    t.string   "customer_name"
+    t.string   "program_code"
+    t.date     "program_start"
+    t.date     "program_end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

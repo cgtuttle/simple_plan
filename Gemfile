@@ -11,6 +11,7 @@ group :development do
 	gem 'rspec-rails', '2.6.1.beta1'
 	gem 'sqlite3-ruby', :require => 'sqlite3'
 	gem 'rails-erd'
+	gem 'hirb'
 end
 
 group :test do
