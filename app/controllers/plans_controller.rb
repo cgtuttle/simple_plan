@@ -5,7 +5,7 @@ before_filter	:validate_plan
 before_filter { |c| c.set_zone "Application" }	
 	
   def index
-		@plans = :find_plans
+		@plans = find_plans
 		@account = current_account
 		@plan = Plan.new
   end
