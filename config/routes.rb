@@ -20,21 +20,11 @@ SimplePlan::Application.routes.draw do
 	resources	:plans do
 		member do
 			get 'worksheet'
-			get 'worksheet_1'
-			get 'dashboard'
 		end
-		resources	:programs do
-			collection do
-				get 'worksheet'
-			end
-		end
+		resources	:programs
 	end
 
 	resources	:programs do
-		collection do
-			get 'worksheet'
-			get 'test'
-		end
 		resources	:deals	
 	end
 	

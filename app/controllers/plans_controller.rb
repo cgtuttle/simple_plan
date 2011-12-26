@@ -1,36 +1,17 @@
 class PlansController < ApplicationController
 include ApplicationHelper
-include PlansHelper
+
 before_filter	:validate_plan
-before_filter :find_plans
 before_filter { |c| c.set_zone "Application" }	
 	
   def index
+		@plans = :find_plans
 		@account = current_account
 		@plan = Plan.new
   end
 	
 	def worksheet
-		#@programs = @plan.find_programs
-		
 		@sellers = @plan.find_sellers
-		# Works, cannot link to seller in view ...@seller_programs = @plan.find_seller_programs
-		#@sellers = @plan.sellers.includes(:seller_programs).all
-		#@customers = @plan.find_customers
-		#logger.debug "worksheet -> @customers, #{@customers.inspect}"
-	end
-	
-	def worksheet_1
-		@programs = @plan.find_programs
-		logger.debug "worksheet -> @programs, #{@programs.inspect}"
-	end
-	
-	def dashboard
-		@programs = @plan.find_programs	
-		@prev = Array.new
-		@td = Array.new
-		@data = Array.new
-		fill_dataset
 	end
 	
 	def create
@@ -60,8 +41,7 @@ before_filter { |c| c.set_zone "Application" }
 	end
 	
 	def find_plans
-		@plans = Plan.find(:all, :conditions => ["account_id = ? OR account_id IN (?)", current_account, current_partners])	
-		
+		@plans = Plan.find(:all, :conditions => ["account_id = ? OR account_id IN (?)", current_account, current_partners])		
 	end
 	
 end
