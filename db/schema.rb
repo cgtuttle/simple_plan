@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111226185333) do
+ActiveRecord::Schema.define(:version => 20111227011826) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -192,6 +192,17 @@ ActiveRecord::Schema.define(:version => 20111226185333) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "plan_id"
+  end
+
+  create_table "settings", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "type_name",     :limit => 63
+    t.string   "model_name"
+    t.string   "view_name"
+    t.string   "column_name"
+    t.string   "setting_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

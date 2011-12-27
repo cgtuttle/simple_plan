@@ -2,7 +2,8 @@ class PlansController < ApplicationController
 include ApplicationHelper
 
 before_filter	:validate_plan
-before_filter { |c| c.set_zone "Application" }	
+before_filter { |c| c.set_zone "Application" }
+
 	
   def index
 		@plans = find_plans
