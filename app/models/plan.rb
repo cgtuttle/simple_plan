@@ -10,18 +10,8 @@ class Plan < ActiveRecord::Base
 	
 	scope :released, where(:release_status => 1)
 	
-	def find_programs
-		self.programs.joins(:seller).all(:order => programs_order)
-		#self.programs.select("*").joins("LEFT OUTER JOIN deals ON deals.program_id = programs.id")
-	end
-	
-	def find_seller_programs
-		Program.where(:seller_id => "self.sellers")
-	end
-	
-	def find_sellers
-		#self.sellers.select("DISTINCT accounts.*").all
-		self.sellers.includes(:seller_programs).all(:order => sellers_order)
+	def find_sellers(page)
+		self.sellers.includes(:seller_programs).order(sellers_order).page(page).per(2)
 	end
 	
 	def find_customers

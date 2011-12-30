@@ -3,7 +3,9 @@ class Account < ActiveRecord::Base
 	has_many 	:users
 	has_many 	:categories
 	has_many 	:products
-	has_many 	:activities	
+	has_many 	:activities
+	has_many  :category_accounts
+	has_many  :approved_categories, :through => :category_accounts, :source => :category
 
 	has_many	:plans
 	has_many	:imports
@@ -34,8 +36,12 @@ class Account < ActiveRecord::Base
 		self.all(:order => 'name ASC')
 	end
 	
+	def sellers
+		self.where(:service => 'seller').all		
+	end
+	
 	def ordered_seller_programs
-		self.seller_programs.order(programs_order).all
+		self.seller_programs.order(programs_order)
 	end
 	
 	def programs_order

@@ -6,6 +6,7 @@ gem 'devise',           '1.4.5'
 gem 'devise_invitable', '0.5.4'
 gem 'cancan'
 gem 'jquery-rails'
+gem 'kaminari'
 
 group :development do	
 	gem 'rspec-rails', '2.6.1.beta1'

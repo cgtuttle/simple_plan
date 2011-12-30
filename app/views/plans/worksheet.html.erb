@@ -1,34 +1,41 @@
+
+
 <h2><%=  @title %></h2>
 <h4>Plan: <%= @plan.code %></h4>
+<%= paginate @sellers %>
 
-<table class ="no-greenbars">
-  <tr class="row-header">
-    <th>Rep</th>
-    <th>Program</th>
-    <th>Program Start</th>
-    <th>Program End</th>
-    <th>Deal</th>
-    <th>Customer</th>
-    <th>Product</th>
-    <th>Activity</th>
-  </tr>
-
-  
-  <% @sellers.each do |s| %>
-   
-    <tr class="no-greenbars">
-      <td><%= s.name %></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <%= render s.ordered_seller_programs %>
+  <table class ="no-greenbars">
+    <thead>
+    <tr class="row-header">
+      <th>Rep</th>
+      <th>Program</th>
+      <th>Program Start</th>
+      <th>Program End</th>
+      <th>Deal</th>
+      <th>Customer</th>
+      <th>Product</th>
+      <th>Activity</th>
     </tr>
-              
-  <% end %>
- 
-  
-</table>
+    </thead>
+
+    <tbody>
+      <% @sellers.each do |s| %>
+
+        <tr class="no-greenbars">
+          <td><%= s.name %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <%= render s.ordered_seller_programs %>
+        </tr>
+
+      <% end %>
+    </tbody>
+
+  </table>
+
+

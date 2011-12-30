@@ -12,7 +12,7 @@ before_filter { |c| c.set_zone "Application" }
   end
 	
 	def worksheet
-		@sellers = @plan.find_sellers
+		@sellers = @plan.find_sellers(params[:page])
 	end
 	
 	def create

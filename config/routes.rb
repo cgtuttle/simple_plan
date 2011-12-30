@@ -20,6 +20,7 @@ SimplePlan::Application.routes.draw do
 	resources	:plans do
 		member do
 			get 'worksheet'
+			get 'test'
 		end
 		resources	:programs
 	end

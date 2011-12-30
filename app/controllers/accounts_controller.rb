@@ -59,6 +59,6 @@ class AccountsController < ApplicationController
 		@user_name = @current_user.email
 		@user_account_id = @current_user.account_id
 	end
-  
+	
  
 end

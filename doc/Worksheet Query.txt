@@ -1,0 +1,12 @@
+"SELECT plans.account_id AS owner, plans.id, plans.code, accounts.name AS seller, programs.id, programs.code, deals.id, 
+	accounts_1.name, deals.status, deals.offered_on, deals.offered_to, deals.accepted_on, deals.accepted_by, 
+	products.code, deal_products.rate, deal_products.volume, deal_products.start_date, deal_products.end_date, 
+	activities.name, deal_activities.rate, deal_activities.volume, deal_activities.start_date, deal_activities.end_date
+FROM (((((((plans INNER JOIN programs ON plans.id = programs.plan_id) 
+	INNER JOIN accounts ON programs.seller_id = accounts.id) 
+	LEFT OUTER JOIN deals ON programs.id = deals.program_id) 
+	LEFT OUTER JOIN accounts AS accounts_1 ON deals.customer_id = accounts_1.id) 
+	LEFT OUTER JOIN deal_products ON deals.id = deal_products.deal_id) 
+	LEFT OUTER JOIN products ON deal_products.product_id = products.id) 
+	LEFT OUTER JOIN deal_activities ON deal_products.id = deal_activities.deal_product_id) 
+	LEFT OUTER JOIN activities ON deal_activities.activity_id = activities.id"

@@ -54,12 +54,15 @@ h4 {font-size:100%; margin-top:7px; margin-bottom:7px;}
 	font-family:			arial;
 }
 
+
 .right_column {
 	background-color:	#F8F8FF;
 	height:						100%;
 	margin:						0 -100px 0 100px;
 	overflow:					auto;
 }
+
+
 
 /*Gradient*/
 

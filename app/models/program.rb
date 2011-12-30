@@ -5,16 +5,16 @@ class Program < ActiveRecord::Base
 	belongs_to 	:supplier, :class_name => "Account", :foreign_key => "supplier_id"	
 	belongs_to	:account
 	belongs_to	:plan
+	belongs_to	:category
   
   has_many 		:deals
 	has_many		:deal_products, :through => :deals
 	has_many		:deal_activities, :through => :deal_products
 	has_many    :program_products
-	has_many   	:program_categories
 	has_many  	:program_activities
 	has_many  	:customers, :through => :deals, :class_name => "Account"
-	 
 	
+	 
 	accepts_nested_attributes_for :deals
 	
 	#TODO: Remove plan_rate and plan_vol
@@ -30,6 +30,10 @@ class Program < ActiveRecord::Base
 	
 	def find_deals
 		self.deals.all(:order => deals_order)
+	end
+	
+	def find_assigned_categories
+		self.categories.where()
 	end
 	
 	def budget_cost

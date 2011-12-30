@@ -6,6 +6,9 @@ before_filter	:validate_plan
   def index
 		@title = "#{current_account.name} Programs"
 		@program = @plan.programs.new
+		@programs = @plan.programs
+		@categories = current_account.approved_categories.all
+		logger.debug "index -> @categories, #{@categories.inspect}"
 		@ttl_budget_cost = Program.ttl_budget_cost(current_partners, current_account, @plan)
 		@plan_budget = Program.plan_budget(@plan)
 		@service_needed = service_needed

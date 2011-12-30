@@ -12,6 +12,7 @@
     <th>Start</th>
     <th>End</th>
     <th><%= @service_needed.humanize %></th>
+    <th>Category</th>
     <th>Budgeted<br />Rate</th>
     <th>Budgeted<br />Volume</th>
     <th>Budgeted<br />Cost</th>
@@ -19,7 +20,7 @@
     <th />
     
   </tr>
-  <% @plan.programs.each do |p| %>
+  <% @programs.each do |p| %>
     <% if p.id %>
       <tr>
         <td><%= link_to "Deals", program_deals_path(p.id) %> </td>
@@ -30,11 +31,10 @@
         <td><%= p.start_date && p.start_date.to_s(:just_date) %></td>
         <td><%= p.end_date && p.end_date.to_s(:just_date) %></td>
         <td><%= render :partial => "service", :locals => { :program => p } %>
-        <div class="number_field">
-          <td><%= p.budget_rate && number_to_currency(p.budget_rate) %></td>
-          <td><%= p.budget_vol && float_zero(p.budget_vol) %></td>
-          <td><%= currency_zero(p.budget_cost) %></td>
-        </div>
+        <td><%= p.category.code %></td>        
+        <td class="number_field"><%= p.budget_rate && number_to_currency(p.budget_rate) %></td>
+        <td class="number_field"><%= p.budget_vol && float_zero(p.budget_vol) %></td>
+        <td class="number_field"><%= currency_zero(p.budget_cost) %></td>        
         <td><%= link_to "Edit", edit_plan_program_path(@plan, p) %></td>
         <td><%= link_to "Delete", p, :method => :delete, :confirm => "Please confirm deletion:",
                                                       :title => "Delete #{p.name}" %></td>

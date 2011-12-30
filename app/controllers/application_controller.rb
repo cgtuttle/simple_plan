@@ -11,8 +11,10 @@ class ApplicationController < ActionController::Base
 	end
 	
 	def set_profile_id
-		@profile_id = current_user.profile.id
-		logger.debug "set_profile -> #{@profile.inspect}"
+		if current_user
+			@profile_id = current_user.profile.id
+			logger.debug "set_profile -> #{@profile.inspect}"
+		end
 	end
 	
 end
