@@ -93,47 +93,33 @@ before_filter	:validate_plan
     qtype = params[:qtype]
     sortname = params[:sortname]
     sortorder = params[:sortorder]
-
-    if (!sortname)
-      sortname = "name"
-    end
-
-    if (!sortorder)
-      sortorder = "asc"
-    end
-
-    if (!page)
-      page = 1
-    end
-
-    if (!rp)
-      rp = 10
-    end
-
+		
+		case sortname
+		when 'seller.name'
+			sortname = 'accounts.name'
+		when 'category.code'
+			sortname = 'categories.code'
+		end
+		
+		
+		# Defaults		
+		sortname ||= "code"
+		sortorder ||= "asc"
+		page ||= 1
+		rp ||= 10
+  
     start = ((page-1) * rp).to_i
     query = "%"+query+"%"
 
     # No search terms provided
     if(query == "%%")
-      @programs = @plan.programs.find(:all,
-		:include => :seller,
-  	:order => sortname+' '+sortorder,
-  	:limit =>rp,
-  	:offset =>start
-  	)
+			@programs = @plan.find_programs(sortname, sortorder, rp, start)			
       count = @plan.programs.count(:all)
-    end
-		
+		else		
 		 # User provided search terms
-    if(query != "%%")
-        @programs = @plan.programs.find(:all,
-		:include => :seller,
-	  :order => sortname+' '+sortorder,
-	  :limit =>rp,
-  	  :offset =>start,
-  	  :conditions=>[qtype +" like ?", query])
+			@programs = @plan.search_programs(sortname, sortorder, rp, start, query, qtype)
 			count = @plan.programs.count(:all,
-	  :conditions=>[qtype +" like ?", query])
+				:conditions=>[qtype +" like ?", query])
     end
 	
 		return_data = Hash.new
@@ -146,8 +132,8 @@ before_filter	:validate_plan
 						 p.code,
 						 p.seller.name,
 						 p.start_date ? p.start_date.strftime("%m/%d/%Y") : nil,
-						 p.end_date ? p.end_date.strftime("%m/%d/%Y") : nil
-						 
+						 p.end_date ? p.end_date.strftime("%m/%d/%Y") : nil,
+						 p.category.code
 					 ]}}
 		 
     # Convert the hash to a json object

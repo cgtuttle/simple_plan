@@ -6,12 +6,13 @@
     method: 'GET',
     url: 'grid_data',
     dataType: 'json',
-    colModel : [
-      {display: 'Id', name : 'id', width : 75, sortable : true, align: 'left'},
-      {display: 'Code', name : 'code', width : 100, sortable : true, align: 'left'},
+    colModel : [    
+      {display: 'Id', name : 'id', width : 30, sortable : true, align: 'left'},
       {display: 'Rep', name : 'seller.name', width : 100, sortable : true, align: 'left'},
+      {display: 'Code', name : 'code', width : 100, sortable : true, align: 'left'},
       {display: 'Start', name : 'start_date', width : 75, sortable : true, align: 'left'},
-      {display: 'End', name : 'end_date', width : 75, sortable : true, align: 'left'}
+      {display: 'End', name : 'end_date', width : 75, sortable : true, align: 'left'},
+      {display: 'Category', name : 'category.code', width : 100, sortable : true, align: 'left'}
     ],
     searchitems : [
       {display: 'Id', name : 'id'},

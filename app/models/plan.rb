@@ -23,4 +23,12 @@ class Plan < ActiveRecord::Base
 		"accounts.name ASC"
 	end
 	
+	def find_programs(sortname, sortorder, records, start)
+		self.programs.includes(:seller, :category).order(sortname+' '+sortorder).limit(records).offset(start).all
+	end
+	
+	def search_programs(sortname, sortorder, records, start, search_text, search_field)
+		self.programs.where(search_field +" like ?", search_text).includes(:seller, :category).order(sortname+' '+sortorder).limit(records).offset(start).all		
+	end
+	
 end
