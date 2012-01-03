@@ -10,7 +10,6 @@ class Program < ActiveRecord::Base
   has_many 		:deals
 	has_many		:deal_products, :through => :deals
 	has_many		:deal_activities, :through => :deal_products
-	has_many    :program_products
 	has_many  	:program_activities
 	has_many  	:customers, :through => :deals, :class_name => "Account"
 	

@@ -10,8 +10,9 @@ class Plan < ActiveRecord::Base
 	
 	scope :released, where(:release_status => 1)
 	
-	def find_sellers(page)
-		self.sellers.includes(:seller_programs).order(sellers_order).page(page).per(2)
+	def find_sellers#(page)
+		#self.sellers.includes(:seller_programs).order(sellers_order).page(page)
+		self.sellers.includes(:seller_programs).order(sellers_order)
 	end
 	
 	def find_customers

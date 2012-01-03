@@ -3,6 +3,7 @@
 //= require jquery-ui
 //= require jquery
 //= require jquery_ujs
+//= require flexigrid.js
 
 $(function (){
 	$('#program_start_date').datepicker({

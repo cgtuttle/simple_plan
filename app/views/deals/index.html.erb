@@ -1,4 +1,7 @@
 <h4><%= @plan.code %> <%= link_to @program.code, plan_programs_path(@plan.id) %> (<%= @program.name %>)</h4>
+
+<%= render :partial => 'program', :locals => { :p => @program } %>
+
 <h4>Deals</h4>
 <table>
   <tr>
@@ -9,6 +12,8 @@
     <th>Offered On</th>
     <th>Accepted By</th>
     <th>Accepted On</th>
+    <th></th>
+    <th></th>
         
   </tr>
   

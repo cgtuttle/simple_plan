@@ -1,0 +1,31 @@
+<table id="flex1"></table>
+<script type="text/javascript">
+  $("#flex1").flexigrid
+    (
+    {
+    method: 'GET',
+    url: 'grid_data',
+    dataType: 'json',
+    colModel : [
+      {display: 'Id', name : 'id', width : 75, sortable : true, align: 'left'},
+      {display: 'Code', name : 'code', width : 100, sortable : true, align: 'left'},
+      {display: 'Rep', name : 'seller.name', width : 100, sortable : true, align: 'left'},
+      {display: 'Start', name : 'start_date', width : 75, sortable : true, align: 'left'},
+      {display: 'End', name : 'end_date', width : 75, sortable : true, align: 'left'}
+    ],
+    searchitems : [
+      {display: 'Id', name : 'id'},
+      {display: 'Code', name : 'code'}
+    ],
+    sortname: "id",
+    sortorder: "asc",
+    usepager: true,
+    title: 'Programs',
+    useRp: true,
+    rp: 15,
+    showTableToggleBtn: true,
+    width: 'auto',
+    height: 'auto'
+    }
+  );
+</script>

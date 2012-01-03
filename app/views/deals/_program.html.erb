@@ -1,0 +1,36 @@
+<table>
+  <tr>
+    
+    <th>Code</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Account</th>
+    <th>Start</th>
+    <th>End</th>
+    <th></th>
+    <th>Category</th>
+    <th>Budgeted<br />Rate</th>
+    <th>Budgeted<br />Volume</th>
+    <th>Budgeted<br />Cost</th>
+    
+    
+  </tr>
+  
+    
+      <tr>  
+        <td><%= p.code %></td>
+        <td><%= p.name %> </td>
+        <td><%= p.descr %></td>
+        <td><%= p.account.name %></td>
+        <td><%= p.start_date %></td>
+        <td><%= p.end_date %></td>
+        <td></td>
+        <td><%= p.category.code %></td>        
+        <td class="number_field"><%= p.budget_rate && number_to_currency(p.budget_rate) %></td>
+        <td class="number_field"><%= p.budget_vol && float_zero(p.budget_vol) %></td>
+        <td class="number_field"><%= currency_zero(p.budget_cost) %></td>        
+        
+      </tr>
+    
+  
+</table>

@@ -23,7 +23,7 @@
   <% @programs.each do |p| %>
     <% if p.id %>
       <tr>
-        <td><%= link_to "Deals", program_deals_path(p.id) %> </td>
+        <td><%= link_to "Deals", program_deals_path(p.id) %> </td>        
         <td><%= p.code %></td>
         <td><%= p.name %> </td>
         <td><%= p.descr %></td>
@@ -45,3 +45,5 @@
        <%= render :partial => 'new', :locals => { :program => @plan.programs.new } %>
     </tr>
 </table>
+<br></br>
+

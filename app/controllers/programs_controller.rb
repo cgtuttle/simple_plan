@@ -6,14 +6,16 @@ before_filter	:validate_plan
   def index
 		@title = "#{current_account.name} Programs"
 		@program = @plan.programs.new
-		@programs = @plan.programs
+		@programs = @plan.programs.includes(:account, :category, :supplier, :seller)
 		@categories = current_account.approved_categories.all
-		logger.debug "index -> @categories, #{@categories.inspect}"
 		@ttl_budget_cost = Program.ttl_budget_cost(current_partners, current_account, @plan)
 		@plan_budget = Program.plan_budget(@plan)
 		@service_needed = service_needed
 		@suppliers = Account.find(:all, :conditions => {:service => 'supplier', :id => current_partners})
 		@sellers = Account.find(:all, :conditions => {:service => 'seller', :id => current_partners})
+	end
+	
+	def list
 	end
 	
 	def show
@@ -82,6 +84,73 @@ before_filter	:validate_plan
 		when 'seller'
 			'supplier'
 		end
-	end	
+	end
+
+	def grid_data
+		page = (params[:page]).to_i
+    rp = (params[:rp]).to_i
+    query = params[:query]
+    qtype = params[:qtype]
+    sortname = params[:sortname]
+    sortorder = params[:sortorder]
+
+    if (!sortname)
+      sortname = "name"
+    end
+
+    if (!sortorder)
+      sortorder = "asc"
+    end
+
+    if (!page)
+      page = 1
+    end
+
+    if (!rp)
+      rp = 10
+    end
+
+    start = ((page-1) * rp).to_i
+    query = "%"+query+"%"
+
+    # No search terms provided
+    if(query == "%%")
+      @programs = @plan.programs.find(:all,
+		:include => :seller,
+  	:order => sortname+' '+sortorder,
+  	:limit =>rp,
+  	:offset =>start
+  	)
+      count = @plan.programs.count(:all)
+    end
+		
+		 # User provided search terms
+    if(query != "%%")
+        @programs = @plan.programs.find(:all,
+		:include => :seller,
+	  :order => sortname+' '+sortorder,
+	  :limit =>rp,
+  	  :offset =>start,
+  	  :conditions=>[qtype +" like ?", query])
+			count = @plan.programs.count(:all,
+	  :conditions=>[qtype +" like ?", query])
+    end
 	
+		return_data = Hash.new
+		return_data[:page] = page
+    return_data[:total] = count
+		
+		return_data[:rows] = @programs.collect{|p| {
+  			   :cell => [
+						 p.id,
+						 p.code,
+						 p.seller.name,
+						 p.start_date ? p.start_date.strftime("%m/%d/%Y") : nil,
+						 p.end_date ? p.end_date.strftime("%m/%d/%Y") : nil
+						 
+					 ]}}
+		 
+    # Convert the hash to a json object
+    render :text=>return_data.to_json, :layout=>false
+	end
 end

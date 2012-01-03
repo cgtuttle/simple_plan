@@ -4,7 +4,10 @@ SimplePlan::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations" }
 		
-  resources :activities
+  match 'programs/grid_data', :to => 'programs#grid_data'
+	match 'programs/list', :to => 'programs#list'
+	
+	resources :activities
 	resources	:accounts
 	resources :services
 	resources :profiles

@@ -2,9 +2,11 @@
 
 <h2><%=  @title %></h2>
 <h4>Plan: <%= @plan.code %></h4>
-<%= paginate @sellers %>
+<%#= paginate @sellers %>
 
-  <table class ="no-greenbars">
+<div id="table_container">
+
+  <table>
     <thead>
     <tr class="row-header">
       <th>Rep</th>
@@ -18,10 +20,10 @@
     </tr>
     </thead>
 
-    <tbody>
+    <tbody class="scrolling">
       <% @sellers.each do |s| %>
 
-        <tr class="no-greenbars">
+        <tr>
           <td><%= s.name %></td>
           <td></td>
           <td></td>
@@ -37,5 +39,6 @@
     </tbody>
 
   </table>
+</div>
 
 
