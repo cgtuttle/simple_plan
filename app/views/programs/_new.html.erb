@@ -4,7 +4,7 @@
     <%= form_for([@plan, @program]) do |f| %>
       <div class="field">
         <td />
-        <td><%= f.text_field :code, :class => "text_field" %></td> 
+        <td><%= f.text_field :code, :class => "text_field", :value => @new != nil ? @new.code : nil %></td> 
         <td><%= f.text_field :name, :class => "text_field" %></td> 
         <td><%= f.text_field :descr, :class => "text_field" %></td>
         <td></td>
@@ -19,11 +19,14 @@
       </div>
       <td><%= f.number_field :budget_rate, :step => 0.01, :class => "number_field" %></td>
       <td><%= f.number_field :budget_vol, :class => "number_field" %></td>
-      <td></td>
-      <td />
-      <td />
+      <td>
       <div class="actions">
         <%= f.submit "Submit" %>
-      </div>
+      </div>     
+      </td>
+      <td />
+      <td />
+      <td />
+      <td />
     <% end %>
 

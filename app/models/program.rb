@@ -15,8 +15,6 @@ class Program < ActiveRecord::Base
 	
 	 
 	accepts_nested_attributes_for :deals
-	
-	#TODO: Remove plan_rate and plan_vol
 		
 	def self.ttl_budget_cost(partners, account, plan)
 		Program.sum('budget_rate * budget_vol', :conditions => [ "(account_id IN (?) OR account_id = (?)) AND plan_id = ?",
@@ -24,7 +22,7 @@ class Program < ActiveRecord::Base
 	end
 	
 	def self.plan_budget(plan)
-		Plan.find(plan).budget
+		Plan.find(plan).budget_expense
 	end
 	
 	def find_deals
@@ -43,9 +41,12 @@ class Program < ActiveRecord::Base
 		end
 	end
 	
+	def plan_expense
+		deals.sum("plan_rate * plan_volume")
+	end
+	
 	def deals_order
 		'id'
 	end
-	
-	
+
 end

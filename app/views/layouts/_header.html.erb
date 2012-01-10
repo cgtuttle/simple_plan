@@ -1,10 +1,10 @@
 <header class="grd_css">
-  <%= link_to logo, root_path %>
-  <header_flash>
+  <img><%= link_to logo, root_path %></img>
+  <div class="header_flash">
     <% flash.each do |key, value| %>
       <div class="flash <%= key %>"> <%= value %></div>
     <% end %>
-  </header_flash>
+  </div>
   <nav>
     <ul>
       <li><%= current_user.profile.fname %> <%= current_user.profile.lname %></li>

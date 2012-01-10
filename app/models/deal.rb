@@ -18,4 +18,8 @@ class Deal < ActiveRecord::Base
 		'products.code ASC'
 	end
 	
+	def plan_expense
+		(self.plan_rate ||= 0) * (self.plan_volume ||= 0)
+	end
+	
 end

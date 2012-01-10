@@ -7,18 +7,21 @@
     url: 'grid_data',
     dataType: 'json',
     colModel : [    
-      {display: 'Id', name : 'id', width : 30, sortable : true, align: 'left'},
+      {display: 'Id', name : 'programs.id', width : 30, sortable : true, align: 'left'},
       {display: 'Rep', name : 'seller.name', width : 100, sortable : true, align: 'left'},
       {display: 'Code', name : 'code', width : 100, sortable : true, align: 'left'},
       {display: 'Start', name : 'start_date', width : 75, sortable : true, align: 'left'},
       {display: 'End', name : 'end_date', width : 75, sortable : true, align: 'left'},
-      {display: 'Category', name : 'category.code', width : 100, sortable : true, align: 'left'}
+      {display: 'Category', name : 'category.code', width : 100, sortable : true, align: 'left'},
+      {display: 'Customer', name : 'customer_id', width : 50, sortable : true, align: 'left'},
+      {display: 'Status', name : 'status', width : 75, sortable : true, align: 'left'}
     ],
     searchitems : [
-      {display: 'Id', name : 'id'},
-      {display: 'Code', name : 'code'}
+      {display: 'Id', name : 'programs.id'},
+      {display: 'Code', name : 'programs.code'},
+      {display: 'Rep', name : 'accounts.name'}
     ],
-    sortname: "id",
+    sortname: "programs.id",
     sortorder: "asc",
     usepager: true,
     title: 'Programs',

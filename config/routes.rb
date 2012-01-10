@@ -6,6 +6,7 @@ SimplePlan::Application.routes.draw do
 		
   match 'programs/grid_data', :to => 'programs#grid_data'
 	match 'programs/list', :to => 'programs#list'
+	match 'programs/filter', :to => 'programs#filter'
 	
 	resources :activities
 	resources	:accounts
@@ -25,10 +26,17 @@ SimplePlan::Application.routes.draw do
 			get 'worksheet'
 			get 'test'
 		end
-		resources	:programs
+		resources	:programs do
+			member do
+				get 'copy'
+			end
+		end
 	end
 
 	resources	:programs do
+		member do
+			get 'copy'
+		end
 		resources	:deals	
 	end
 	

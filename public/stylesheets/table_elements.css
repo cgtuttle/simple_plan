@@ -12,32 +12,61 @@
 
 table {
 	border-collapse:		collapse;
+	border-style:				solid;
+	border-color:				#005C5C;
+}
+
+thead {
+	border-bottom-style:	solid;
+	border-bottom-width:  2px;
+	border-bottom-color:	#CACACA;
+	border-top-style:			solid;
+	border-top-width:			1px;
+	border-top-color:			#FFF;
 }
 
 tbody.scrolling {
 }
 
+th.title {
+	color:							black;
+}
+
 th, td {
 	border-width:				1px;
 	border-style:				solid;
-	border-color:				#5c9ccc;	
+	border-top-style:		none;
+	border-bottom-style: none;
+	border-color:				#CACACA;	
 	color:							#005C5C;
-	height:							1.25em;
+	height:							2.5em;
 	padding-left: 			2px;
 	padding-right:			1em;
+	font-size:					75%;
+	vertical-align:			middle;
 }
 
 tr:nth-child(odd) {
-background-color: #DBFFDB;
+	background-color: #DBFFDB;
 }
 
 tr:nth-child(even) {
-background-color: #F9FFF9;
+	background-color: #F9FFF9;
+}
+
+thead tr:nth-child(odd) {
+	background-color: #DBFFDB;
+}
+
+thead tr:nth-child(even) {
+	background-color: #DBFFDB;
 }
 
 th {
-	font-weight:	bold;
-	color:				#06c;
+	font-weight:					normal;
+	color:								#06c;
+	text-align:						left;
+	vertical-align:				middle;
 }
 
 .number_field {

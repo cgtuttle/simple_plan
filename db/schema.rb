@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111229233348) do
+ActiveRecord::Schema.define(:version => 20120108173657) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -72,6 +72,13 @@ ActiveRecord::Schema.define(:version => 20111229233348) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.float    "volume_allocation"
+    t.decimal  "plan_rate"
+    t.decimal  "plan_vol"
+    t.decimal  "deal_rate"
+    t.decimal  "deal_vol"
+    t.decimal  "est_volume"
+    t.decimal  "reported_volume"
+    t.decimal  "actual_expense"
   end
 
   create_table "deal_products", :force => true do |t|
@@ -83,6 +90,13 @@ ActiveRecord::Schema.define(:version => 20111229233348) do
     t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "plan_rate"
+    t.decimal  "plan_volume"
+    t.decimal  "deal_rate"
+    t.decimal  "deal_volume"
+    t.decimal  "est_volume"
+    t.decimal  "reported_volume"
+    t.decimal  "actual_expense"
   end
 
   create_table "deals", :force => true do |t|
@@ -97,6 +111,13 @@ ActiveRecord::Schema.define(:version => 20111229233348) do
     t.string   "offered_to"
     t.string   "accepted_by"
     t.text     "notes"
+    t.decimal  "plan_rate"
+    t.decimal  "plan_volume"
+    t.decimal  "deal_rate"
+    t.decimal  "deal_volume"
+    t.decimal  "est_volume"
+    t.decimal  "actual_expense"
+    t.decimal  "reported_volume"
   end
 
   create_table "imports", :force => true do |t|
@@ -124,11 +145,12 @@ ActiveRecord::Schema.define(:version => 20111229233348) do
     t.integer  "account_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.float    "budget"
+    t.float    "budget_expense"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "release_status"
     t.integer  "owner_id"
+    t.decimal  "budget_volume"
   end
 
   create_table "products", :force => true do |t|
@@ -158,29 +180,9 @@ ActiveRecord::Schema.define(:version => 20111229233348) do
     t.datetime "updated_at"
   end
 
-  create_table "program_categories", :force => true do |t|
-    t.integer  "program_id"
-    t.integer  "category_id"
-    t.float    "budget_rate"
-    t.float    "vol_alloc"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "program_products", :force => true do |t|
-    t.integer  "program_id"
-    t.integer  "product_id"
-    t.integer  "customer_id"
-    t.integer  "category_id"
-    t.float    "plan_rate"
-    t.float    "plan_vol"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "programs", :force => true do |t|
-    t.string   "code",        :limit => 15, :null => false
-    t.string   "name",        :limit => 63
+    t.string   "code",           :limit => 15, :null => false
+    t.string   "name",           :limit => 63
     t.string   "descr"
     t.integer  "supplier_id"
     t.integer  "seller_id"
@@ -188,13 +190,12 @@ ActiveRecord::Schema.define(:version => 20111229233348) do
     t.datetime "end_date"
     t.float    "budget_rate"
     t.float    "budget_vol"
-    t.float    "plan_rate"
-    t.float    "plan_vol"
     t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "plan_id"
     t.integer  "category_id"
+    t.decimal  "budget_expense"
   end
 
   create_table "settings", :force => true do |t|

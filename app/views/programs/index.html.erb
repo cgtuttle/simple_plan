@@ -1,49 +1,57 @@
-<h4><%= link_to @plan.code, plans_path %></h4>
+<p class="trail"><%= link_to "Plans (#{@plan.code})", plans_path %> > Programs </p>
 <h4>Total Program Plan: <%= currency_zero(@ttl_budget_cost) %> of <%= currency_zero(@plan_budget) %> Budget</h4>
 
-
 <table>
-  <tr>
-    <th />
-    <th>Code</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Account</th>
-    <th>Start</th>
-    <th>End</th>
-    <th><%= @service_needed.humanize %></th>
-    <th>Category</th>
-    <th>Budgeted<br />Rate</th>
-    <th>Budgeted<br />Volume</th>
-    <th>Budgeted<br />Cost</th>
-    <th />
-    <th />
-    
-  </tr>
-  <% @programs.each do |p| %>
-    <% if p.id %>
-      <tr>
-        <td><%= link_to "Deals", program_deals_path(p.id) %> </td>        
-        <td><%= p.code %></td>
-        <td><%= p.name %> </td>
-        <td><%= p.descr %></td>
-        <td><%= p.account.name %></td>
-        <td><%= p.start_date && p.start_date.to_s(:just_date) %></td>
-        <td><%= p.end_date && p.end_date.to_s(:just_date) %></td>
-        <td><%= render :partial => "service", :locals => { :program => p } %>
-        <td><%= p.category.code %></td>        
-        <td class="number_field"><%= p.budget_rate && number_to_currency(p.budget_rate) %></td>
-        <td class="number_field"><%= p.budget_vol && float_zero(p.budget_vol) %></td>
-        <td class="number_field"><%= currency_zero(p.budget_cost) %></td>        
-        <td><%= link_to "Edit", edit_plan_program_path(@plan, p) %></td>
-        <td><%= link_to "Delete", p, :method => :delete, :confirm => "Please confirm deletion:",
-                                                      :title => "Delete #{p.name}" %></td>
-      </tr>
-    <% end %>
-  <% end %>
-    <tr>
-       <%= render :partial => 'new', :locals => { :program => @plan.programs.new } %>
+  <thead>
+    <tr class="grd_css_25">
+      <th colspan="100%" class="title">Programs</th>
     </tr>
+    <tr>
+      <th />
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Account</th>
+      <th>Start</th>
+      <th>End</th>
+      <th><%= @service_needed.humanize %></th>
+      <th>Category</th>
+      <th>Budgeted<br />Rate</th>
+      <th>Budgeted<br />Volume</th>
+      <th>Budgeted<br />Cost</th>
+      <th>Planned<br />Cost</th>
+      <th />
+      <th />
+      <th />
+    </tr>
+  </thead>
+  <tbody>
+    <% @programs.each do |p| %>
+      <% if p.id %>
+        <tr>
+          <td><%= link_to "Deals", program_deals_path(p.id) %> </td>        
+          <td><%= p.code %></td>
+          <td><%= p.name %> </td>
+          <td><%= p.descr %></td>
+          <td><%= p.account.name %></td>
+          <td><%= p.start_date && p.start_date.to_s(:just_date) %></td>
+          <td><%= p.end_date && p.end_date.to_s(:just_date) %></td>
+          <td><%= render :partial => "service", :locals => { :program => p } %>
+          <td><%= p.category.code %></td>        
+          <td class="number_field"><%= p.budget_rate && number_to_currency(p.budget_rate) %></td>
+          <td class="number_field"><%= p.budget_vol && float_zero(p.budget_vol) %></td>
+          <td class="number_field"><%= currency_zero(p.budget_cost) %></td>
+          <td class="number_field"><%= currency_zero(p.plan_expense) %></td>
+          <td><%= link_to "Edit", edit_plan_program_path(@plan, p) %></td>
+          <td><%= link_to "Delete", p, :method => :delete, :confirm => "Please confirm deletion:",
+                                                        :title => "Delete #{p.name}" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+      <tr>
+         <%= render :partial => 'new', :locals => { :program => @plan.programs.new, :new => @new_program } %>
+      </tr>
+  </tbody>
 </table>
 <br></br>
 

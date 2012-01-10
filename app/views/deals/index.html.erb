@@ -1,22 +1,24 @@
-<h4><%= @plan.code %> <%= link_to @program.code, plan_programs_path(@plan.id) %> (<%= @program.name %>)</h4>
+<p class="trail"><%= link_to "Plans (#{@plan.code})", plans_path %> > <%= link_to "Programs (#{@program.code})", plan_programs_path(@plan.id) %> > Deals</p>
 
-<%= render :partial => 'program', :locals => { :p => @program } %>
 
-<h4>Deals</h4>
 <table>
-  <tr>
-    
-    <th>Customer</th>
-    <th>Status</th>
-    <th>Offered To</th>
-    <th>Offered On</th>
-    <th>Accepted By</th>
-    <th>Accepted On</th>
-    <th></th>
-    <th></th>
-        
-  </tr>
-  
+  <thead>
+    <tr class="grd_css_25">
+      <th colspan="100%" class="title">Deals</th>
+    </tr>
+    <tr>
+
+      <th>Customer</th>
+      <th>Status</th>
+      <th>Offered To</th>
+      <th>Offered On</th>
+      <th>Accepted By</th>
+      <th>Accepted On</th>
+      <th>Offered Expense</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
   <% @deals.each do |deal| %>
     <tr>
 
@@ -26,6 +28,7 @@
       <td><%= deal.offered_on %></td>
       <td><%= deal.accepted_by %></td>
       <td><%= deal.accepted_on %></td>
+      <td><%= deal.plan_expense %></td>
       <td><%= link_to "Edit", edit_program_deal_path(@program, deal)%></td>
       <td><%= link_to "Delete", program_deal_path(@program.id, deal.id), :method => :delete, :confirm => "Please confirm deletion:",
                       :title => "Delete Deal for #{deal.customer.name}" %></td>

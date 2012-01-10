@@ -11,11 +11,6 @@ before_filter { |c| c.set_zone "Application" }
 		@plan = Plan.new
   end
 	
-	def worksheet
-		#@sellers = @plan.find_sellers(params[:page]).per(1)
-		@sellers = @plan.find_sellers
-	end
-	
 	def create
 		@plan = Plan.new(params[:plan])
 		@plan.account_id = current_account.id		

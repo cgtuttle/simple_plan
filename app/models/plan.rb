@@ -10,8 +10,7 @@ class Plan < ActiveRecord::Base
 	
 	scope :released, where(:release_status => 1)
 	
-	def find_sellers#(page)
-		#self.sellers.includes(:seller_programs).order(sellers_order).page(page)
+	def find_sellers
 		self.sellers.includes(:seller_programs).order(sellers_order)
 	end
 	
@@ -23,12 +22,18 @@ class Plan < ActiveRecord::Base
 		"accounts.name ASC"
 	end
 	
-	def find_programs(sortname, sortorder, records, start)
-		self.programs.includes(:seller, :category).order(sortname+' '+sortorder).limit(records).offset(start).all
+	def plan_expense
+		deals.sum("plan_rate * plan_volume")
 	end
 	
-	def search_programs(sortname, sortorder, records, start, search_text, search_field)
-		self.programs.where(search_field +" like ?", search_text).includes(:seller, :category).order(sortname+' '+sortorder).limit(records).offset(start).all		
+	def find_programs(sortname, sortorder)
+		logger.debug "query"
+		self.programs.includes(:seller, :category).order(sortname+' '+sortorder).all
+	end
+	
+	def search_programs(sortname, sortorder, search_text, search_field)
+		logger.debug "search"
+		self.programs.where(search_field +" like ?", search_text).includes(:seller, :category).order(sortname+' '+sortorder).all
 	end
 	
 end

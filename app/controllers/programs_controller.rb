@@ -62,6 +62,7 @@ before_filter	:validate_plan
     redirect_to programs_path
   end
 	
+	
 	def validate_plan
 		if !params[:plan_id]
 			plan_id = current_user.profile.last_plan
@@ -78,12 +79,7 @@ before_filter	:validate_plan
 	end
 	
 	def service_needed
-		case current_account.service
-		when 'supplier'
-			'seller'
-		when 'seller'
-			'supplier'
-		end
+		current_account.service == 'supplier' ? 'seller' : 'supplier'
 	end
 
 	def grid_data
@@ -100,43 +96,67 @@ before_filter	:validate_plan
 		when 'category.code'
 			sortname = 'categories.code'
 		end
-		
-		
+				
 		# Defaults		
-		sortname ||= "code"
+		sortname ||= "program.id"
 		sortorder ||= "asc"
 		page ||= 1
 		rp ||= 10
   
     start = ((page-1) * rp).to_i
+		finish = start + rp - 1
     query = "%"+query+"%"
 
     # No search terms provided
     if(query == "%%")
-			@programs = @plan.find_programs(sortname, sortorder, rp, start)			
-      count = @plan.programs.count(:all)
+			@programs = @plan.find_programs(sortname, sortorder)			
 		else		
 		 # User provided search terms
-			@programs = @plan.search_programs(sortname, sortorder, rp, start, query, qtype)
-			count = @plan.programs.count(:all,
-				:conditions=>[qtype +" like ?", query])
+			@programs = @plan.search_programs(sortname, sortorder, query, qtype)
     end
-	
+		
+		count = 0	
 		return_data = Hash.new
 		return_data[:page] = page
-    return_data[:total] = count
-		
-		return_data[:rows] = @programs.collect{|p| {
-  			   :cell => [
-						 p.id,
-						 p.code,
-						 p.seller.name,
-						 p.start_date ? p.start_date.strftime("%m/%d/%Y") : nil,
-						 p.end_date ? p.end_date.strftime("%m/%d/%Y") : nil,
-						 p.category.code
-					 ]}}
-		 
+		collect_data = Array.new
+				
+		@programs.each do |program| 
+			if program.deals.length > 0
+				program.deals.each do |d|
+					if (start..finish) === count
+						collect_data << {:cell => [
+							 '<a href=list?program_id='+d.program.id.to_s+'>'+d.program.id.to_s+'</a>',
+							 d.program.seller.name,
+							 d.program.code,
+							 d.program.start_date ? d.program.start_date.strftime("%m/%d/%Y") : nil,
+							 d.program.end_date ? d.program.end_date.strftime("%m/%d/%Y") : nil,
+							 d.program.category.code,
+							 d.customer_id,
+							 d.status
+						 ]}
+					end
+					count += 1			 
+				end
+			else
+				if (start..finish) === count
+					collect_data << {:cell => [
+						'<a href=list?program_id='+program.id.to_s+'>'+program.id.to_s+'</a>',
+						program.seller.name,
+						program.code,
+						program.start_date ? program.start_date.strftime("%m/%d/%Y") : nil,
+						program.end_date ? program.end_date.strftime("%m/%d/%Y") : nil,
+						program.category.code,
+						nil,
+						nil
+					]}
+				end
+				count += 1
+			end
+		end
+		return_data[:total] = count
+		return_data[:rows] = collect_data
     # Convert the hash to a json object
     render :text=>return_data.to_json, :layout=>false
 	end
+	
 end

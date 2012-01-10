@@ -1,15 +1,22 @@
-<h4><%= @account.name %> Plans</h4>
+<p class="trail"><%= @account.name %> Plans</p>
 
   <table>
-    <tr>
-      <th />
-      <th>Code</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Start</th>
-      <th>End</th>
-      <th>Budget</th>
-    </tr>
+    <thead>
+      <tr class="grd_css_25">
+        <th colspan="100%" class="title">Plans</th>
+      </tr>
+      <tr>
+        <th />
+        <th>Code</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Budgeted<br />Cost</th>
+        <th>Planned<br />Cost</th>
+        <th></th>
+      </tr>
+    </thead>
     <% if @plans %>
       <% @plans.each do |plan| %>
         <tr>
@@ -19,7 +26,9 @@
           <td><%= plan.descr %></td>
           <td><%= plan.start_date %></td>
           <td><%= plan.end_date %></td>
-          <td><%= plan.budget %></td>
+          <td class="number_field"><%= currency_zero(plan.budget_expense) %></td>
+          <td class="number_field"><%= currency_zero(plan.plan_expense) %></td>
+          <td></td>
         </tr>
       <% end %>
     <% end %>
