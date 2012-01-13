@@ -10,6 +10,7 @@
         <th>Code</th>
         <th>Name</th>
         <th>Description</th>
+        <th><%= current_account.service == 'supplier' ? 'Seller' : 'Supplier' %></th>
         <th>Start</th>
         <th>End</th>
         <th>Budgeted<br />Cost</th>
@@ -24,11 +25,12 @@
           <td><%= plan.code %></td>
           <td><%= plan.name %></td>
           <td><%= plan.descr %></td>
+          <td><%= render :partial => "service", :locals => { :plan => plan } %></td>
           <td><%= plan.start_date %></td>
           <td><%= plan.end_date %></td>
           <td class="number_field"><%= currency_zero(plan.budget_expense) %></td>
           <td class="number_field"><%= currency_zero(plan.plan_expense) %></td>
-          <td></td>
+          <td><%= link_to "Edit", edit_plan_path(plan) %></td>
         </tr>
       <% end %>
     <% end %>

@@ -1,0 +1,5 @@
+<% if current_account.service != 'supplier' %>
+  <%= plan.supplier.name %>
+<% else %>
+  <%= plan.seller != nil ? plan.seller.name : nil %>
+<% end %>	

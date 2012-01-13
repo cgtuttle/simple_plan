@@ -1,0 +1,25 @@
+
+ <%= form_for(@budget) do |f| %>
+    <div class="field">
+      <td />
+      <td><%= f.text_field :code, :class => "text_field" %></td> 
+      <td><%= f.text_field :name, :class => "text_field" %></td> 
+      <td><%= f.text_field :descr, :class => "text_field" %></td>
+      <td><%= f.text_field :start_date, :class => "date_field" %></td>
+      <td><%= f.text_field :end_date, :class => "date_field" %></td>
+      <td><%= f.number_field :budget_expense, :step => 0.01, :class => "number_field" %></td>
+    </div>
+
+      
+     
+
+    <div class="actions">
+      <td>
+        <%= f.submit "Submit" %>
+      </td>
+    </div>
+    <td />
+      
+  
+  <% end %>
+

@@ -1,0 +1,30 @@
+<p class="trail"><%= @account.name %> Budget Plan</p>
+
+  <%= form_for @plan do |p| %>
+    <div class="edit-fields">
+      <p><%= p.label :code, "Code" %></p>
+      <p><%= p.text_field :code %></p>
+      <p><%= p.label :name, "Name" %></p>
+      <p><%= p.text_field :name %></p>
+      <p><%= p.label :descr, "Description" %></p>
+      <p><%= p.text_field :descr %></p>
+      <p><%= p.label :start_date, "Start" %></p>
+      <p><%= p.text_field :start_date %></p>
+      <p><%= p.label :end_date, "End" %></p>
+      <p><%= p.text_field :end_date %></p>
+    </div>
+
+    <p>In Budgets...</p>
+    <% @budgets.each do |budget| %>
+      <div class="checkbox-list">
+        <%= check_box_tag "plan[budget_ids][]", budget.id, @plan.budgets.include?(budget) %>
+        <%= budget.code %>
+      </div>     
+    <% end %>
+    <div class="submit">
+      <%= submit_tag "Update", :name => "submit" %><br />
+      <%= submit_tag "Back", :name => "submit" %>
+    </div>
+  <% end %>
+
+

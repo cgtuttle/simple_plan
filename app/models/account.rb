@@ -8,6 +8,8 @@ class Account < ActiveRecord::Base
 	has_many  :approved_categories, :through => :category_accounts, :source => :category
 
 	has_many	:plans
+	has_many	:seller_plans, :class_name => "Plan", :foreign_key => "seller_id"
+	has_many	:supplier_plans, :class_name => "Plan", :foreign_key => "supplier_id"
 	has_many	:imports
 	
 	has_many  :deals

@@ -5,9 +5,14 @@
         <td><%= f.text_field :code, :class => "text_field" %></td> 
         <td><%= f.text_field :name, :class => "text_field" %></td> 
         <td><%= f.text_field :descr, :class => "text_field" %></td>
+        <% if @service_needed == "supplier" %>
+            <td><%= f.collection_select(:supplier_id, @suppliers, :id, :name, :prompt => "--select one--") %></td>
+        <% else %>
+            <td><%= f.collection_select(:seller_id, @sellers, :id, :name, :prompt => "--select one--") %></td>
+        <% end %>
         <td><%= f.text_field :start_date, :class => "date_field" %></td>
         <td><%= f.text_field :end_date, :class => "date_field" %></td>
-        <td><%= f.number_field :budget_expense, :step => 0.01, :class => "number_field" %></td>
+        <td><%= f.number_field :budget_expense, :step => 0.01, :class => "number_field" %></td>        
       </div>
 
       
@@ -18,7 +23,7 @@
           <%= f.submit "Submit" %>
         </td>
       </div>
-      
+      <td></td>
   
     <% end %>
 

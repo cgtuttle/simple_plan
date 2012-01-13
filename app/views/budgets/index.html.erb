@@ -1,0 +1,40 @@
+<p class="trail"><%= @account.name %> Budgets</p>
+
+  <table>
+    <thead>
+      <tr class="grd_css_25">
+        <th colspan="100%" class="title">budgets</th>
+      </tr>
+      <tr>
+        <th />
+        <th>Code</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Budgeted<br />Cost</th>
+        <th>Planned<br />Cost</th>
+        <th></th>
+      </tr>
+    </thead>
+    <% if @budgets %>
+      <% @budgets.each do |budget| %>
+        <tr>
+          <td><%= link_to "Plans", plans_path(budget) %></td>
+          <td><%= budget.code %></td>
+          <td><%= budget.name %></td>
+          <td><%= budget.descr %></td>
+          <td><%= budget.start_date %></td>
+          <td><%= budget.end_date %></td>
+          <td class="number_field"><%= currency_zero(budget.budget_expense) %></td>
+          <td class="number_field"><%= currency_zero(budget.budget_expense) %></td>
+          <td><%= link_to "Edit", edit_budget_path(budget) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+      
+    <tr>
+      <%= render 'new' %>
+    </tr>
+    
+  </table>

@@ -1,7 +1,5 @@
 SimplePlan::Application.routes.draw do  
 
-  get "worksheets/index"
-
   devise_for :users, :controllers => { :registrations => "registrations" }
 		
   match 'programs/grid_data', :to => 'programs#grid_data'
@@ -9,7 +7,7 @@ SimplePlan::Application.routes.draw do
 	match 'programs/filter', :to => 'programs#filter'
 	
 	resources :activities
-	resources	:accounts
+	resources	:accounts	
 	resources :services
 	resources :profiles
 	resources :partnerships
@@ -20,6 +18,8 @@ SimplePlan::Application.routes.draw do
   resources :program_activities
 	resources :imports
 	resources :worksheets
+	
+	resources :budgets
 	
 	resources	:plans do
 		member do

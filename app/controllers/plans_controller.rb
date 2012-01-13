@@ -9,17 +9,39 @@ before_filter { |c| c.set_zone "Application" }
 		@plans = find_plans
 		@account = current_account
 		@plan = Plan.new
+		@suppliers = Account.find(:all, :conditions => {:service => 'supplier', :id => current_partners})
+		@sellers = Account.find(:all, :conditions => {:service => 'seller', :id => current_partners})
   end
 	
 	def create
 		@plan = Plan.new(params[:plan])
-		@plan.account_id = current_account.id		
+		@plan.account_id = current_account.id
+		current_account.service == 'supplier' ? @plan.supplier_id = current_account.id : @plan.seller_id = current_account.id
 		if @plan.save
 			flash[:success] = "Successfully added a new plan"
 			redirect_to plans_path
 		else
 			redirect_to plans_path
 		end
+	end
+	
+	def edit
+		@plan = Plan.find(params[:id])
+		@account = current_account
+		@budgets = Budget.where(:account_id => @account.id).all
+	end
+	
+	def update
+		if params[:submit] == "Update"
+			params[:plan][:budget_ids] ||= []
+			@plan = Plan.find(params[:id])
+			if @plan.update_attributes(params[:plan])
+				flash[:success] = "Plan updated."
+			else
+				flash[:error] = "Plan did not update properly"
+			end
+		end
+		redirect_to plans_path
 	end
 	
 	def validate_plan

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108173657) do
+ActiveRecord::Schema.define(:version => 20120112222029) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,25 @@ ActiveRecord::Schema.define(:version => 20120108173657) do
     t.string   "code",       :limit => 15
     t.string   "descr"
     t.integer  "account_id"
+  end
+
+  create_table "budgets", :force => true do |t|
+    t.string   "code"
+    t.string   "descr"
+    t.integer  "account_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.decimal  "budget_expense"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  create_table "budgets_plans", :id => false, :force => true do |t|
+    t.integer  "budget_id"
+    t.integer  "plan_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "categories", :force => true do |t|
@@ -151,6 +170,8 @@ ActiveRecord::Schema.define(:version => 20120108173657) do
     t.integer  "release_status"
     t.integer  "owner_id"
     t.decimal  "budget_volume"
+    t.integer  "seller_id"
+    t.integer  "supplier_id"
   end
 
   create_table "products", :force => true do |t|
@@ -169,6 +190,7 @@ ActiveRecord::Schema.define(:version => 20120108173657) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "last_plan"
+    t.integer  "last_budget"
   end
 
   create_table "program_activities", :force => true do |t|
