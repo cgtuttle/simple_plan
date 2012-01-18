@@ -20,14 +20,14 @@
     <% if @budgets %>
       <% @budgets.each do |budget| %>
         <tr>
-          <td><%= link_to "Plans", plans_path(budget) %></td>
+          <td><%= link_to "Plans", budget_plans_path(budget) %></td>
           <td><%= budget.code %></td>
           <td><%= budget.name %></td>
           <td><%= budget.descr %></td>
           <td><%= budget.start_date %></td>
           <td><%= budget.end_date %></td>
           <td class="number_field"><%= currency_zero(budget.budget_expense) %></td>
-          <td class="number_field"><%= currency_zero(budget.budget_expense) %></td>
+          <td class="number_field"><%= currency_zero(budget.plan_expense) %></td>
           <td><%= link_to "Edit", edit_budget_path(budget) %></td>
         </tr>
       <% end %>

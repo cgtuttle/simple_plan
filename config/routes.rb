@@ -19,7 +19,9 @@ SimplePlan::Application.routes.draw do
 	resources :imports
 	resources :worksheets
 	
-	resources :budgets
+	resources :budgets do
+		resources :plans
+	end
 	
 	resources	:plans do
 		member do

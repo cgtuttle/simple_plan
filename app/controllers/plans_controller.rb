@@ -26,9 +26,9 @@ before_filter { |c| c.set_zone "Application" }
 	end
 	
 	def edit
-		@plan = Plan.find(params[:id])
+		@plan = Plan.find(params[:id])		
 		@account = current_account
-		@budgets = Budget.where(:account_id => @account.id).all
+		@budgets = Budget.where(:account_id => @account.id).all	
 	end
 	
 	def update
@@ -50,8 +50,8 @@ before_filter { |c| c.set_zone "Application" }
 		else
 			plan_id = params[:id]
 		end
-		@plan = Plan.released.find(plan_id)
-		if current_account.partner_plans.include?(@plan)
+		@plan = Plan.find(plan_id)
+		if current_account.partner_plans.include?(@plan) # Avoid manually entered url like "/plans/4/edit"
 			current_user.profile.set_last_plan(@plan.id)
 		else
 			flash[:error]='This plan is not available'
@@ -60,7 +60,12 @@ before_filter { |c| c.set_zone "Application" }
 	end
 	
 	def find_plans
-		@plans = Plan.find(:all, :conditions => ["account_id = ? OR account_id IN (?)", current_account, current_partners])		
+		if params[:budget_id]
+			@budget = Budget.find(params[:budget_id])
+			@plans = @budget.plans
+		else
+			@plans = Plan.find(:all, :conditions => ["account_id = ? OR account_id IN (?)", current_account, current_partners])
+		end
 	end
 	
 end

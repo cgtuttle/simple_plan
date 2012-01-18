@@ -1,8 +1,8 @@
 class Deal < ActiveRecord::Base
 	belongs_to 	:program
 	belongs_to 	:customer, :class_name => "Account"
-  
 	has_many		:deal_products
+	has_many		:deal_categories, :through => :deal_products
 	
 	accepts_nested_attributes_for	:deal_products
 	
