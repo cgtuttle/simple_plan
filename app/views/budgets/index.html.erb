@@ -3,32 +3,50 @@
   <table>
     <thead>
       <tr class="grd_css_25">
-        <th colspan="100%" class="title">budgets</th>
+        <th colspan="100%" class="title">Budgets</th>
       </tr>
       <tr>
-        <th />
         <th>Code</th>
         <th>Name</th>
         <th>Description</th>
         <th>Start</th>
         <th>End</th>
-        <th>Budgeted<br />Cost</th>
-        <th>Planned<br />Cost</th>
+        <th>Level</th>
+        <th>Expense</th>
         <th></th>
+        
       </tr>
     </thead>
+    <tbody>
     <% if @budgets %>
       <% @budgets.each do |budget| %>
-        <tr>
-          <td><%= link_to "Plans", budget_plans_path(budget) %></td>
+        <tr class="four-row">
           <td><%= budget.code %></td>
           <td><%= budget.name %></td>
           <td><%= budget.descr %></td>
           <td><%= budget.start_date %></td>
-          <td><%= budget.end_date %></td>
+          <td><%= budget.end_date %></td>          
+          <td>Budget</td>
           <td class="number_field"><%= currency_zero(budget.budget_expense) %></td>
-          <td class="number_field"><%= currency_zero(budget.plan_expense) %></td>
           <td><%= link_to "Edit", edit_budget_path(budget) %></td>
+        </tr>
+        <tr class="four-row">
+          <td /><td /><td /><td /><td />
+          <td><%= link_to "Plans", budget_plans_path(budget) %></td>
+          <td class="number_field"><%= currency_zero(budget.plan_expense) %></td>
+          <td />
+        </tr>
+        <tr class="four-row">
+          <td /><td /><td /><td /><td />
+          <td>Programs</td>
+          <td class="number_field"><%= currency_zero(budget.program_expense) %></td>
+          <td />
+        </tr>
+        <tr class="bottom-row four-row">
+          <td /><td /><td /><td /><td />
+          <td>Deals</td>  
+          <td class="number_field"><%= currency_zero(budget.deal_expense) %></td>
+          <td />
         </tr>
       <% end %>
     <% end %>
@@ -36,5 +54,5 @@
     <tr>
       <%= render 'new' %>
     </tr>
-    
+    </tbody>
   </table>

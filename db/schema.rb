@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120112222029) do
+ActiveRecord::Schema.define(:version => 20120122220020) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20120112222029) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.decimal  "budget_volume"
   end
 
   create_table "budgets_plans", :id => false, :force => true do |t|
@@ -211,7 +212,7 @@ ActiveRecord::Schema.define(:version => 20120112222029) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.float    "budget_rate"
-    t.float    "budget_vol"
+    t.float    "budget_volume"
     t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"

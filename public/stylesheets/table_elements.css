@@ -16,16 +16,86 @@ table {
 	border-color:				#005C5C;
 }
 
-thead {
-	border-bottom-style:	solid;
-	border-bottom-width:  2px;
-	border-bottom-color:	#CACACA;
-	border-top-style:			solid;
-	border-top-width:			1px;
-	border-top-color:			#FFF;
+thead tr:nth-child(odd) {
+	background-color: #CCFFCC;
+}
+
+thead tr:nth-child(even) {
+	background-color: #CCFFCC;
+}
+
+tbody {
+	border-style:				solid;
+	border-color:				#CACACA;
+	border-width:				1px;
 }
 
 tbody.scrolling {
+}
+
+tr {	
+	border-bottom:  1px solid #CACACA;
+	border-right: 1px solid #CACACA;
+	border-left: 1px solid #CACACA;
+}
+
+tr:nth-child(odd) {
+	background-color: #DBFFDB;
+}
+
+tr:nth-child(even) {
+	background-color: #EDFFED;
+}
+
+tr.row-header:nth-child(odd)  {
+	background-color: #CCEBD6;
+}
+
+tr.no-greenbars:nth-child(odd)  {
+	background-color: #EFF8F3;
+}
+
+tr.no-greenbars:nth-child(even)  {
+	background-color: #EFF8F3;
+}
+
+tr.three-row:nth-child(3n) {
+	background-color:	#DBFFDB;
+}
+
+tr.three-row:nth-child(3n+1) {
+	background-color:	#E6FFE6;
+}
+
+tr.three-row:nth-child(3n+2) {
+	background-color:	#EDFFED;
+}
+
+tr.four-row:nth-child(4n+1) {
+	background-color:	#DBFFDB;
+}
+
+tr.four-row:nth-child(4n+2) {
+	background-color:	#E2FFE2;
+}
+
+tr.four-row:nth-child(4n+3) {
+	background-color:	#E6FFE6;
+}
+
+tr.four-row:nth-child(4n+4) {
+	background-color:	#EDFFED;
+}
+
+tr.totals-row {
+	font-size:				125%;
+	background-color: #EDFFED;
+}
+
+tr.bottom-row {
+	border-bottom-style:	solid;
+	border-bottom-width:  2px;
+	border-bottom-color:	#CACACA;
 }
 
 th.title {
@@ -46,20 +116,9 @@ th, td {
 	vertical-align:			middle;
 }
 
-tr:nth-child(odd) {
-	background-color: #DBFFDB;
-}
-
-tr:nth-child(even) {
-	background-color: #F9FFF9;
-}
-
-thead tr:nth-child(odd) {
-	background-color: #DBFFDB;
-}
-
-thead tr:nth-child(even) {
-	background-color: #DBFFDB;
+th {
+	border-left-width: 0px;
+	border-right-width: 0px;
 }
 
 th {
@@ -67,35 +126,6 @@ th {
 	color:								#06c;
 	text-align:						left;
 	vertical-align:				middle;
-}
-
-.number_field {
-	width:	100px;
-}
-
-.date_field {
-	padding-right:	0;
-	width:	100px;
-}
-
-.text_field {
-	padding-right: 15px;
-}
-
-.file_import_table {
-	width: 200px;
-}
-
-tr.row-header:nth-child(odd)  {
-	background-color: #CCEBD6;
-}
-
-tr.no-greenbars:nth-child(odd)  {
-	background-color: #EFF8F3;
-}
-
-tr.no-greenbars:nth-child(even)  {
-	background-color: #EFF8F3;
 }
 
 td.grayed-out {
@@ -116,4 +146,40 @@ table#flex1 td {
 
 .hDivBox th {
 	font-size: 100%;
+}
+
+.number_field {
+	width:	100px;
+}
+
+.date_field {
+	padding-right:	0;
+	width:	100px;
+}
+
+.text_field {
+	padding-right: 15px;
+}
+
+.file_import_table {
+	width: 200px;
+}
+
+.grd_css_25{
+	width: 100%;
+  background-color: #B4CDCD;
+  height: 25px;
+	border-top-style:			solid;
+	border-top-width:			1px;
+	border-top-color:			#FFF;
+	border-left-style:		none;
+	border-right-style:		none;
+  /* For WebKit (Safari, Google Chrome etc) */
+  background: -webkit-gradient(linear, left top, left bottom, from(#F6F6F6), to(#CCCCCC));
+  /* For Mozilla/Gecko (Firefox etc) */
+  background:  -moz-linear-gradient(top , #F6F6F6, #CCCCCC);
+  /* For Internet Explorer 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F6F6F6, endColorstr=#CCCCCC, GradientType=0);
+  /* For Internet Explorer 8 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F6F6F6, endColorstr=#CCCCCC);
 }

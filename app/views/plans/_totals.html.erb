@@ -1,0 +1,15 @@
+<tr class="totals-row">
+  <th colspan="6" rowspan="2">Total</th>
+  <td>Budget</td>
+  <td><%= currency_zero( budget ? budget.budget_expense : 0 ) %></td>
+  <td><%= float_zero( budget ? budget.budget_volume : 0 ) %></td>
+  <td><%= currency_two( budget ? budget.budget_expense / budget.budget_volume : 0 ) %></td>
+  <td colspan="1" rowspan="2">
+  
+</tr>
+<tr class="bottom-row totals-row">
+  <td>Plans</td>
+  <td><%= currency_zero(@plans.sum("budget_expense")) %> </td>
+  <td><%= float_zero( @plans.sum("budget_volume") ) %></td>
+  <td><%= currency_two( @plans.sum("budget_expense") / @plans.sum("budget_volume") ) %>
+</tr>

@@ -81,6 +81,7 @@ before_filter	:validate_plan
 	def service_needed
 		current_account.service == 'supplier' ? 'seller' : 'supplier'
 	end
+	
 
 	def grid_data
 		page = (params[:page]).to_i

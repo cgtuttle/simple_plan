@@ -34,7 +34,7 @@ SimplePlan::Application.routes.draw do
 			end
 		end
 	end
-
+	
 	resources	:programs do
 		member do
 			get 'copy'

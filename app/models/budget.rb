@@ -6,7 +6,15 @@ class Budget < ActiveRecord::Base
 	
 	
 	def plan_expense
-		deals.sum( "plan_rate * plan_volume")
+		plans.sum( "budget_expense")
+	end
+	
+	def program_expense
+		programs.sum("budget_expense")
+	end
+	
+	def deal_expense
+		deals.sum("deal_rate * deal_volume")
 	end
 	
 end

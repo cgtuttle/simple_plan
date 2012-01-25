@@ -19,19 +19,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E7F3ED, endColorstr=#B4CDCD);
 }
 
-.grd_css_25{
-	width: 100%;
-  background-color: #B4CDCD;
-  height: 25px;
-  /* For WebKit (Safari, Google Chrome etc) */
-  background: -webkit-gradient(linear, left top, left bottom, from(#F6F6F6), to(#CCCCCC));
-  /* For Mozilla/Gecko (Firefox etc) */
-  background:  -moz-linear-gradient(top , #F6F6F6, #CCCCCC);
-  /* For Internet Explorer 5.5 - 7 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F6F6F6, endColorstr=#CCCCCC, GradientType=0);
-  /* For Internet Explorer 8 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F6F6F6, endColorstr=#CCCCCC);
-}
+
 
 .box-50{width:50px;height:1.2em;float:left;}
 .box-60{width:60px;height:1.2em;float:left;}

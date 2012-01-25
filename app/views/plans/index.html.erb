@@ -1,42 +1,72 @@
 <p class="trail"><%= @account.name %> Plans</p>
 
-  <table>
+  <table id="plans-index" class="dataTable">
     <thead>
-      <tr class="grd_css_25">
-        <th colspan="100%" class="title">Plans</th>
-      </tr>
       <tr>
-        <th />
         <th>Code</th>
         <th>Name</th>
         <th>Description</th>
         <th><%= current_account.service == 'supplier' ? 'Seller' : 'Supplier' %></th>
         <th>Start</th>
         <th>End</th>
-        <th>Budgeted<br />Cost</th>
-        <th>Planned<br />Cost</th>
-        <th></th>
+        <th>Level</th>
+        <th>Expense</th>
+        <th>Volume</th>
+        <th>Rate</th>
+        <th />
+        
       </tr>
     </thead>
-    <% if @plans %>
-      <% @plans.each do |plan| %>
-        <tr>
-          <td><%= link_to "Programs", plan_programs_path(plan) %></td>
-          <td><%= plan.code %></td>
-          <td><%= plan.name %></td>
-          <td><%= plan.descr %></td>
-          <td><%= render :partial => "service", :locals => { :plan => plan } %></td>
-          <td><%= plan.start_date %></td>
-          <td><%= plan.end_date %></td>
-          <td class="number_field"><%= currency_zero(plan.budget_expense) %></td>
-          <td class="number_field"><%= currency_zero(plan.plan_expense) %></td>
-          <td><%= link_to "Edit", edit_plan_path(plan) %></td>
-        </tr>
+    <tbody>
+      <%#= render :partial => 'totals', :locals => {:budget => @budget } %>
+
+      <% if @plans %>
+        <% @plans.each do |plan| %>
+          <tr class="three-row">
+            <td rowspan="1"><%= plan.code %></td>
+            <td rowspan="1"><%= plan.name %></td>
+            <td rowspan="1"><%= plan.descr %></td>
+            <td rowspan="1"><%= render :partial => "service", :locals => { :plan => plan } %></td>
+            <td rowspan="1"><%= plan.start_date %></td>
+            <td rowspan="1"><%= plan.end_date %></td>
+            <td>Plan</td>
+            <td class="number_field"><%= currency_zero(plan.budget_expense) %></td>
+            <td class="number_field"><%= float_zero(plan.budget_volume ||= 0) %></td>
+            <td class="number_field"><%= currency_two(plan.budget_volume ? plan.budget_expense / plan.budget_volume : 0) %>
+            <td><%= link_to "Edit", edit_plan_path(plan) %></td>
+            
+          </tr>
+          <tr class="three-row">
+            <td /><td /><td /><td /><td /><td />
+            <td><%= link_to "Programs", plan_programs_path(plan) %></td>
+            <td class="number_field"><%= currency_zero(plan.program_expense) %></td>
+            <td class="number_field"><%= float_zero(plan.program_volume) %></td>
+            <td class="number_field"><%= currency_two(plan.program_expense / plan.program_volume) %></td>
+            <td colspan="3"></td>
+          </tr>
+          <tr class="bottom-row three-row">
+            <td /><td /><td /><td /><td /><td />
+            <td>Deals</td>
+            <td class="number_field"><%= currency_zero(plan.deal_volume * plan.deal_rate) %></td>
+            <td class="number_field"><%= float_zero(plan.deal_volume) %></td>
+            <td class="number_field"><%= currency_two(plan.deal_rate) %></td>
+            <td colspan="3"></td>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-      
-    <tr>
-      <%= render 'new' %>
-    </tr>
-    
+
+      <tr>
+        <%= render :partial => 'new', :locals => {:budget_id => @budget ? @budget.id : nil } %>
+      </tr>
+    </tbody>
   </table>
+
+<script>
+  $(document).ready(function() {
+    $('#plans-index').dataTable({
+      "sScrollY": "600px",
+      "bPaginate": false
+    });
+  } );
+
+</script>

@@ -18,7 +18,7 @@
         <td><%= f.collection_select(:category_id, @categories, :id, :code, :prompt => "--select one--") %></td>            
       </div>
       <td><%= f.number_field :budget_rate, :step => 0.01, :class => "number_field" %></td>
-      <td><%= f.number_field :budget_vol, :class => "number_field" %></td>
+      <td><%= f.number_field :budget_volume, :class => "number_field" %></td>
       <td>
       <div class="actions">
         <%= f.submit "Submit" %>

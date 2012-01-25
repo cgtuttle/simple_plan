@@ -13,6 +13,10 @@ module ApplicationHelper
 		number_to_currency(number, :separator => ".", :delimiter => ",", :precision => 0)
 	end
 	
+	def currency_two(number)
+		number_to_currency(number, :separator => ".", :delimiter => ",", :precision => 2)
+	end
+	
 	def float_zero(number)
 		number_with_precision(number, :delimiter => ",", :precision => 0)
 	end

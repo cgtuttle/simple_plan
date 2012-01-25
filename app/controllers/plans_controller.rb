@@ -1,8 +1,10 @@
 class PlansController < ApplicationController
 include ApplicationHelper
 
+before_filter :find_budget
 before_filter	:validate_plan
 before_filter { |c| c.set_zone "Application" }
+
 
 	
   def index
@@ -16,12 +18,13 @@ before_filter { |c| c.set_zone "Application" }
 	def create
 		@plan = Plan.new(params[:plan])
 		@plan.account_id = current_account.id
-		current_account.service == 'supplier' ? @plan.supplier_id = current_account.id : @plan.seller_id = current_account.id
+		current_account.service == 'supplier' ? @plan.supplier_id = current_account.id : @plan.seller_id = current_account.id		
 		if @plan.save
-			flash[:success] = "Successfully added a new plan"
-			redirect_to plans_path
+			@plan.budgets << @budget
+			flash[:success] = "Successfully added a new plan to the budget"
+			redirect_to budget_plans_path(@budget)
 		else
-			redirect_to plans_path
+			redirect_to budget_plans_path(@budget)
 		end
 	end
 	
@@ -60,11 +63,16 @@ before_filter { |c| c.set_zone "Application" }
 	end
 	
 	def find_plans
-		if params[:budget_id]
-			@budget = Budget.find(params[:budget_id])
+		if @budget
 			@plans = @budget.plans
 		else
-			@plans = Plan.find(:all, :conditions => ["account_id = ? OR account_id IN (?)", current_account, current_partners])
+			@plans = Plan.where("account_id = ? OR account_id IN (?)", current_account, current_partners)
+		end		
+	end
+	
+	def find_budget
+		if params[:budget_id]
+			@budget = Budget.find(params[:budget_id])
 		end
 	end
 	

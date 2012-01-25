@@ -1,7 +1,7 @@
 
+
     <%= form_for(@plan) do |f| %>
       <div class="field">
-        <td />
         <td><%= f.text_field :code, :class => "text_field" %></td> 
         <td><%= f.text_field :name, :class => "text_field" %></td> 
         <td><%= f.text_field :descr, :class => "text_field" %></td>
@@ -12,18 +12,17 @@
         <% end %>
         <td><%= f.text_field :start_date, :class => "date_field" %></td>
         <td><%= f.text_field :end_date, :class => "date_field" %></td>
-        <td><%= f.number_field :budget_expense, :step => 0.01, :class => "number_field" %></td>        
+        <th>Plan</th>
+        <td><%= f.number_field :budget_expense, :step => 0.01, :class => "number_field" %></td>
       </div>
-
-      
-     
-
+      <%= hidden_field_tag "budget_id", budget_id %>
       <div class="actions">
         <td>
           <%= f.submit "Submit" %>
         </td>
       </div>
       <td></td>
-  
+      <td></td>
+      
     <% end %>
 

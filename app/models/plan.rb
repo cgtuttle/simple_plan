@@ -12,8 +12,28 @@ class Plan < ActiveRecord::Base
 	
 	scope :released, where(:release_status => 1)
 	
-	def plan_expense
+	def program_expense
+		programs.sum("budget_expense")
+	end
+	
+	def program_volume
+		programs.sum("budget_volume")
+	end
+	
+	def deal_expense
 		deals.sum("plan_rate * plan_volume")
+	end
+	
+	def deal_volume
+		deals.sum("plan_volume")
+	end
+	
+	def deal_rate
+		if deal_volume == 0
+			0
+		else
+			deal_expense / deal_volume
+		end
 	end
 	
 	def find_programs(sortname, sortorder)
@@ -22,7 +42,6 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def search_programs(sortname, sortorder, search_text, search_field)
-		logger.debug "search"
 		self.programs.where(search_field +" like ?", search_text).includes(:seller, :category).order(sortname+' '+sortorder).all
 	end
 	
