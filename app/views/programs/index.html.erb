@@ -1,7 +1,7 @@
 <p class="trail"><%= link_to "Plans (#{@plan.code})", plans_path %> > Programs </p>
 <h4>Total Program Plan: <%= currency_zero(@ttl_budget_cost) %> of <%= currency_zero(@plan_budget) %> Budget</h4>
 
-<table id="project-index" class="dataTable"> 
+<table id="projects-index" class="dataTable"> 
   <thead>
     <tr>
       <th />
@@ -13,10 +13,10 @@
       <th>End</th>
       <th><%= @service_needed.humanize %></th>
       <th>Category</th>
-      <th>Budgeted<br />Rate</th>
-      <th>Budgeted<br />Volume</th>
-      <th>Budgeted<br />Cost</th>
-      <th>Planned<br />Cost</th>
+      <th>Budgeted Rate</th>
+      <th>Budgeted Volume</th>
+      <th>Budgeted Cost</th>
+      <th>Planned Cost</th>
       <th />
       <th />
     </tr>
@@ -44,16 +44,19 @@
         </tr>
       <% end %>
     <% end %>
-      <tr>
-         <%= render :partial => 'new', :locals => { :program => @plan.programs.new, :new => @new_program } %>
-      </tr>
+      
   </tbody>
 </table>
-<br></br>
 
+
+<%= render :partial => 'new', :locals => { :program => @plan.programs.new, :new => @new_program } %>
+
+      
 <script>
   $(document).ready(function() {
-    $('#project-index').dataTable();
+    $('#projects-index').dataTable({
+      "bJQueryUI": true
+    });
   } );
 
 </script>

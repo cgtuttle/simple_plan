@@ -10,7 +10,7 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
-table {
+/*table {
 	border-collapse:		collapse;
 	border-style:				solid;
 	border-color:				#005C5C;
@@ -164,7 +164,8 @@ table#flex1 td {
 .file_import_table {
 	width: 200px;
 }
-
+*/
+/*
 .grd_css_25{
 	width: 100%;
   background-color: #B4CDCD;
@@ -175,11 +176,11 @@ table#flex1 td {
 	border-left-style:		none;
 	border-right-style:		none;
   /* For WebKit (Safari, Google Chrome etc) */
-  background: -webkit-gradient(linear, left top, left bottom, from(#F6F6F6), to(#CCCCCC));
+  /*background: -webkit-gradient(linear, left top, left bottom, from(#F6F6F6), to(#CCCCCC));
   /* For Mozilla/Gecko (Firefox etc) */
-  background:  -moz-linear-gradient(top , #F6F6F6, #CCCCCC);
+  /*background:  -moz-linear-gradient(top , #F6F6F6, #CCCCCC);
   /* For Internet Explorer 5.5 - 7 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F6F6F6, endColorstr=#CCCCCC, GradientType=0);
+  /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F6F6F6, endColorstr=#CCCCCC, GradientType=0);
   /* For Internet Explorer 8 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F6F6F6, endColorstr=#CCCCCC);
-}
+  /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F6F6F6, endColorstr=#CCCCCC);
+}*/

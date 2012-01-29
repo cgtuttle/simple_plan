@@ -1,11 +1,9 @@
 <p class="trail"><%= link_to "Plans (#{@plan.code})", plans_path %> > <%= link_to "Programs (#{@program.code})", plan_programs_path(@plan.id) %> > Deals</p>
 
 
-<table>
+<table id="deals-index" class="dataTable">
   <thead>
-    <tr class="grd_css_25">
-      <th colspan="100%" class="title">Deals</th>
-    </tr>
+    
     <tr>
 
       <th>Customer</th>
@@ -33,11 +31,16 @@
       <td><%= link_to "Delete", program_deal_path(@program.id, deal.id), :method => :delete, :confirm => "Please confirm deletion:",
                       :title => "Delete Deal for #{deal.customer.name}" %></td>
     </tr>
-  <% end %>
-  
-  <tr>
-    <%= render :partial => 'new', :locals => { :deal => @program.deals.new } %>
-  </tr>
-  
+  <% end %>     
 </table>
 
+<%= render :partial => 'new', :locals => { :deal => @program.deals.new } %>
+
+<script>
+  $(document).ready(function() {
+    $('#deals-index').dataTable({
+      "bJQueryUI": true
+    });
+  } );
+
+</script>
