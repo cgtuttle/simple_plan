@@ -24,10 +24,6 @@ SimplePlan::Application.routes.draw do
 	end
 	
 	resources	:plans do
-		member do
-			get 'worksheet'
-			get 'test'
-		end
 		resources	:programs do
 			member do
 				get 'copy'
