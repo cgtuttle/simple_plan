@@ -29,10 +29,10 @@ class Plan < ActiveRecord::Base
 	end
 	
 	def deal_rate
-		if deal_volume == 0
+		if deal_volume.to_f == 0
 			0
 		else
-			deal_expense / deal_volume
+			deal_expense.to_f / deal_volume.to_f
 		end
 	end
 	
